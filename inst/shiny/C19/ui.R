@@ -1,6 +1,13 @@
 library(plotly)
 library(shinydashboard)
 library(shinydashboardPlus)
+
+source("get_provTS.R")
+source("get_regionTS.R")
+source("get_countryTS.R")
+source("get_intesivecare_cap.R")
+source("exe_fit.R")
+
 ## ui.R ##
 ui <- dashboardPagePlus(skin = "red", title = "Covid-19",
                         
@@ -9,6 +16,8 @@ ui <- dashboardPagePlus(skin = "red", title = "Covid-19",
                         dashboardSidebar(collapsed = T,
                                          sidebarMenuOutput("menu")
                         ),
+                        
+               
                         
                         dashboardBody(
                           

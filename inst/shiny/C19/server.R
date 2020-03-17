@@ -8,23 +8,12 @@ library(httr)
 
 server <- function(input, output, session) {
   
-  get_country <- function() {
-    data <- read.csv("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
-                     header = TRUE)
-    
-    data$data <- as.Date(as.character(data$data), format = "%Y-%m-%d")
-    data["data_seriale"] = c(1:length(data$data)-1)
-    return(data)
-    
-  }
-  
-  
-  source("exe_fit.R")
-  source("get_intesivecare_cap.R")
   source("get_provTS.R")
   source("get_regionTS.R")
-
-  countryTS <- get_country()
+  source("get_countryTS.R")
+  source("get_intesivecare_cap.R")
+  source("exe_fit.R")
+  countryTS <- get_countryTS()
   regionTS <- get_regionTS()
   provTS <- get_provTS()
   intensivecare_capacity = get_intensivecare_cap(regionTS)

@@ -61,10 +61,12 @@ output$coolplot_region <- plotly::renderPlotly({
     reac_region$chisq <- fit_data$out_chisq$p.value
     reac_region$vals <- fit_data$out_fit$vals
     
-    #conf <- nlstools::confint2(level = 0.95, reac_region$model)
+    conf <- nlstools::confint2(level = 0.95, object = reac_region$model)
     
-    #Conf_UP <- conf[1,1]/(conf[2,1] * exp(conf[3,1] * days_dat) +1 )
-    #Conf_DOWN <- conf[1,2]/(conf[2,2] * exp(conf[3,2] * days_dat) +1 )
+    yConf_up <- (conf["n0",2]*conf["k",2])/(conf["n0",2] + (conf["k",2]-conf["n0",2]) * exp(-conf["r",2]*sample_date_trim))
+    yConf_down <- (conf["n0",1]*conf["k",1])/(conf["n0",1] + (conf["k",1]-conf["n0",1]) * exp(-conf["r",1]*sample_date_trim))
+    
+    
     
     # Conversion to real date and creation of fitted points #
     points_trim <- data.frame("sample_date_trim" = regionTS[[input$region]]$data[logic_interval],
@@ -82,6 +84,10 @@ output$coolplot_region <- plotly::renderPlotly({
     fittedPoints$days <- seq_dates
     fittedPoints_der$days <- seq_dates
     
+    confPoints_up <- data.frame("sample_date_trim" = regionTS[[input$region]]$data[logic_interval],
+                                yConf_up)
+    confPoints_down <- data.frame("sample_date_trim" = regionTS[[input$region]]$data[logic_interval],
+                                  yConf_down)
     
     # PLOT with plotly #
     fig = plotly::plot_ly( name = "Cases", type= "scatter")
@@ -90,6 +96,9 @@ output$coolplot_region <- plotly::renderPlotly({
     plot1  = function(fig)
     {
       fig <- fig %>% plotly::add_trace(data = fittedPoints, x = ~days, y = ~yFitted, line = list(color ='rgb(0,0,139)',width=2.5), mode='lines', name = "Fitted logistic curve" )
+      
+      fig <- fig %>% plotly::add_trace(data = confPoints_down, x = ~sample_date_trim, y = ~yConf_down, mode='none', fill = 'tozeroy')
+      fig <- fig %>% plotly::add_trace(data = confPoints_up, x = ~sample_date_trim, y = ~yConf_up, mode='none', fill = 'tonexty' )
       
       fig <- fig %>% plotly::add_trace(data =  points_rem, x =~sample_date_rem, y =~sample_cases_rem ,marker = list(color = "red"), mode = 'markers', name = "Total cases (excluded)")
       fig <- fig %>% plotly::add_trace(data = points_trim, x =~sample_date_trim, y =~sample_cases_trim ,marker = list(color = "green"), mode = 'markers', name = "Total cases (fitting)")

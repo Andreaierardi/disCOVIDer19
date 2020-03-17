@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_countryTS.R
 \name{get_countryTS}
 \alias{get_countryTS}
-\title{Data acquisition}
+\title{Data acquisition of Italy}
 \usage{
 get_countryTS()
 }
@@ -10,5 +10,8 @@ get_countryTS()
 the national dataset
 }
 \description{
-Data acquisition
+Data acquisition of Italy
+}
+\examples{
+get_countryTS()
 }

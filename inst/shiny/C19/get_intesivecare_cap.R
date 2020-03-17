@@ -11,10 +11,9 @@
 #' @return dataframe. Return a dataframe containing information about regional intensive care capacity
 #' @export
 get_intensivecare_cap <- function(regionTS) {
-  readfile <- read.csv("https://raw.githubusercontent.com/Andreaierardi/disCOVIDer19/master/inst/extdata/Posti_TI.csv",
+  readfile <- read.csv("https://raw.githubusercontent.com/Andreaierardi/disCOVIDer19/blob/master/inst/extdata/Posti_TI.csv",
                      header = TRUE)
   
-  readfile  <- read.csv(system.file("extdata", "Posti_TI.csv", package="covid19"),header=TRUE)
   colnames(readfile) = c("region","capacity")
   readfile = readfile[order(readfile$region),]
   occupation =c()

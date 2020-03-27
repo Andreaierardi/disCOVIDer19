@@ -12,9 +12,9 @@
 #'
 #' @return dataframe. Return a dataframe containing information about regional intensive care capacity
 #' @export
-get_intensivecare_cap <- function(regionTS,intensivecare_cap) {
+get_intensivecare_cap <- function(regionTS,intensivecare) {
   
-  readfile = as.data.frame(intensivecare_cap)
+  readfile = as.data.frame(intensivecare)
   colnames(readfile) = c("region","capacity")
 
 #  readfile$region = split(as.character(readfile$region)," ")

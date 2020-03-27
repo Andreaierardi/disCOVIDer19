@@ -4,7 +4,7 @@
 \alias{get_intensivecare_cap}
 \title{Data acquisition regional insentive care capacity}
 \usage{
-get_intensivecare_cap(regionTS, intensivecare_cap)
+get_intensivecare_cap(regionTS, intensivecare)
 }
 \arguments{
 \item{regionTS}{list. List of the Italy regional dataset}

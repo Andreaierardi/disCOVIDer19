@@ -1,7 +1,7 @@
 Package: covid19
 Type: Package
 Title: Covid_19 outbreak analysis
-Version: 0.1.0
+Version: 1.0
 Authors@R: c( person("Andrea","Ierardi", email = "andreierardi@gmail.com", role=c("aut")),
     person("Marzio","De Corato", email="marzio.decorato@outlook.it", role=c("aut","cre")),   
     person("Gregorio","Saporito", email="gregsap@hotmail.it",  role=c("aut")),

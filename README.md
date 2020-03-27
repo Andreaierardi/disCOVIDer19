@@ -6,6 +6,11 @@ A navigator within the pandemia
 
 The package has a Shiny app to explore the Covid-19 outbreak in Italy.
 
+<br>
+ <h1> ShinyApp.io    </h1>
+ <h2> Try the ShinyApp.io:  <a href= "https://andreaierardi.shinyapps.io/disCOVIDer19"> disCOVIDERer19 </a>   </h2>
+<br> 
+
 
 # Contributors :busts_in_silhouette:
 - Andrea Ierardi   &nbsp; <a href="https://www.linkedin.com/in/andreaierardi/" rel="nofollow noreferrer">

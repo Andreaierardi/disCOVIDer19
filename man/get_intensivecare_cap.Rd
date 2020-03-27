@@ -4,10 +4,12 @@
 \alias{get_intensivecare_cap}
 \title{Data acquisition regional insentive care capacity}
 \usage{
-get_intensivecare_cap(regionTS)
+get_intensivecare_cap(regionTS, intensivecare_cap)
 }
 \arguments{
 \item{regionTS}{list. List of the Italy regional dataset}
+
+\item{intensivecare_cap}{data.frame. The dataframe of the intensive care capacity in Italian regions}
 }
 \value{
 dataframe. Return a dataframe containing information about regional intensive care capacity
@@ -18,7 +20,7 @@ Data acquisition regional insentive care capacity
 \examples{
 \dontrun{
 regionTS = get_regionTS()
-get_intensivecare_cap(regionTS)
+get_intensivecare_cap(regionTS,intensivecare_cap)
 }
 
 }

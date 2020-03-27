@@ -1,14 +1,42 @@
+`%>%` = magrittr::`%>%`
+source(file = "pipe.R",  local = TRUE)
+load(file = "italy_pop.rda")
+load(file = "italy_ext.rda")
+load(file = "intensivecare_cap.rda")
+source(file = "get_intesivecare_cap.R",  local = TRUE)
+
 #================================
 #====== GENERAL DATA ACQUISITION =====
 countryTS = covid19:::get_countryTS()
 regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
-intensivecare_capacity = covid19:::get_intensivecare_cap(regionTS)
 
-`%>%` = magrittr::`%>%`
-source(file = "pipe.R",  local = TRUE)
-source(file = "intensivecare_cap_data.R",  local = TRUE)
+readfile = as.data.frame(intensivecare_cap)
+colnames(readfile) = c("region","capacity")
+
+#  readfile$region = split(as.character(readfile$region)," ")
+readfile = readfile[order(readfile$region),]
+
+sortedreg = regionTS[order(names(regionTS))]
+
+newdf = data.frame()
+for(i in 1:length(readfile$region))
+{
+  reg = readfile$region[i]
+  date = sortedreg[[reg]]$data
+  intensive = sortedreg[[readfile$region[i]]]$terapia_intensiva
+  perc = intensive /readfile$capacity[i] * 100
+  perc = round(perc ,digits = 2)
+  v = data.frame(date, intensive, readfile$capacity[i],perc,readfile$region[i])
+  
+  names(v) = c("data","occupancy","capacity","perc","region")
+  newdf <- rbind(newdf, v)
+}
+colnames(newdf) = c("data","occupancy","capacity","perc","region")
+
+intensivecare_capacity = newdf
+
 
 #===  Global function to check error 
 checkExp <- function(expression, message) {

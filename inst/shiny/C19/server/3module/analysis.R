@@ -126,7 +126,7 @@ output$coolplot1 <- plotly::renderPlotly({
   sample_cases_rem <- sample_cases[!logic_interval]
   sample_diff_rem <- sample_diff[!logic_interval]
   
-  fit_data <- exe_fit(sample_cases = sample_cases_trim,
+  fit_data <- covid19:::exe_fit(sample_cases = sample_cases_trim,
                       sample_date = sample_serial_date_trim,
                       days = days)
   

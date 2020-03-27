@@ -1,0 +1,12 @@
+name: disCOVIDer19
+title: disCOVIDer19
+username:
+account: andreaierardi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1959690
+bundleId: 2933299
+url: https://andreaierardi.shinyapps.io/disCOVIDer19/
+when: 1585335423.89586
+asMultiple: FALSE
+asStatic: FALSE

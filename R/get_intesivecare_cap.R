@@ -12,7 +12,7 @@
 #' @export
 get_intensivecare_cap <- function(regionTS) {
   
-  readfile = as.data.frame(intensivecare_cap)
+  readfile = as.data.frame(covid19::intensivecare_cap)
   colnames(readfile) = c("region","capacity")
 
 #  readfile$region = split(as.character(readfile$region)," ")

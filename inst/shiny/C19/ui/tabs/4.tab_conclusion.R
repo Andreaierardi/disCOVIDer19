@@ -1,4 +1,11 @@
-tabItem(tabName = "tab_4",
+shinydashboard::tabItem(tabName = "tab_4",
         
-        HTML("<h2>Conclusion</h2>")
+ 
+        shinydashboard::valueBox(
+          "Conclusion",
+          "Documentation",
+          icon = icon("chart-bar"),
+          color = "red",
+          width = NULL
+        ),
 )

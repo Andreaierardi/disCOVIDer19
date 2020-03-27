@@ -35,9 +35,12 @@ exe_fit <- function(sample_cases, sample_date, days) {
 
   # Chi-squared test
   yFitted_chi <- (n0*k)/(n0 + (k-n0) * exp(-r*sample_date))
-  output_chisquared <- stats::chisq.test(sample_cases,yFitted_chi)
+  if(is.null(out_fit$model))
+    output_resid <- NULL
+  else
+    output_resid <- nlstools::nlsResiduals(out_fit$model)
 
   output_fin <- list("out_fit" = out_fit, "fittedPoints" = fittedPoints,
-                     "out_chisq" = output_chisquared, "fittedPoints_der" = fittedPoints_der)
+                     "out_resid" = output_resid, "fittedPoints_der" = fittedPoints_der)
   return(output_fin)
 }

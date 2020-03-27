@@ -1,128 +1,241 @@
-tabItem(tabName = "tab_3",
-        
-        valueBox("Data Analysis", "Analysis",
-                 icon=icon("chart-bar"),
-                 color = "red", width = NULL),
-       
-        
+shinydashboard::tabItem(
+  tabName = "tab_3",
+  
+  shinydashboard::valueBox(
+    "Data Analysis",
+    "Analysis",
+    icon = icon("chart-bar"),
+    color = "red",
+    width = NULL
+  ),
+  
+  
+  fluidRow(
+    shinydashboard::box(width = 12,
+                        status= "danger",
+                        solidHeader = FALSE,
+                        title = "Territory selection",
+                        shiny::fluidPage(
+                          shiny::fluidRow(
+                            shiny::column(4,
+                                          shiny::selectizeInput(
+                                            inputId = "country", label = "Country",
+                                            choices = countryNames, selected = "Italy")
+                            ),
+                            shiny::column(4,
+                                          shiny::selectizeInput(
+                                            inputId = "region", label = "Region",
+                                            choices = c("--- ALL ---" = "", regNames), selected = NULL)
+                            ),
+                            shiny::column(4,
+                                          shiny::selectizeInput(
+                                            inputId = "province", label = "Province",
+                                            choices = c("--- ALL ---" = "", provNames), selected = NULL)
+                            )
+                          ),
+                         
+                        ),
+                        shiny::htmlOutput("selected_info")
+    )
+  ),
+  
+  fluidRow(
+    shiny::textOutput("log")
+  ),
+  
+  shinydashboard::valueBox(
+    "Logistic model",
+    "Curve fitting on confirmed cases of infection's time series",
+    icon = icon("analytics"),
+    color = "navy",
+    width = NULL
+  ),
+  
+  fluidRow(
+    column(
+      4,
+      shinydashboard::box(
+        width = 12,
+        status = "danger",
+        solidHeader = TRUE,
+        title = "Input",
         fluidRow(
           column(12,
                  
-                 
-                 tabBox( width = 12,
-                         title = "Analisys",
-                         id = "tabset1",
-                         height = NULL,
-                         
-                         #---------- TAB COUNTRY -----------
-                         tabPanel(title = h4("Country"), 
-                                  fluidRow(
-                                          
-                                          column(4,
-                                                 shinydashboard::box(
-                                                         width = 12,
-                                                         status = "danger", 
-                                                         solidHeader = TRUE,
-                                                         title = "Input", 
-                                                         shiny::uiOutput("countryInput")
-                                                 )
-                                          ),
-                                          column(8,
-                                                 shinydashboard::box(
-                                                         color = "red", 
-                                                         status ="danger",
-                                                         title = "Charts", 
-                                                         plotly::plotlyOutput("coolplot_country"),
-                                                         width = 12),
-                                          )
-                                  ),
-                                  
-                                  # ----- summary row
-                                  fluidRow(
-                                          
-                                          shinydashboard::tabBox(
-                                                  width=6,
-                                                  title = "Technical data", id = "tech_tab",
-                                                  shiny::tabPanel("Fitting output", 
-                                                                  box(
-                                                                          title = "Fitting ouput", width = NULL, status = "danger",
-                                                                          "TESTOO"
-                                                                          #verbatimTextOutput("fit_smry")
-                                                                          )),
-                                                  
-                                                  shiny::tabPanel("Chi-squared test", 
-                                                                  box(
-                                                                          title = "Chi-squared test", width = NULL, status = "danger",
-                                                                          "TESTO"#htmlOutput("chisq_smry")
-                                                                          )                                                      )
-                                          )
-                                          
-                                          
-                                          
-                                  )
-                                  
-                                  
-                                  
-                                  
-                         
-                         
-                         ),
-                         #---------- TAB REGION -----------
-                         tabPanel(title = h4("Region"),
-                                  
-                                  # ---- selector + plot row
-                                  fluidRow(
-                                    
-                                    column(4,
-                                           shinydashboard::box(
-                                             width = 12,
-                                             status = "danger", 
-                                             solidHeader = TRUE,
-                                             title = "Input", 
-                                             shiny::uiOutput("regionInput")
-                                           )
-                                    ),
-                                    column(8,
-                                           shinydashboard::box(
-                                             color = "red", 
-                                             status ="danger",
-                                             title = "Charts", 
-                                             plotly::plotlyOutput("coolplot_region"),
-                                             width = 12),
-                                           )
-                                    ),
-                                  
-                                  # ----- summary row
-                                  fluidRow(
-                                    
-                                    shinydashboard::tabBox(
-                                      width=6,
-                                      title = "Technical data", id = "tech_tab",
-                                      shiny::tabPanel("Fitting output", 
-                                                      box(
-                                                              title = "Fitting ouput", width = NULL, status = "danger",
-                                                              verbatimTextOutput("fit_smry"))),
-
-                                      shiny::tabPanel("Chi-squared test", 
-                                                      box(
-                                                           title = "Chi-squared test", width = NULL, status = "danger",
-                                                           htmlOutput("chisq_smry"))                                                      )
-                                    )
-                                    
-                                    
-                                    
-                                  )
-                                  
-                                  
-                         ),
-                         
-                         #---------- TAB PROVINCE -----------
-                         
-                         shiny::tabPanel(title = h4("Province"), shiny::uiOutput("provPanel"))
-                 )
+                 shiny::sliderInput(inputId = "fitInterval", label = "Choose fitting interval",
+                                    min = init_date, max = fin_date, timeFormat = "%d %b",
+                                    step = 1, value = c(init_date, fin_date)),
+                 shiny::checkboxInput(inputId = "swab_std", label = "Standardise positive cases by total swabs"),
+                 shiny::checkboxGroupInput(inputId = "plot_type", label = "Plot type",
+                                           choices = list("Cumulative cases" = 1, "New cases" = 2),
+                                           selected = 1),
+                 hr(),
+                 h3("Residuals"),
+                 shiny::selectInput(inputId = "plot_res_type", "Residuals plot type",choices =  c("Residuals","Residuals_standardized","Autocorrelation","Sqrt of abs of res vs fitted"),selected = "Residuals")
                  
           )
-          
         )
+      )
+    ),
+    column(
+      8,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Plot",
+        plotly::plotlyOutput("coolplot1") %>% shinycssloaders::withSpinner(color =
+                                                                             "#dd4b39"),
+        width = 12
+      )
+    )
+  ),
+  
+  # ----- summary row
+  fluidRow(
+    column(
+      5,
+      
+      shinydashboard::tabBox(
+        width = 12,
+        title = "Technical data",
+        id = "tech_tab",
+        shiny::tabPanel(
+          "Fitting output",
+          status = "danger",
+          verbatimTextOutput("fit_smry")
+        ),
+        
+        shiny::tabPanel("Tests",
+                        status = "danger",
+                        verbatimTextOutput("resid_smry"))
+      )
+    ),
+    column(
+      7,
+      shinydashboard::box(
+        width = 12,
+        status = "danger",
+        title = "Residuals",
+        plotly::plotlyOutput("plot_residual") %>% shinycssloaders::withSpinner(color =
+                                                                                 "#dd4b39")
+        
+      )
+      
+    )
+  ),
+  
+  hr(),
+  
+  
+  # --------  ARIMA ------
+  
+  
+  
+  shinydashboard::valueBox(
+    "ARIMA model",
+    "ARIMA(p,i,q) on confirmed cases of infection's time series",
+    icon = icon("analytics"),
+    color = "navy",
+    width = NULL
+  ),
+  
+  
+  fluidRow(
+    column(
+      4,
+      shinydashboard::box(
+        width = 12,
+        status = "danger",
+        solidHeader = TRUE,
+        title = "Input",
+        shiny::sliderInput(inputId = "arima_interval", label = "Choose fitting interval",
+                           min = init_date, max = fin_date, timeFormat = "%d %b",
+                           step = 1, value = c(init_date,fin_date)),
+        
+        fluidRow(
+          column(12,
+                 shiny::sliderInput(inputId = "forecast", label = "Choose forecast lags",
+                                    min = 1,  max = 40, value = 10),
+                 
+                 hr(),
+                 
+                 shiny::sliderInput(inputId = "ARIMA_p", label = "Choose p",
+                                    min = 0, max = 10,step = 1,value=0),
+                 shiny::sliderInput(inputId = "ARIMA_I", label = "Choose i",
+                                    min = 0, max = 3,step = 1,value=0),
+                 shiny::sliderInput(inputId = "ARIMA_q", label = "Choose q",
+                                    min = 0, max = 10,step = 1,value=0)
+                 
+          )
+        )
+      )),
+    column(
+      8,
+      
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        
+        title = "ARIMA forecast",
+        h3(shiny::htmlOutput("parameters_sugg")),
+        hr(),
+        
+        plotly::plotlyOutput("arima_coolplot1") %>% shinycssloaders::withSpinner(color =
+                                                                                   "#dd4b39"),
+        width = 12
+      )
+    )
+  ),
+  
+  
+  fluidRow(
+    column(
+      3,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Autocorrelations",
+        plotly::plotlyOutput("arima_coolplot2") %>% shinycssloaders::withSpinner(color =
+                                                                                   "#dd4b39"),
+        width = 12
+      )
+    ),
+    column(
+      3,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Partial autocorrelations",
+        plotly::plotlyOutput("arima_coolplot3") %>% shinycssloaders::withSpinner(color =
+                                                                                   "#dd4b39"),
+        width = 12
+      )
+    ),
+    column(
+      6,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Arima Check residuals",
+        shiny::plotOutput("arima_coolplot4") %>% shinycssloaders::withSpinner(color =
+                                                                                "#dd4b39"),
+        width = 12
+      )
+    )
+  ),
+  
+  
+  fluidRow(
+    column(
+      6,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Arima Data Output",
+        shiny::verbatimTextOutput("arima_shell_output") %>% shinycssloaders::withSpinner(color =
+                                                                                           "#dd4b39"),
+        width = 12
+      )
+    )
+  )
 )
-

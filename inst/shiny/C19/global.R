@@ -4,7 +4,7 @@ countryTS = covid19:::get_countryTS()
 regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
-intensivecare_capacity = covid19:::get_intensivecare_cap(regionTS,intensivecare_cap)
+intensivecare_capacity = covid19:::get_intensivecare_cap(regionTS)
 
 
 

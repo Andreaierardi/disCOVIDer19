@@ -1,9 +1,7 @@
 `%>%` = magrittr::`%>%`
-source(file = "pipe.R",  local = TRUE)
 load(file = "italy_pop.rda")
 load(file = "italy_ext.rda")
 load(file = "intensivecare_cap.rda")
-source(file = "get_intesivecare_cap.R",  local = TRUE)
 
 #================================
 #====== GENERAL DATA ACQUISITION =====
@@ -11,6 +9,8 @@ countryTS = covid19:::get_countryTS()
 regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
+
+
 
 readfile = as.data.frame(intensivecare_cap)
 colnames(readfile) = c("region","capacity")
@@ -36,6 +36,10 @@ for(i in 1:length(readfile$region))
 colnames(newdf) = c("data","occupancy","capacity","perc","region")
 
 intensivecare_capacity = newdf
+
+
+N <- nrow(countryTS)
+
 
 
 #===  Global function to check error 
@@ -86,24 +90,24 @@ pc_df$name
 # integrate population info
 pop_region <- italy_pop$region %>% 
   dplyr::rename(name=territorio,pop=valore) %>%
- dplyr::mutate(name=tolower(name))
+  dplyr::mutate(name=tolower(name))
 
 territory_region <- italy_ext$region %>%
   dplyr::rename(name=territorio,ext=valore) %>% 
- dplyr::mutate(name=tolower(name))
+  dplyr::mutate(name=tolower(name))
 
 
 pc_df <- pc_df %>%
   dplyr::left_join(pop_region) %>% 
   dplyr::left_join(territory_region) %>%
   dplyr::filter(!name%in%c("friuli v. g. ")) %>%
- dplyr::mutate(name=ifelse(name%in%c("trento","bolzano","p.a. trento","p.a. bolzano"),
-                     "trentino-alto adige/sudtirol",name)) %>%
+  dplyr::mutate(name=ifelse(name%in%c("trento","bolzano","p.a. trento","p.a. bolzano"),
+                            "trentino-alto adige/sudtirol",name)) %>%
   dplyr::group_by(name) %>%
   dplyr::summarise(cases=sum(cases), 
-            pop=sum(pop),
-            ext=sum(ext)) %>%
- dplyr::mutate(name=ifelse(name=="emilia romagna","emilia-romagna",name))
+                   pop=sum(pop),
+                   ext=sum(ext)) %>%
+  dplyr::mutate(name=ifelse(name=="emilia romagna","emilia-romagna",name))
 
 
 
@@ -116,11 +120,11 @@ setdiff(b,a)
 dfita1 <- dfita1 %>%
   dplyr::left_join(pc_df) %>%
   dplyr::ungroup() %>% 
- dplyr::mutate(percentage=(cases/pop)*100) %>%
- dplyr::mutate(density=(cases/ext)*1000) %>%
+  dplyr::mutate(percentage=(cases/pop)*100) %>%
+  dplyr::mutate(density=(cases/ext)*1000) %>%
   dplyr::rename(absolute=cases) %>%
- dplyr::mutate(percentage = round(percentage,2)) %>%
- dplyr::mutate(density = round(density, 2))
+  dplyr::mutate(percentage = round(percentage,2)) %>%
+  dplyr::mutate(density = round(density, 2))
 
 
 
@@ -249,7 +253,7 @@ tamp_data_1 <- tamp_data %>% dplyr::select(1:3) %>%
 init_date <- min(countryTS$Italy$data)
 
 init_date_arima = init_date
-  
+
 fin_date <- max(countryTS$Italy$data)
 
 # Total population sizes in 2020 winter
@@ -257,12 +261,12 @@ country_tot_pop <- 6.048e+07
 region_tot_pop <- NULL
 
 countryNames <- names(countryTS)
-regNames <- names(regionTS)
-provNames <- names(provTS)
+regNames <- as.character(sort(names(regionTS)))
+provNames <- as.character(sort(names(provTS)))
 
 # Time horizon of all graphs
-if(nrow(countryTS$Italy) > 50) {
-  days <- c(1:nrow(countryTS$Italy)+20)
+if(nrow(countryTS$Italy) > 30) {
+  days <- c(1:(nrow(countryTS$Italy)+20) )
 } else {
   days <- c(1:50)
 }

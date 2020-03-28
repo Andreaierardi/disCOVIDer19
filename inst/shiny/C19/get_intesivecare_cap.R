@@ -4,16 +4,15 @@
 #' @examples
 #' \dontrun{
 #' regionTS = get_regionTS()
-#' get_intensivecare_cap(regionTS,intensivecare_cap)
+#' get_intensivecare_cap(regionTS)
 #' }
 #' 
 #' @param regionTS list. List of the Italy regional dataset
-#'
 #' @return dataframe. Return a dataframe containing information about regional intensive care capacity
 #' @export
 get_intensivecare_cap <- function(regionTS) {
   
-  readfile = as.data.frame(intensivecare_capacity)
+  readfile = as.data.frame(intensivecare_cap)
   colnames(readfile) = c("region","capacity")
 
 #  readfile$region = split(as.character(readfile$region)," ")

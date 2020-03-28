@@ -71,7 +71,12 @@ shinydashboard::tabItem(
                                            selected = 1),
                  hr(),
                  h3("Residuals"),
-                 shiny::selectInput(inputId = "plot_res_type", "Residuals plot type",choices =  c("Residuals","Residuals_standardized","Autocorrelation","Sqrt of abs of res vs fitted"),selected = "Residuals")
+                 shiny::selectInput(inputId = "plot_res_type", "Residuals plot type",
+                                    choices =  c("Residuals" = "Residuals",
+                                                 "Standardised residuals" =  "Residuals_standardized",
+                                                 "Autocorrelation" = "Autocorrelation",
+                                                 "Square root of absolute residuals" = "Sqrt of abs of res vs fitted"),
+                                    selected = "Residuals")
                  
           )
         )
@@ -97,7 +102,7 @@ shinydashboard::tabItem(
       
       shinydashboard::tabBox(
         width = 12,
-        title = "Technical data",
+        title = "Output summary",
         id = "tech_tab",
         shiny::tabPanel(
           "Fitting output",
@@ -133,7 +138,7 @@ shinydashboard::tabItem(
   
   shinydashboard::valueBox(
     "ARIMA model",
-    "ARIMA(p,i,q) on confirmed cases of infection's time series",
+    "ARIMA(p,i,q) on log of confirmed cases of infection's time series",
     icon = icon("analytics"),
     color = "navy",
     width = NULL
@@ -226,6 +231,7 @@ shinydashboard::tabItem(
   
   
   fluidRow(
+   
     column(
       6,
       shinydashboard::box(
@@ -233,6 +239,26 @@ shinydashboard::tabItem(
         status = "danger",
         title = "Arima Data Output",
         shiny::verbatimTextOutput("arima_shell_output") %>% shinycssloaders::withSpinner(color =
+                                                                                           "#dd4b39"),
+        width = 12
+      )
+    ),
+    
+    #background-color: #f5f5f5; */
+
+    column(
+      6,
+      shinydashboard::box(
+        color = "red",
+        status = "danger",
+        title = "Arima residuals output",
+        tags$head(tags$style(HTML('
+        pre
+                                  {
+                                  background-color: #ffffff;
+                                  }
+                                  '))),
+        shiny::verbatimTextOutput("arima_shell_resid") %>% shinycssloaders::withSpinner(color =
                                                                                            "#dd4b39"),
         width = 12
       )

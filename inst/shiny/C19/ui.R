@@ -2,8 +2,13 @@
 ## ui.R ##
 
 
-ui <- shinydashboardPlus::dashboardPagePlus(skin = "red", title = "Covid-19",
-                        
+ui <-
+ # fluidPage(
+  
+#  HTML('<meta name="viewport" content="width=1024">'),
+   shinydashboardPlus::dashboardPagePlus( skin = "red", title = "DisCOVIDer19",
+                                        
+
                        shinydashboard::dashboardHeader(title = img(src = "coronavirus_white.png")),
                         
                        shinydashboard::dashboardSidebar(collapsed = T,
@@ -16,8 +21,8 @@ ui <- shinydashboardPlus::dashboardPagePlus(skin = "red", title = "Covid-19",
                           
                           #css
                           source(file.path("ui/global", "css.R"),  local = TRUE)$value,
-						  tags$head( tags$meta(name = "viewport", content = "width=1024")),
-
+                          
+                          tags$head( tags$meta(name = "viewport", content = "width=1024")),
                           #waiter
                           waiter::use_waiter(),
                           waiter::waiter_show_on_load(html = waiter::spin_rotating_plane()), # will show on load

@@ -12,7 +12,7 @@ const_trim(v, threshold)
 \item{threshold}{the threshold used for cutting the vector}
 }
 \value{
-the sliced initial vector
+the first index of the vector which entry grows more than \code{threshold}, starting from 1 to \code{length(v)}
 }
 \description{
 Removes the first elements of a numerical vector till they do show

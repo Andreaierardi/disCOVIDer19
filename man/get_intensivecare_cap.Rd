@@ -18,7 +18,7 @@ Data acquisition regional insentive care capacity
 \examples{
 \dontrun{
 regionTS = get_regionTS()
-get_intensivecare_cap(regionTS,intensivecare_cap)
+get_intensivecare_cap(regionTS)
 }
 
 }

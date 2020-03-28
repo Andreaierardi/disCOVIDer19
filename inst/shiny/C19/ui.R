@@ -16,6 +16,8 @@ ui <- shinydashboardPlus::dashboardPagePlus(skin = "red", title = "Covid-19",
                           
                           #css
                           source(file.path("ui/global", "css.R"),  local = TRUE)$value,
+						  tags$head( tags$meta(name = "viewport", content = "width=1024")),
+
                           #waiter
                           waiter::use_waiter(),
                           waiter::waiter_show_on_load(html = waiter::spin_rotating_plane()), # will show on load

@@ -88,6 +88,8 @@ shinydashboard::tabItem(
         color = "red",
         status = "danger",
         title = "Plot",
+        h4(shiny::htmlOutput("dates_sugg")),
+        hr(),
         plotly::plotlyOutput("coolplot1") %>% shinycssloaders::withSpinner(color =
                                                                              "#dd4b39"),
         width = 12

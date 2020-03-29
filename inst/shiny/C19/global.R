@@ -38,6 +38,7 @@ colnames(newdf) = c("data","occupancy","capacity","perc","region")
 intensivecare_capacity = newdf
 
 
+
 N <- nrow(countryTS)
 
 

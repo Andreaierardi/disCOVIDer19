@@ -84,7 +84,9 @@ shinydashboard::tabItem(tabName = "tab_4",
                                                                 src="https://media-exp1.licdn.com/dms/image/C4D03AQFNxDX9vdxEmQ/profile-displayphoto-shrink_800_800/0?e=1590019200&v=beta&t=ftXpX3Wg-dB2t8sBoSYspTKC3z5cK2ehYhWk5obIBh4",
                                                                 user_name = "Fabio Caironi",
                                                                 description = HTML('<br>
-                                    BC. in Mathematics. MSc. student of Data Science and Economics Piano student at Milans Conservatorio G. Verdi
+                                                                BC. in Mathematics. <br>
+                                                                MSc. student of Data Science and Economics <br>
+                                                                Piano student at Conservatorio G. Verdi in Milan
                                                        <br><br>
                                                       <a href="https://www.linkedin.com/in/fabio-caironi-8361091a2/" rel="nofollow noreferrer">
                                                       <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn</a>  &nbsp;

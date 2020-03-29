@@ -88,13 +88,25 @@ shiny::observe( {
   }
   
   reac_general$sugg_dates = suggest_dates()
-  updateSliderInput(session,"arima_interval",timeFormat = "%d %b", step = 1, min =  init_date,max =  fin_date,value = c(reac_general$sugg_dates[1], reac_general$sugg_dates[2]))
-  
+  shiny::updateSliderInput(session,"arima_interval",min = init_date, max = fin_date, timeFormat = "%d %b",
+                           step = 1, value = c(reac_general$sugg_dates[1], reac_general$sugg_dates[2]))
+  shiny::updateSliderInput(session, "fitInterval",min = init_date, max = fin_date, timeFormat = "%d %b",
+                           step = 1, value = c(reac_general$sugg_dates[1],reac_general$sugg_dates[2]))
 })
 
 
 
 ## REGION plot (currently date against total cases) ##
+
+output$dates_sugg <- shiny::renderUI({
+  
+  wait <- waitLoading()
+  if( is_ready(reac_general$sugg_dates[1]) ) {
+    h4(paste("Suggested initial and final date: ", reac_general$sugg_dates[1],"  -  ", reac_general$sugg_dates[2]))
+  }
+})
+
+
 
 output$coolplot1 <- plotly::renderPlotly({
   
@@ -253,6 +265,7 @@ output$selected_info <- shiny::renderUI({
 
 output$resid_smry <- shiny::renderPrint({
   wait <- waitLoading()
+  print("Data: residuals from nls regression")
   nlstools::test.nlsResiduals(reac_general$resid)
 })
 

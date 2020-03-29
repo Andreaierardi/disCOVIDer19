@@ -45,7 +45,7 @@ shinydashboard::tabItem(tabName = "tab_4",
                                                               shinydashboardPlus::userListItem(
                                                                 src="https://avatars1.githubusercontent.com/u/36515398?s=460&u=152624d5b1720f1e66ffd3fbd43c6e13704c3e42&v=4",
                                                                 user_name = "Andrea Ierardi",
-                                                                description =HTML('<br> MSc. Data Science and Economics - Universita degli studi di Milano <br>  BC. in Computer Science Universita del Piemonte orientale(UPO) <br><br> 
+                                                                description =HTML('<br> MSc. Data Science and Economics - Universita degli studi di Milano <br>  BC. in Computer Science <br> Universita del Piemonte orientale(UPO) <br><br> 
                                                        <a href="https://www.linkedin.com/in/andreaierardi/" rel="nofollow noreferrer">
                                                        <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn</a> &nbsp; 
                                                        <a href="https://github.com/Andreaierardi" rel="nofollow noreferrer">

@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: article_4.aux
+The style file: unsrt.bst
+Database file #1: sample.bib
+Warning--empty publisher in malthus1817essay
+Warning--empty journal in verhulst1838notice
+You've used 24 entries,
+            1791 wiz_defined-function locations,
+            542 strings with 7217 characters,
+and the built_in function-call counts, 4082 in all, are:
+= -- 307
+> -- 209
+< -- 2
++ -- 83
+- -- 59
+* -- 222
+:= -- 583
+add.period$ -- 49
+call.type$ -- 24
+change.case$ -- 10
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 185
+empty$ -- 474
+format.name$ -- 59
+if$ -- 941
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 14
+newline$ -- 99
+num.names$ -- 12
+pop$ -- 112
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 148
+stack$ -- 0
+substring$ -- 157
+swap$ -- 37
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 27
+width$ -- 26
+write$ -- 188
+(There were 2 warnings)

@@ -1,0 +1,407 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (1/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{epigraph}
+\usepackage{mathcomp}
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+\sloppy
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont{disCOVIDer19}} % The article title
+
+\subtitle{A path-guide inside the COVID-19 pandemia } % Uncomment to display a subtitle
+
+
+\author{Fabio Caironi, Marzio De Corato, \\
+Andrea Ierardi, Federico Matteucci,\\
+ Gregorio Saporito} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\newpage
+
+\epigraph{ "The laws of history are as absolute as the laws of physics, and if the probabilities of error are greater, it is only because history does not deal with as many humans as physics does atoms, so that individual variations
+count for more" (I.Asimov, Foundation and Empire) }
+
+\newpage
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+\listoffigures % Print the list of figures
+
+\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+
+
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+%\let\thefootnote\relax\footnotetext{* \textit{Department of Biology, University of Examples, London, United Kingdom}}
+
+%\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Introduction} \label{introduction}
+
+\paragraph{Background} \label{Background}
+In December 2019 different cases of pneumonia were reported in Wuhan (China) \cite{huang2020clinical}. Their origin was later ascribed to a new virus classified as \textit{Severe acute respiratory syndrome coronavirus 2} (SARS-CoV-2) whose TEM and SEM pictures are reported in the Fig. \ref{coronavirus_picture} The origin of this virus is still subject of scientific debate between the scientific community, however one of the most common opinion is that this virus comes from bats, in particular the genus Rhinolophus \cite{zhou2020pneumonia}. The most compelling feature of this virus is that is its ability to spread also via coughing and sneezing \cite{ghinai2020first}, and also by touching infected surfaces \cite{chang2020protecting}. Differently with respect to the SARS-CoV the virus seems to have a lower mortality rate \cite{sorensen2006severe,weiss2020clinical}.
+
+
+
+\begin{figure}[ht]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include first image
+  \includegraphics[width=.7\linewidth]{Figures/Coronavirus1.jpg}
+  \caption{Transmission electron microscope (TEM) image of SARS-CoV-2—also known as 2019-nCoV, emerging from the surface of cells cultured}
+  \label{fig:sub-first}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=.7\linewidth]{Figures/Coronavirus2.jpg} 
+  \caption{Scanning electron microscope of the SARS-CoV-2 emerging from the surface of cells cultured}
+  \label{fig:sub-second}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=.7\linewidth]{Figures/Coronavirus3.jpg} 
+  \caption{TEM image of SARS-CoV-2. Not the spikes that gives the name coronavirus to the virus }
+  \label{fig:sub-second}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=.7\linewidth]{Figures/Coronavirus4.jpg} 
+  \caption{SEM image of the virus}
+  \label{fig:sub-second}
+\end{subfigure}
+\caption{Different pictures of the virus as reported by the NIAID’s Rocky Mountain Laboratories (RML) in Hamilton, Montana \cite{coronavirus+pictures}  }
+\label{coronavirus_picture}
+\end{figure}
+
+
+In January the Chinese government imposed the quarantine for the city of Wuhan (almost 11M people); the quarantine was later expanded to the full province of Hubei (60M people) and then to the neighbour provinces Huanggang, Ezhou and Xianning. 
+The virus then spread in Canada, Germany, Thailand and Japan and then in other different countries included Italy \cite{timeline+web}. In Italy the first cases, two Chinese tourist from Hubei, were reported in Rome \cite{corr+roma}; then  other cases were reported in Codogno (Lodi,Lombardy). Later the virus spread almost in all regions of Italy with a higher density in Lombardy, Veneto, Emilia-Romagna, Piemonte and Marche. Starting from 22 of February, the Italian government started to impose the quarantine (red-zone) for eleven different municipalities, in particular Codogno, Casalpusterlengo, Lodi (included the neighbour municipalities) and Vo' . Starting from this date different restrictive measures were imposted starting from the regions with the highest number of cases: public entrainment were almost suspended as well as schools and universities. Workers (in public and private sectors) were allowed, when possibile, to work at home (smart-working). Such measures culminated with a decree approved by the Italian government that divided Italy in three areas: the red zones in which the municipalities with highest number of cases in which all the population was subjected to quarantine, the yellow one (Lombardia, Veneto, Emilia Romagna) in which schools, universities and public events ,sports  as well cinemas were suspended and the rest of Italy in which no restrictive measures were adopted \cite{rep+dec1}; however 3 days later all schools and universities were suspended \cite{guard+01}. The restrictive measures were also extend up to all Italy with a further decree \cite{11marzo}. 
+
+\paragraph{Motivation} \label{Motivation}
+In order to have a better understanding about the spread and the effects on the population of the COVID19 disease, we propose a ShinyApp, called disCOVIDer19 , that gathers  the data , mostly provided by the Protezione Civile \cite{protezionecivile+git}, about the number of infections(current as well cumulative), hospitalized people as well in intensive care, deaths and recovered for Italy, its regions and provinces; more details will be discussed in sections \ref{Data Origin} and \ref{Panels}. Furthermore we fitted the cumulative cases for Italy and all its regions and provinces with a logistic curve, in order to get a bird-of-eye view on the trend followed as well on the effectiveness of the restrictive measures imposed by the Italian government. The theoretical foundations of this fit ,as well how to manage and use it, will be discussed in the section \ref{Theoretical Background}. Beside the logistic curve, we also considered a statistical approach, largely diffused among economists, that considers the number of cases in each day as a time series: on this basis we were able to make use of a particular tool, which will be briefly introduced in the section \ref{Theoretical Background}, that allowed us to  make a further forecast  about future cases.  This latter becomes useful in case of large deviations from logistic distribution. 
+ 
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+
+\section{Theoretical Background} \label{Theoretical Background}
+Different models were proposed in the literature for modelling the spread of a disease \cite{keeling2011modeling}, here we are going to consider a relative simple model taken from the growth dynamics of populations.
+
+\subsection{Population growth dynamics}
+The dynamics of population was founded by Thomas Malthus in 1817 \cite{malthus1817essay} with his well known equation: 
+
+\begin{equation}
+x_{n+1}=x_{n}(1+r)
+\end{equation}
+
+Where $x_{n}$ stands for the population at time and $r$ the growth rate. Thus the following discrete progression will be obtained: 
+
+\begin{equation}
+P_{n+1}=P_{0}(1+r)^{n+1}
+\end{equation}
+
+in which $P_{0}$ stands for the initial population. This discrete model can be reshaped in to a continuous one in the following way: 
+
+\begin{equation}
+\dot{P}(t)=rP(t)
+\end{equation}
+
+this is a relative simple differential equation with separable variable. Its integration gives:
+
+\begin{equation}
+P(t)=P_{0}(t)
+\end{equation}
+
+Malthus, of course, did not believed that the population could grow ad infinitum with an exponential growth, but since he estimated that the resources growth follows a linear path, he argued that, at the intersection of the two curves, a consistent part of the population will not have access to the resources. Thus  he expected that the exponential growth realizes only in the first part of the growth. Basing on these arguments, a Belgian mathematician Pierre-François Verhulst in 1838, proposed a model \cite{verhulst1838notice} in which the key point is the maximum number of people that the resources allows to live, usually called the carrying capacity here indicated as $K$ ($P$ and $r$ have the same meaning of the previous model):
+
+\begin{equation}
+\dot{P}=rP\left(1-\dfrac{P}{K} \right)
+\end{equation}
+
+that have the following analytic solution 
+
+\begin{equation}
+P=\dfrac{KP_{0}e^{rt}}{K+P_{0}(e^{rt}-1)}
+\label{logistic_equation}
+\end{equation}
+
+In Fig. \ref{Malthusian_growth_vs_logistic_growth} this solution is compared to the Malthusian one: as one can point out the logistic growth has a saturation effect near the asymptote of carrying capacity. This represent the limit capacity that Malthus proposed to indicate as the intersection between the linear and exponential growth. It is worth nothing that near the origin the two growth are identical, then the logistic curve becomes linear up to the saturation region. 
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.8\linewidth]{Figures/Malthusian_growth_vs_logistic_growth-2.jpg} 
+ \caption{The Malthusian growth (red line) compared to the logistic growth (blue line). The carrying capacity is marked with a black dashed line. Image taken from \cite{malthus_vs_logistic}}
+ \label{Malthusian_growth_vs_logistic_growth}
+\end{figure}
+
+\subsection{Application to the epidemiology}
+
+The dynamics of the two models described before can be used to shape the spread of an infection \cite{serfling1952historical,ma2014estimating} in this case the population $P$ is replaced with the total number of infected people, $P_{0}$ the number of first infected people, $r$ the spreading rate and the carrying capacity $K$ with the maximum number of people that can be infected. The latter is the key point for the modelling: in principle this parameter would be equal to the population number, in practice due to the restrictive measure a large part of population can be removed from this computation: this lowers the predicted number of infected people. Thus we can argue that the effectiveness of the restrictive measures can be inferred from the linear behaviour of the cumulative curve (except, of course, if the numer of infected people is close to the population size). It is worth nothing that if the quarantine fails for also one/few infected people, the carrying capacity is increased up to the people that can be infected by these subjects. If this contribution is not negligible a new logistic growth may be found, with of course an exponential starting behaviour. Thus the prediction with the logistic curve should be taken as an evaluation of the effectiveness of restrictive measures and as the best scenario that can may realize. For this reason it is advisable to see the logistic curve as a local (in time) estimator. In principle one can model a differential set of equation were the carrying capacity is time dependent. This possibility may be considered  by the authors in a future version of this App. Furthermore it is worth nothing that other similar models such as Gopertz, Richards or Bertalanffy can be considered \cite{ma2014estimating} : the authors may consider to include them in  a future version of this App.
+
+\subsection{Time series approach}
+
+\subsection{An ab-initio approach: the SEIR model}
+
+%------------------------------------------------
+
+\section{Data Origin} \label{Data Origin}
+
+
+
+%------------------------------------------------
+
+\clearpage
+
+\section{Panels} \label{Panels}
+
+\subsection{Home}
+
+The home panel provides an overview of the COVID19 spread in Italy. The data shown are synchronised with the civil protection database. Whenever the App is started,  a check for the updates is performed and their occurrence is indicated in the \textit{ most recent updates }section. The home panel consists of two main sections: the choropleth map and the summary statistics.The choropleth map (Fig \ref{Home_fig1}) is an interactive heat map with breakouts by region and by province tracking the number of Covid-19 cases. 
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\linewidth]{Figures/Home_figure_1.png} 
+ \caption{Choropleth map by province showing absolute number of Covid-19 cases}
+ \label{Home_fig1}
+\end{figure}
+
+Beyond the raw absolute number of total cases by province/region we propose two other indicators which introduce some form of normalisation to improve the comparability of the different geographical areas. These indicators are percentage and density (Fig. \ref{Home_fig2}).
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\linewidth]{Figures/Home_figure_2.png} 
+ \caption{Input selector where the user can choose the three different breakouts absolute, percentage, and density}
+ \label{Home_fig2}
+\end{figure}
+
+The percentage indicator is calculated dividing the total number of COVID19 cases by the population of the respective region/province (the latter retrieved from Istat \cite{Istat+res0,Istat+res1}).
+\begin{equation}
+percentage~cases = \frac{total~cases}{local~population} \times 100
+\end{equation}
+This indicator ensures that the number of cases in more populated areas are not over-indexed compared to less populated ones. Similarly, it ensures less populated areas are not under-indexed. The density  indicator accounts for the territorial extension (in $km^2$) of regions/provinces expressed in parts per thousand (  \textperthousand ) and is calculated as follows:
+\begin{equation}
+density =  \dfrac{total~cases}{territorial~extension}\times 1000
+\end{equation}
+This indicator ensures that we are not underestimating small regions/provinces with fewer cases than larger ones but with more concentrated cases per $Km^2$. Finally, the summary statistics section (Fig. \ref{Home_fig3}) provides some barometer level statistics regarding the current total number of COVID19 cases in Italy with three further breakouts: intensive care, hospitalised, and home isolation.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\linewidth]{Figures/Home_figure_3.png} 
+ \caption{Boxes with syncronised barometer level statistic about the Coronavirus}
+ \label{Home_fig3}
+\end{figure}
+
+
+\subsection{Data Inspection}\label{Data Inspection}
+
+The \textit{Data Inspection} panel provides a data visualisation of the general information and a deeper overview about the hospital occupancy, growth monitoring and test tracking for the COVID19 in Italy. It is divided in main two section: introduction and deeper inspection. In first chart (Fig. \ref{fig:Inspection_general_info}) of the introduction are presented the general information about the total cases, total recovered, total hospitalised and intensive care occupancy. It is possible to select the entire Italian country or a particular region or province. Moreover, it is possible to visualise and filter the raw data for country, region and province in the panel Raw Data (Fig. \ref{fig:Inspection_rawdata}). In the deeper inspection panel there are four charts: the first two charts are in two different panels of a box and visualise information about intensive care occupancy in the Italian hospital in different regions, while the others represent the growth monitoring of total cases and test tracking. It is worth nothing that the occupation may be higher than their total number, due to the fact that the places in intensive therapy that we considered may be upgraded (see the section \ref{Data Origin}). In the first chart \ref{fig:Inspection_perc_occupancy} is represented the percentage hospital occupancy in the selected day divided by capacity with respect to the initial intensive care capacity at the start of the pandemic.
+\begin{equation}
+percentage~occupancy = \dfrac{occupancy}{capacity} \times 100
+\end{equation}
+The second chart (Fig. \ref{fig:Inspection_occupancy2}) visualises a bar chart of the hospital occupancy and capacity of intensive care in different region of Italy at the selected day.The third chart (Fig. \ref{fig:Inspection_growth_monitoring}) represents the percentage growth and growth change of total cases day by day. The fifth chart (Fig. \ref{fig:Inspection_test_tracking}) visualises the daily cases with respect to the daily tests.
+
+\begin{figure}[H]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include first image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_perc_occupancy.png}
+  \caption{}
+  \label{fig:Inspection_perc_occupancy}
+\end{subfigure} 
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_rawdata.png} 
+  \caption{}
+  \label{fig:Inspection_rawdata}
+\end{subfigure} 
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_test_tracking.png} 
+  \caption{}
+  \label{fig:Inspection_test_tracking}
+\end{subfigure} 
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_Cattura.png} 
+  \caption{SEM image of the virus}
+  \label{fig:Inspection_Cattura}
+\end{subfigure} 
+\caption{•}
+\end{figure}
+
+\begin{figure}[H]
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_general_info.png} 
+  \caption{SEM image of the virus}
+  \label{fig:Inspection_general_info}
+\end{subfigure} 
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_growth_monitoring.png} 
+  \caption{SEM image of the virus}
+  \label{fig:Inspection_growth_monitoring}
+\end{subfigure} 
+\begin{subfigure}{0.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/Inspection_occupancy2.png} 
+  \caption{SEM image of the virus}
+  \label{fig:Inspection_occupancy2}
+\end{subfigure}\hspace{0.3\textwidth}
+\caption{ }
+\label{fig:Inspection_panels_2}
+\end{figure}
+
+
+
+\subsection{Data Analysis}
+
+Panel \textit{Analysis} explores different mathematical models for shaping the infections time series, namely the ones introduced in \ref{Theoretical Background}. As previously argued, each of these models predictive power hinges on uncertain actual scenarios, such as the effectiveness of restrictive measures, the presence of several independent and spread outbreaks, and so on. Package \cite{growthcurver} has been used for growth curve fitting. This package provides function \textit{SummarizeGrowth}, which inputs the time series of sample data and outputs the model represented by the growth metrics. Such parameters include those of the logistic equation that best fit the data \ref{logistic_equation}. The reasons why this package was chosen are chiefly two: at the one hand, it performs non-linear curve fitting with the Levenberg-Marquardt algorithm \cite{more1978levenberg}, which happens to be one of the most robust non-linear least squares  (NLS) algorithms. For this step, function \cite{nlsLM} is used. On the other hand, the package is endowed with two methods for background correction.
+
+At the top of analysis panel the user is allowed to pick one dataset among national, by region and by province. Hence, any following analysis will use the selected dataset as input (the user can browse the raw dataset in panel inspection, see \ref{Data Inspection} ). The first section is devoted to the logistic model. An input box \ref{fig:logistic_input} lists several dynamic inputs: 
+\begin{itemize}
+
+\item The date range that the calculator will use for curve fitting. The option to choose initial and final dates different from those at, resepectively, the beginning and the end of the dataset, is useful in two ways: first, it allows to cut initial dates which possibly correspond to zero or constant infections data, as a consequence of a delay in the outbreak in that territory; second, it allows to compute the availabe prediction n days ahead, by cutting the last n dates, and compare it to the real data. \item A check-box that, if selected, will use for computations and rendering the data of the share of infected among the tested, instead of the the infected themselves. That is, it will "standardise positive cases by total swabs". This may be useful to capture the "selection bias", but only in the scenario in which tests are randomly assigned to the population, or at least are assigned with a logic common to all dates and territories. This option is not currently available for provinces. \item Plot type selection boxes: should cumulative cases and fitted curve be plotted or new cases, or both (The user can always show and hide plots' components by clicking on their label in the legend).
+\item Residuals plot type. Four options for graphically rendering of the residuals are available: Residuals vs. fitted values; Standardized residuals vs. fitted values; Autocorrelation; Square root of absolute residuals vs. fitted values. Output is displayed within three boxes: Inside the \textit{Plot} box \ref{fig:logistic_plot1} the sample points, the fitted logistic curve and a confidence band at 95 \% level for the logistic curve are overlayed. The user can view the sample and fitted values by hovering over or touching (for touch-screen devices) them. In addition, if \textit{new cases} is selected, a plot of sample cases differences (which correspond to new cases, in fact) is shown over the logistic estimated distribution \ref{fig:logistic_plot2}. The latter is simply obtained by deriving the right hand side of formula \ref{logistic_equation}
+\end{itemize}
+\begin{equation}
+\dot{N}= \frac{(\frac{K-N_0}{N_0})Kre^{-rt}}{[1+(\frac{K-N_0}{N_0})e^{-rt}]^2}
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_input.png} 
+  \caption{SEM image of the virus}
+  \label{fig:logistic_input}
+\end{subfigure} 
+\hspace{5.5cm}
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_plot1.png} 
+  \caption{SEM image of the virus}
+  \label{fig:logistic_plot1}
+\end{subfigure} 
+\hspace{5.5cm}
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_plot2.png} 
+  \caption{SEM image of the virus}
+  \label{fig:logistic_plot2}
+\end{subfigure}
+\caption{ }
+\label{fig:logistic_plots_set}
+\end{figure}
+
+\clearpage
+
+\section{Conclusions}
+
+\section{Packages used}
+
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

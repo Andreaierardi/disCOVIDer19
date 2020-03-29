@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}{Introduction}}{4}{section.1}%
+\contentsline {paragraph}{{Background}}{4}{paragraph*.1}%
+\contentsline {paragraph}{{Motivation}}{5}{paragraph*.3}%
+\contentsline {section}{\numberline {2}{Theoretical Background}}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}{Population growth dynamics}}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}{Application to the epidemiology}}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}{Time series approach}}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}{An ab-initio approach: the SEIR model}}{8}{subsection.2.4}%
+\contentsline {section}{\numberline {3}{Data Origin}}{8}{section.3}%
+\contentsline {section}{\numberline {4}{Panels}}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}{Home}}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}{Data Inspection}}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}{Data Analysis}}{12}{subsection.4.3}%
+\contentsline {section}{\numberline {5}{Conclusions}}{15}{section.5}%
+\contentsline {section}{\numberline {6}{Packages used}}{15}{section.6}%

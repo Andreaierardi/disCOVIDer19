@@ -1,0 +1,114 @@
+\begin{thebibliography}{10}
+
+\bibitem{coronavirus+pictures}
+\url{https://www.niaid.nih.gov/news-events/novel-coronavirus-sarscov2-images}.
+
+\bibitem{malthus_vs_logistic}
+\url{https://commons.wikimedia.org/wiki/File:Malthusian_growth_vs_logistic_growth.png}.
+
+\bibitem{huang2020clinical}
+Chaolin Huang, Yeming Wang, Xingwang Li, Lili Ren, Jianping Zhao, Yi~Hu,
+  Li~Zhang, Guohui Fan, Jiuyang Xu, Xiaoying Gu, et~al.
+\newblock Clinical features of patients infected with 2019 novel coronavirus in
+  wuhan, china.
+\newblock {\em The Lancet}, 395(10223):497--506, 2020.
+
+\bibitem{zhou2020pneumonia}
+Peng Zhou, Xing-Lou Yang, Xian-Guang Wang, Ben Hu, Lei Zhang, Wei Zhang,
+  Hao-Rui Si, Yan Zhu, Bei Li, Chao-Lin Huang, et~al.
+\newblock A pneumonia outbreak associated with a new coronavirus of probable
+  bat origin.
+\newblock {\em Nature}, pages 1--4, 2020.
+
+\bibitem{ghinai2020first}
+Isaac Ghinai, Tristan~D McPherson, Jennifer~C Hunter, Hannah~L Kirking, Demian
+  Christiansen, Kiran Joshi, Rachel Rubin, Shirley Morales-Estrada, Stephanie~R
+  Black, Massimo Pacilli, et~al.
+\newblock First known person-to-person transmission of severe acute respiratory
+  syndrome coronavirus 2 (sars-cov-2) in the usa.
+\newblock {\em The Lancet}, 2020.
+
+\bibitem{chang2020protecting}
+De~Chang, Huiwen Xu, Andre Rebaza, Lokesh Sharma, and Charles S~Dela Cruz.
+\newblock Protecting health-care workers from subclinical coronavirus
+  infection.
+\newblock {\em The Lancet Respiratory Medicine}, 8(3):e13, 2020.
+
+\bibitem{sorensen2006severe}
+Morten~Dr{\ae}by S{\o}rensen, Brian S{\o}rensen, REGINA GONZALEZ-DOSAL,
+  Connie~Jenning Melchjorsen, Jens Weibel, Jing Wang, Chen~Wie Jun, Yang
+  Huanming, and Peter Kristensen.
+\newblock Severe acute respiratory syndrome (sars) development of diagnostics
+  and antivirals.
+\newblock {\em Annals of the New York Academy of Sciences}, 1067(1):500--505,
+  2006.
+
+\bibitem{weiss2020clinical}
+Paul Weiss and David~R Murdoch.
+\newblock Clinical course and mortality risk of severe covid-19.
+\newblock {\em The Lancet}, 2020.
+
+\bibitem{timeline+web}
+\url{https://hgis.uw.edu/virus/}.
+
+\bibitem{corr+roma}
+\url{https://www.wired.co.uk/article/coronavirus-italy}.
+
+\bibitem{rep+dec1}
+\url{https://www.repubblica.it/politica/2020/03/01/news/coronavirus_misure_governo-249980561/}.
+
+\bibitem{guard+01}
+\url{https://www.repubblica.it/politica/2020/03/04/news/coronavirus_governo_chiuse_le_scuole_in_tutta_italia_-250209485/}.
+
+\bibitem{11marzo}
+\url{http://www.salute.gov.it/portale/news/p3_2_1_1_1.jsp?lingua=italiano&menu=notizie&p=dalministero&id=4186}.
+
+\bibitem{protezionecivile+git}
+\url{https://github.com/pcm-dpc/COVID-19}.
+
+\bibitem{keeling2011modeling}
+Matt~J Keeling and Pejman Rohani.
+\newblock {\em Modeling infectious diseases in humans and animals}.
+\newblock Princeton University Press, 2011.
+
+\bibitem{malthus1817essay}
+Thomas~Robert Malthus.
+\newblock {\em An essay on the principle of population, as it affects the
+  future improvement of society. With remarks on the speculations of mr.
+  Godwin, m. Condorcet, and other writers. By TR Malthus}.
+\newblock 1817.
+
+\bibitem{verhulst1838notice}
+PF~Verhulst.
+\newblock Notice sur la loi que la population poursuit dans son accroissement
+  in: Correspondance math{\'e}matique et physique, vol. 10.
+\newblock 1838.
+
+\bibitem{serfling1952historical}
+Robert~E Serfling.
+\newblock Historical review of epidemic theory.
+\newblock {\em Human biology}, 24(3):145--166, 1952.
+
+\bibitem{ma2014estimating}
+Junling Ma, Jonathan Dushoff, Benjamin~M Bolker, and David~JD Earn.
+\newblock Estimating initial epidemic growth rates.
+\newblock {\em Bulletin of mathematical biology}, 76(1):245--260, 2014.
+
+\bibitem{Istat+res0}
+\url{https://www.istat.it/it/files//2015/04/Superfici-delle-unit%C3%A0-amministrative-Dati-comunali-e-provinciali.zip}.
+
+\bibitem{Istat+res1}
+\url{http://dati.istat.it/Index.aspx?DataSetCode=DCIS_POPRES1}.
+
+\bibitem{growthcurver}
+\url{https://cran.r-project.org/web/packages/growthcurver/index.html}.
+
+\bibitem{more1978levenberg}
+Jorge~J Mor{\'e}.
+\newblock The levenberg-marquardt algorithm: implementation and theory.
+\newblock In {\em Numerical analysis}, pages 105--116. Springer, 1978.
+
+\bibitem{nlsLM}
+\url{https://www.rdocumentation.org/packages/minpack.lm/versions/1.2-1/topics/nlsLM}.
+
+\end{thebibliography}

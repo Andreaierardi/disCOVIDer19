@@ -1,0 +1,8 @@
+mktexpk --mfmode ljfour --bdpi 600 --mag 2+293/600 --dpi 1493 ec-iwonar+160ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+437/600 --dpi 1037 ec-iwonar-sc+80ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+120/600 --dpi 720 ec-iwonar-sc+80ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+120/600 --dpi 720 ec-iwonab-sc+80ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 2+293/600 --dpi 1493 ec-iwonar+160ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+437/600 --dpi 1037 ec-iwonar-sc+80ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+120/600 --dpi 720 ec-iwonar-sc+80ls
+mktexpk --mfmode ljfour --bdpi 600 --mag 1+120/600 --dpi 720 ec-iwonab-sc+80ls

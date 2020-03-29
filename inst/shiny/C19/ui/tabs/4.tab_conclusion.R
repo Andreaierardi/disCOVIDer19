@@ -150,10 +150,9 @@ shinydashboard::tabItem(tabName = "tab_4",
                                                             br(),
                                                             h3("To be completed.."),
                                                             
-                                                            downloadButton(outputId= "downloadDocument", label = "Download the PDF" ),
+                                                            downloadButton("downloadDocument", label = "Download the PDF" ),
                                                             hr(),
-                                                            
-                                                            tags$iframe(style="height:600px; width:100%", src="documentation_29032020.pdf")
+                                                            htmlOutput("pdfview")
                                         ))
                         )
 

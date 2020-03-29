@@ -1,5 +1,4 @@
 # ====== GENERAL INFO ==== 
-
 #Dataset and plot reactive
 reac_dataset <- shiny::reactiveValues()
 
@@ -91,7 +90,6 @@ output$general_infos_plot <- highcharter::renderHighchart(
 # General info raw data
 
 output$rawData_input <- shiny::renderUI({
-  
   shiny::fluidPage(
     shiny::fluidRow(
       shiny::column(5,
@@ -112,11 +110,8 @@ output$rawData_input <- shiny::renderUI({
                       selected = 2
                     )
       ),
-      shiny::column(3,
+      shiny::column(4,
                     shiny::uiOutput("rawData_sel_input")
-      ),
-      shiny::column(1,
-                    shiny::actionButton(inputId = "rawData_go", "Show")
       )
     )
     
@@ -141,29 +136,11 @@ output$rawData_sel_input <- shiny::renderUI({
 })
 
 
-# shiny::observeEvent(input$rawData_go, {
-#   output$rawData_table <- shiny::renderTable({
-#     
-#     switch(input$rawData_terr,
-#                "1" = countryTS$Italy %>% 
-#                  dplyr::select(-stato, -data_seriale) %>%
-#                  dplyr::filter(data >= input$rawData_date[1] &  data <= input$rawData_date[2]),
-#                "2" = regionTS[[input$rawData_reg_sel]] %>%
-#                  dplyr::select(-stato,-lat,-long,-denominazione_regione,-codice_regione,-data_seriale) %>%
-#                  dplyr::filter(data >= input$rawData_date[1] &  data <= input$rawData_date[2]),
-#                "3" = provTS[[input$rawData_prov_sel]] %>%
-#                 dplyr::select(-stato,-codice_provincia,-denominazione_provincia,-sigla_provincia,
-#                               -lat,-long,-denominazione_regione,-codice_regione,-data_seriale) %>%
-#                 dplyr::filter(data >= input$rawData_date[1] &  data <= input$rawData_date[2])         
-#            )
-#   })
-# })
 
-shiny::observeEvent(input$rawData_go, {
-  output$rawData_table <- DT::renderDataTable({
-    
-    
-    
+
+output$rawData_table <- DT::renderDataTable({
+  
+  if( is_ready(input$rawData_terr) && input$rawData_terr == 1 | (input$rawData_terr == 2 && is_ready(input$rawData_reg_sel)) | (input$rawData_terr == 3 && is_ready(input$rawData_prov_sel)) ) {
     DT::datatable( 
       switch(input$rawData_terr,
              "1" = countryTS$Italy %>% 
@@ -178,16 +155,18 @@ shiny::observeEvent(input$rawData_go, {
                dplyr::filter(data >= input$rawData_date[1] &  data <= input$rawData_date[2])         
       ), options = list(
         searching = FALSE,
-        pageLength = 10,scrollX = T))
-    
-  })
+        pageLength = 6, lengthMenu = c(6,10,14), scrollX = T)
+    )
+  }
+  
 })
 
 
 
 # tabbox selection
 output$tabset2Selected <- renderText({
-  input$tabset2
+  #input$tabset2
+  paste(input$rawData_go)
 })
 
 # =============== INTENSIVE CARE PLOTS

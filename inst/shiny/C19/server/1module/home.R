@@ -73,6 +73,7 @@ output$map_province <- output$map_province_modal <- highcharter::renderHighchart
 
 observeEvent(input$show, {
   showModal(modalDialog(
+    fluidPage(
     title = NULL, easyClose = TRUE, size = "l",
     
         tags$head(tags$style(HTML('
@@ -116,6 +117,6 @@ observeEvent(input$show, {
           )
         )
     
-  ))
+  )))
 })
   

@@ -27,6 +27,13 @@ pre {
   }
 }
 
+/*@media screen and (max-width: 600px) {
+	rect {
+		width: 96%;
+		background: #000;
+	}
+}*/
+
 .main-header .logo {
   font-family: "Georgia", Times, "Times New Roman", serif;
   font-weight: bold;

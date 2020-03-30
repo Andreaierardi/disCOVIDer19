@@ -198,7 +198,7 @@ output$intensivecare_cap_perc <- plotly::renderPlotly({
   fig <- fig %>%plotly::add_bars(data = reac_intensive(), x =~region , y=~perc, name="percentage",
                                  text = ~perc, textposition = 'auto' )
   fig <- fig %>%plotly::layout(
-    title=paste0("Day ",input$occupancy_date," - Percentage Occupancy with respect to the initial intensive care capacity at the start of the pandemic"),
+    title=paste0("Day ",input$occupancy_date," - Percentage Occupancy vs. intensive care capacity at the start of the pandemic"),
     xaxis = list(title = "Region"),
     yaxis = list(title = "Percentage occupancy/capacity"),
     legend = list(x = 0.1, y = 0.9))

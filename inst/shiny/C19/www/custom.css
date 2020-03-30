@@ -12,3 +12,27 @@ color: #00ccff !important;
 pre {
   background-color: #ffffff;
 }
+/* https://www.w3schools.com/css/css_rwd_mediaqueries.asp */
+
+@media only screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+
+.main-header .logo {
+  font-family: "Georgia", Times, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.main-header .sidebar-toggle:before {
+    font-size: 200%;
+}

@@ -32,7 +32,3 @@ pre {
   font-weight: bold;
   font-size: 24px;
 }
-
-.main-header .sidebar-toggle:before {
-    font-size: 200%;
-}

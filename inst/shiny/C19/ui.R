@@ -16,7 +16,7 @@ ui <-
                                          ),
                                          shinydashboard::dashboardBody(
                                            
-                                           tags$head( tags$meta(name = "viewport", content = "width=device-width, target-densitydpi=device-dpi, user-scalable=no, initial-scale=.51, maximum-scale=0.51, minimum-scale=0.51")),
+                                           tags$head( tags$meta(name = "viewport", content = "content=500")),
                                            
                                            #js
                                            shinyjs::useShinyjs(),

@@ -54,7 +54,7 @@ shinydashboard::tabItem(tabName = "tab_1",
                                                              
                                                              # shinyWidgets::circleButton("show", icon=icon("search-plus"),size="sm")
                                                              
-                                                             actionButton("show", icon=icon("search-plus"),label="show")
+                                                            # actionButton("show", icon=icon("search-plus"),label="show")
                                                              
                                                          )
                                                        ),

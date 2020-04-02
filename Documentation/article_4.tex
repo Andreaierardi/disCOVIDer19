@@ -34,6 +34,7 @@ BCOR5mm, % Binding correction
 \usepackage{float}
 \usepackage{epigraph}
 \usepackage{mathcomp}
+\usepackage{textcomp}
 \input{structure.tex} % Include the structure.tex file which specified the document structure and layout
 \sloppy
 \hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
@@ -116,7 +117,7 @@ count for more" (I.Asimov, Foundation and Empire) }
 
 \section{Introduction} \label{introduction}
 
-\paragraph{Background} \label{Background}
+\subsection{Background} \label{Background}
 In December 2019 different cases of pneumonia were reported in Wuhan (China) \cite{huang2020clinical}. Their origin was later ascribed to a new virus classified as \textit{Severe acute respiratory syndrome coronavirus 2} (SARS-CoV-2) whose TEM and SEM pictures are reported in the Fig. \ref{coronavirus_picture} The origin of this virus is still subject of scientific debate between the scientific community, however one of the most common opinion is that this virus comes from bats, in particular the genus Rhinolophus \cite{zhou2020pneumonia}. The most compelling feature of this virus is that is its ability to spread also via coughing and sneezing \cite{ghinai2020first}, and also by touching infected surfaces \cite{chang2020protecting}. Differently with respect to the SARS-CoV the virus seems to have a lower mortality rate \cite{sorensen2006severe,weiss2020clinical}.
 
 
@@ -157,6 +158,47 @@ In December 2019 different cases of pneumonia were reported in Wuhan (China) \ci
 
 In January the Chinese government imposed the quarantine for the city of Wuhan (almost 11M people); the quarantine was later expanded to the full province of Hubei (60M people) and then to the neighbour provinces Huanggang, Ezhou and Xianning. 
 The virus then spread in Canada, Germany, Thailand and Japan and then in other different countries included Italy \cite{timeline+web}. In Italy the first cases, two Chinese tourist from Hubei, were reported in Rome \cite{corr+roma}; then  other cases were reported in Codogno (Lodi,Lombardy). Later the virus spread almost in all regions of Italy with a higher density in Lombardy, Veneto, Emilia-Romagna, Piemonte and Marche. Starting from 22 of February, the Italian government started to impose the quarantine (red-zone) for eleven different municipalities, in particular Codogno, Casalpusterlengo, Lodi (included the neighbour municipalities) and Vo' . Starting from this date different restrictive measures were imposted starting from the regions with the highest number of cases: public entrainment were almost suspended as well as schools and universities. Workers (in public and private sectors) were allowed, when possibile, to work at home (smart-working). Such measures culminated with a decree approved by the Italian government that divided Italy in three areas: the red zones in which the municipalities with highest number of cases in which all the population was subjected to quarantine, the yellow one (Lombardia, Veneto, Emilia Romagna) in which schools, universities and public events ,sports  as well cinemas were suspended and the rest of Italy in which no restrictive measures were adopted \cite{rep+dec1}; however 3 days later all schools and universities were suspended \cite{guard+01}. The restrictive measures were also extend up to all Italy with a further decree \cite{11marzo}. 
+
+\subsection{Historical Background}
+
+
+
+In the last centuries different cases of pandemic diseases were recorded: from our point of view the dynamics of them it is useful to understand, ad perhaps to model,  that further peaks may succeed the first one also with a highest death rate. 
+
+\paragraph{The  deadliest pandemics in human history: the Spanish flu}
+
+ The first one, the biggest one known for humans (in terms of spread as well for deaths \cite{potter2001history} ), is the Spanish Flu: this name is quite misleading since it was not originated in Spain, but the Spanish newspaper were the first one to talk about because large part of the involved countries were involved in the Great War (1914-1918). The origin of this disease is still under research: some scholars focused on the  United States \cite{crosby_2003,barry2004site}on France \cite{shanks2016no} and on Asia \cite{langford2005did}.  The disease was ascribed to the virus A/H1N1 a subtype of influenza A Virus. The spread of the disease was strongly amplified by the fact that many people lived very close in to a very difficult hygienic conditions. As one can see from Fig. \ref{SpanishFLU} there are basically three waves: the initial spread, the second wave and the third wave. The second wave, that is the most lethal one, coincides with the end of the war and with the coming back of the troops: the close contact inside the trains, and the diffusion of the troops inside their home villages/cities increased abruptly the contagion rate and then the death rate. Furthermore this effect was amplified by the fact that a more deadly mutation of the virus diffused  \cite{barry2008cross}. As pointed out by different scholars such effect was enhanced since, the infected people, for which the severity of the ill was higher were transferred by train  into the hospitals and so  the virus spread with a higher rate \cite{wever2014death}.As it is possible to note from Fig. \ref{Mortality_spanish_flu} this second wave was largely more deadly for young people with respect the first wave. Finally, as can be noted in the plot \ref{SpanishFLU}, a third wave also manifested in the beginning of 1919: in this case the mortality was higher with respect to the first one but lower to the second one. In the end this pandemic infected 500 million people and a large part of them , from 17 to 50 million, died \cite{spreeuwenberg2018reassessing}. It is worth nothing that, just to give a comparison, the causalities in the Great War were from 8.8 to 10.7 million among soldiers and 11 million among civilian \cite{haythornthwaite1996world}
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=1\linewidth]{Figures/SpanishFLU.png} 
+ \caption{Pneumonia and Influenza mortality from 1910-1922 in London: note the tree peaks due to the spanish flu. In the in box the variation of the diffusion rate R$_{0}$ is reported. Image taken from \cite{he2011mechanistic} }
+ \label{SpanishFLU}
+\end{figure}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\linewidth]{Figures/Mortality_spanish_flu.png} 
+ \caption{Mortality range distribution for the two waves of Spanish flu: note that the second one was more severe for the young people. Image taken from \cite{taubenberger20061918}}
+ \label{Mortality_spanish_flu}
+\end{figure}
+
+\clearpage
+
+\paragraph{The Asian Influenza (H2N2)}
+
+In 1957 different cases another virus of influenza ( A/H2N2 ) spread in China. In this case, at difference with respect to the Spanish flu, the scholars were able to isolate the virus (the virus of the former was only isolated in 1933). It was proposed that the virus may be originated from mixing of avian and human influenza (see Fig. \ref{Mixing_Flu})
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Figures/Mixing_Flu.jpg} 
+ \caption{Wang-ShickRyu diagram for the explanantion of the Spanish, Asian flu and Honk-Kong flu . Image taken from \cite{RYU2017195}}
+ \label{Mixing_Flu}
+\end{figure}
+
+
+
 
 \paragraph{Motivation} \label{Motivation}
 In order to have a better understanding about the spread and the effects on the population of the COVID19 disease, we propose a ShinyApp, called disCOVIDer19 , that gathers  the data , mostly provided by the Protezione Civile \cite{protezionecivile+git}, about the number of infections(current as well cumulative), hospitalized people as well in intensive care, deaths and recovered for Italy, its regions and provinces; more details will be discussed in sections \ref{Data Origin} and \ref{Panels}. Furthermore we fitted the cumulative cases for Italy and all its regions and provinces with a logistic curve, in order to get a bird-of-eye view on the trend followed as well on the effectiveness of the restrictive measures imposed by the Italian government. The theoretical foundations of this fit ,as well how to manage and use it, will be discussed in the section \ref{Theoretical Background}. Beside the logistic curve, we also considered a statistical approach, largely diffused among economists, that considers the number of cases in each day as a time series: on this basis we were able to make use of a particular tool, which will be briefly introduced in the section \ref{Theoretical Background}, that allowed us to  make a further forecast  about future cases.  This latter becomes useful in case of large deviations from logistic distribution. 
@@ -218,6 +260,8 @@ In Fig. \ref{Malthusian_growth_vs_logistic_growth} this solution is compared to 
 \subsection{Application to the epidemiology}
 
 The dynamics of the two models described before can be used to shape the spread of an infection \cite{serfling1952historical,ma2014estimating} in this case the population $P$ is replaced with the total number of infected people, $P_{0}$ the number of first infected people, $r$ the spreading rate and the carrying capacity $K$ with the maximum number of people that can be infected. The latter is the key point for the modelling: in principle this parameter would be equal to the population number, in practice due to the restrictive measure a large part of population can be removed from this computation: this lowers the predicted number of infected people. Thus we can argue that the effectiveness of the restrictive measures can be inferred from the linear behaviour of the cumulative curve (except, of course, if the numer of infected people is close to the population size). It is worth nothing that if the quarantine fails for also one/few infected people, the carrying capacity is increased up to the people that can be infected by these subjects. If this contribution is not negligible a new logistic growth may be found, with of course an exponential starting behaviour. Thus the prediction with the logistic curve should be taken as an evaluation of the effectiveness of restrictive measures and as the best scenario that can may realize. For this reason it is advisable to see the logistic curve as a local (in time) estimator. In principle one can model a differential set of equation were the carrying capacity is time dependent. This possibility may be considered  by the authors in a future version of this App. Furthermore it is worth nothing that other similar models such as Gopertz, Richards or Bertalanffy can be considered \cite{ma2014estimating} : the authors may consider to include them in  a future version of this App.
+
+
 
 \subsection{Time series approach}
 
@@ -343,42 +387,89 @@ The second chart (Fig. \ref{fig:Inspection_occupancy2}) visualises a bar chart o
 
 \subsection{Data Analysis}
 
-Panel \textit{Analysis} explores different mathematical models for shaping the infections time series, namely the ones introduced in \ref{Theoretical Background}. As previously argued, each of these models predictive power hinges on uncertain actual scenarios, such as the effectiveness of restrictive measures, the presence of several independent and spread outbreaks, and so on. Package \cite{growthcurver} has been used for growth curve fitting. This package provides function \textit{SummarizeGrowth}, which inputs the time series of sample data and outputs the model represented by the growth metrics. Such parameters include those of the logistic equation that best fit the data \ref{logistic_equation}. The reasons why this package was chosen are chiefly two: at the one hand, it performs non-linear curve fitting with the Levenberg-Marquardt algorithm \cite{more1978levenberg}, which happens to be one of the most robust non-linear least squares  (NLS) algorithms. For this step, function \cite{nlsLM} is used. On the other hand, the package is endowed with two methods for background correction.
+Panel \textit{Analysis} explores different mathematical models for shaping the infection\textquotesingle s time series, namely the ones introduced in Section \ref{Theoretical Background}. As previously argued, each of these model\textquotesingle s predictive power hinges on uncertain actual scenarios, such as the effectiveness of restrictive measures, the presence of several independent and spread outbreaks, and so on.
 
-At the top of analysis panel the user is allowed to pick one dataset among national, by region and by province. Hence, any following analysis will use the selected dataset as input (the user can browse the raw dataset in panel inspection, see \ref{Data Inspection} ). The first section is devoted to the logistic model. An input box \ref{fig:logistic_input} lists several dynamic inputs: 
-\begin{itemize}
+Package  \cite{growthcurver} has been used for growth curve fitting. This package provides function  \textit{SummarizeGrowth}, which inputs the time series of sample data and outputs the model represented by the growth metrics. Such parameters include those of the logistic equation that best fit the data, namely $K$, $P_0$ and $r$, as in Eq.\ref{logistic_equation}.
+The reasons why this package was chosen are chiefly two. At the one hand, it performs non-linear curve fitting with the Levenberg-Marquardt algorithm \cite{more1978levenberg} , which happens to be one of the most robust nls algorithms. For this step, function \cite{nlsLM}  is used. On the other hand, the package is endowed with methods for background correction.
 
-\item The date range that the calculator will use for curve fitting. The option to choose initial and final dates different from those at, resepectively, the beginning and the end of the dataset, is useful in two ways: first, it allows to cut initial dates which possibly correspond to zero or constant infections data, as a consequence of a delay in the outbreak in that territory; second, it allows to compute the availabe prediction n days ahead, by cutting the last n dates, and compare it to the real data. \item A check-box that, if selected, will use for computations and rendering the data of the share of infected among the tested, instead of the the infected themselves. That is, it will "standardise positive cases by total swabs". This may be useful to capture the "selection bias", but only in the scenario in which tests are randomly assigned to the population, or at least are assigned with a logic common to all dates and territories. This option is not currently available for provinces. \item Plot type selection boxes: should cumulative cases and fitted curve be plotted or new cases, or both (The user can always show and hide plots' components by clicking on their label in the legend).
-\item Residuals plot type. Four options for graphically rendering of the residuals are available: Residuals vs. fitted values; Standardized residuals vs. fitted values; Autocorrelation; Square root of absolute residuals vs. fitted values. Output is displayed within three boxes: Inside the \textit{Plot} box \ref{fig:logistic_plot1} the sample points, the fitted logistic curve and a confidence band at 95 \% level for the logistic curve are overlayed. The user can view the sample and fitted values by hovering over or touching (for touch-screen devices) them. In addition, if \textit{new cases} is selected, a plot of sample cases differences (which correspond to new cases, in fact) is shown over the logistic estimated distribution \ref{fig:logistic_plot2}. The latter is simply obtained by deriving the right hand side of formula \ref{logistic_equation}
+%----> add here packages and documentation for ARIMA <----
+
+At the top of analysis panel the user is allowed to pick one dataset among national, by region and by province. Hence, any following analysis will use the selected dataset as input (the user can browse the raw dataset in panel inspection, see paragraph \ref{Data Inspection} ).
+
+The first section is devoted to the logistic model. An input box (Fig.\ref{fig:logistic_input}) lists several dynamic inputs:
+\begin{enumerate}
+\item A date range that the calculator will use for curve fitting. The option to choose initial and final dates different from those at, respectively, the beginning and the end of the dataset, is useful in two ways: 
+\begin{itemize} 
+\item It allows to cut initial dates which possibly correspond to zero or constant infections data, as a consequence of a delay in the outbreak in that territory. Actually, an automatic process will do so after the choice of territory, adjusting the initial date to the first day whose new infections exceed a given threshold (currently set to 1). 
+\item It allows to compute the available prediction n days ahead, by cutting the last n dates, and compare it to the real data.
 \end{itemize}
+\item A check-box \emph{standardise positive cases by total swabs}. If selected, the share of infected among the tested, instead of the infected themselves, will be used for computations and rendering. This may be useful to capture the selection bias, but only in the scenario in which tests are randomly assigned to the population, or at least are assigned with a logic common to all dates and territories. This option is not currently available for provinces.
+\item Plot type selection boxes. The available plot types are cumulative cases and new cases. (The user can always show and hide plot\textquotesingle  s components by clicking on their label in the legend).
+\item Residuals plot type. Four options for graphically rendering the residuals: Residuals vs. fitted values; Standardized residuals vs. fitted values; Autocorrelation; Square root of absolute residuals vs. fitted values.
+\end{enumerate}
+
+The output is displayed within three boxes: 
+\begin{enumerate}
+\item Inside the \ref{fig:logistic_plot1} box the sample points, the fitted logistic curve and a confidence band at 95 \% level for the logistic curve are overlayed. The user can view the sample and fitted values by hovering over or touching (for touch-screen devices) them \ref{fig:logistic_plot1}. In addition, if \emph{new cases} is selected, a plot of sample cases differences (which correspond to new cases, in fact) is shown over the logistic estimated distribution \ref{fig:logistic_plot2}.. The latter is simply obtained by deriving the right hand side of formula $(4.3.1)$:
 \begin{equation}
-\dot{N}= \frac{(\frac{K-N_0}{N_0})Kre^{-rt}}{[1+(\frac{K-N_0}{N_0})e^{-rt}]^2}
+N'(t) = \frac{(\frac{K-N_0}{N_0})Kre^{-rt}}{[1+(\frac{K-N_0}{N_0})e^{-rt}]^2}
 \end{equation}
+The user is suggested to take full advantage of plotly features. Besides showing points labels when passing over it and enabling plot selection by clicking on label items, plotly charts are endowed with a sequence of tools shown at the top-right of the box \ref{fig:logistic_plot3}.
+\item Summary output box \ref{fig:logistic_smry1} contains principal information about the selected model and a list of goodness-of-fit tests on the residuals. 
+\item Residuals box contains the plots of residuals, rendered in the user-chosen fashion. (see Fig.\ref{fig:logistic_res1}).
+\end{enumerate}
 
 \begin{figure}[H]
   \centering
 \begin{subfigure}{0.6\textwidth}
   % include second image
   \includegraphics[width=1\linewidth]{Figures/logistic_input.png} 
-  \caption{SEM image of the virus}
+  \caption{Set of useful tools for navigating into plots, by plotly.}
   \label{fig:logistic_input}
 \end{subfigure} 
 \hspace{5.5cm}
 \begin{subfigure}{0.6\textwidth}
   % include second image
   \includegraphics[width=1\linewidth]{Figures/logistic_plot1.png} 
-  \caption{SEM image of the virus}
+  \caption{Summary output box of logistic section.}
   \label{fig:logistic_plot1}
 \end{subfigure} 
 \hspace{5.5cm}
 \begin{subfigure}{0.6\textwidth}
   % include second image
   \includegraphics[width=1\linewidth]{Figures/logistic_plot2.png} 
-  \caption{SEM image of the virus}
+  \caption{One plot of nls residuals: square root of absolute residuals vs. fitted values.}
   \label{fig:logistic_plot2}
 \end{subfigure}
 \caption{ }
 \label{fig:logistic_plots_set}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_plot3.png} 
+  \caption{Set of useful tools for navigating into plots, by plotly.}
+  \label{fig:logistic_plot3}
+\end{subfigure} 
+\hspace{5.5cm}
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_res1.png} 
+  \caption{Summary output box of logistic section.}
+  \label{fig:logistic_res1}
+\end{subfigure} 
+\hspace{5.5cm}
+\begin{subfigure}{0.6\textwidth}
+  % include second image
+  \includegraphics[width=1\linewidth]{Figures/logistic_smry1.png} 
+  \caption{One plot of nls residuals: square root of absolute residuals vs. fitted values.}
+  \label{fig:logistic_smry1}
+\end{subfigure}
+\caption{ }
+\label{fig:logistic_plots_set2}
 \end{figure}
 
 \clearpage

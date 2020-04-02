@@ -1,16 +1,19 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}{Introduction}}{4}{section.1}%
-\contentsline {paragraph}{{Background}}{4}{paragraph*.1}%
-\contentsline {paragraph}{{Motivation}}{5}{paragraph*.3}%
-\contentsline {section}{\numberline {2}{Theoretical Background}}{6}{section.2}%
-\contentsline {subsection}{\numberline {2.1}{Population growth dynamics}}{6}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}{Application to the epidemiology}}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}{Time series approach}}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}{An ab-initio approach: the SEIR model}}{8}{subsection.2.4}%
-\contentsline {section}{\numberline {3}{Data Origin}}{8}{section.3}%
-\contentsline {section}{\numberline {4}{Panels}}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}{Home}}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}{Data Inspection}}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}{Data Analysis}}{12}{subsection.4.3}%
-\contentsline {section}{\numberline {5}{Conclusions}}{15}{section.5}%
-\contentsline {section}{\numberline {6}{Packages used}}{15}{section.6}%
+\contentsline {section}{\numberline {1}{Introduction}}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}{Background}}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}{Historical Background}}{6}{subsection.1.2}%
+\contentsline {paragraph}{{The deadliest pandemics in human history: the Spanish flu}}{6}{paragraph*.2}%
+\contentsline {paragraph}{{The Asian Influenza (H2N2)}}{9}{paragraph*.5}%
+\contentsline {paragraph}{{Motivation}}{9}{paragraph*.7}%
+\contentsline {section}{\numberline {2}{Theoretical Background}}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}{Population growth dynamics}}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}{Application to the epidemiology}}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}{Time series approach}}{12}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}{An ab-initio approach: the SEIR model}}{12}{subsection.2.4}%
+\contentsline {section}{\numberline {3}{Data Origin}}{12}{section.3}%
+\contentsline {section}{\numberline {4}{Panels}}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}{Home}}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}{Data Inspection}}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}{Data Analysis}}{16}{subsection.4.3}%
+\contentsline {section}{\numberline {5}{Conclusions}}{21}{section.5}%
+\contentsline {section}{\numberline {6}{Packages used}}{21}{section.6}%

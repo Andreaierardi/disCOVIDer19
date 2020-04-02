@@ -38,15 +38,15 @@ get_temperatures <- function() {
     if(skip || nrow(tab1) == 0 || nrow(tab2) == 0) { next }
     
     tab1 <- tab1 %>%
-      dplyr::rename(loc = 1, date = 2, temp = 3) %>%
-      dplyr::select(loc,date,temp) %>%
+      dplyr::rename(loc = 1, date = 2, temp = 3, hum = 7, press = 12) %>%
+      dplyr::select(loc,date,temp, hum, press) %>%
       dplyr::mutate(date = as.Date(date, format = "%d/%m/%Y")) %>%
       dplyr::mutate(loc = prov) %>%
       dplyr::filter(date >= as.Date("2020-02-24"))
     
     tab2 <- tab2 %>%
-      dplyr::rename(loc = 1, date = 2, temp = 3) %>%
-      dplyr::select(loc,date,temp) %>%
+      dplyr::rename(loc = 1, date = 2, temp = 3, hum = 7, press = 12) %>%
+      dplyr::select(loc,date,temp, hum, press) %>%
       dplyr::mutate(date = as.Date(date, format = "%d/%m/%Y")) %>%
       dplyr::mutate(loc = prov)
     
@@ -61,12 +61,15 @@ get_temperatures <- function() {
     missingDates <- seqDates[!(seqDates %in% subset(temperatures, loc == prov)$date)]
     if(length(missingDates) > 0)
       temperatures <- rbind(temperatures, 
-                            data.frame(loc = prov, date = missingDates, temp = NA))
+                            data.frame(loc = prov, date = missingDates, temp = NA,
+                                       hum = NA, press = NA))
     
     # interpolation of missing values
     ordered <- subset(temperatures, loc == prov)
     ordered <- ordered[order(ordered$date),]
     ordered$temp <- imputeTS::na_interpolation(ordered$temp)
+    ordered$hum <- imputeTS::na_interpolation(ordered$hum)
+    ordered$press <- imputeTS::na_interpolation(ordered$press)
     tmp <- rbind(tmp, ordered)
   }
   
@@ -74,12 +77,14 @@ get_temperatures <- function() {
   
   italy <- data.frame()
 
+  w <- subset(italy_ext$province, territorio %in% availableProv)$valore
   for(i in c(1:length(seqDates)) ) {
     italy <- rbind(italy, 
                    data.frame(loc = "Italy",
                               date = seqDates[i],
-                              temp = stats::weighted.mean(x = subset(temperatures, date == seqDates[i])$temp, 
-                                                   w = subset(italy_ext$province, territorio %in% availableProv)$valore)
+                              temp = stats::weighted.mean(x = subset(temperatures, date == seqDates[i])$temp, w = w),
+                              hum = stats::weighted.mean(x = subset(temperatures, date == seqDates[i])$hum, w = w),
+                              press = stats::weighted.mean(x = subset(temperatures, date == seqDates[i])$press, w = w)
                    )
     )
   }

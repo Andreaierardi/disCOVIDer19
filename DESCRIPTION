@@ -33,7 +33,10 @@ Imports:
     shinycssloaders,
     xts,
     imputeTS,
-    DT
+    DT,
+    pdftools,
+    stringr,
+    ddpcr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

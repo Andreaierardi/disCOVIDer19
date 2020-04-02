@@ -3,6 +3,7 @@
 export("%>%")
 export(const_trim)
 export(exe_fit)
+export(get_agecases)
 export(get_countryTS)
 export(get_country_growth)
 export(get_intensivecare_cap)

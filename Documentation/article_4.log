@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.28)  29 MAR 2020 10:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.28)  2 APR 2020 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,25 +830,25 @@ LaTeX Warning: Label `sub@fig:sub-second' multiply defined.
 )
 \openout1 = `article_4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-Package scrbase Info: activating english \contentsname on input line 58.
-Package scrbase Info: activating english \listfigurename on input line 58.
-Package scrbase Info: activating english \listtablename on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+Package scrbase Info: activating english \contentsname on input line 59.
+Package scrbase Info: activating english \listfigurename on input line 59.
+Package scrbase Info: activating english \listtablename on input line 59.
  (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count290
@@ -875,7 +875,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 58.
+LaTeX Info: Redefining \microtypecontext on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -888,7 +888,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 \AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring ON on input line 58.
+Package hyperref Info: Link coloring ON on input line 59.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -903,14 +903,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 \c@section@level=\count296
 LaTeX Info: Redefining \Ref on input line 520.
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
  (./article_4.out) (./article_4.out)
 \@outlinefile=\write3
 \openout3 = `article_4.out'.
 
-LaTeX Info: Redefining \Ref on input line 58.
+LaTeX Info: Redefining \Ref on input line 59.
 Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           Using `bookmark' together with `hyperref' is recommended,
 (scrartcl)           because of handling of possible bookmark level gaps.
@@ -918,7 +918,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message adding:
 (scrartcl)             \usepackage{bookmark}
-(scrartcl)           before \begin{document} on input line 58.
+(scrartcl)           before \begin{document} on input line 59.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)
@@ -931,7 +931,7 @@ e 168.
 \BKM@id=\count297
 ))
 LaTeX Font Info:    Trying to load font information for T1+iwona on input line 
-77.
+78.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/iwona/t1iwona.fd
 File: t1iwona.fd 2008/07/22 v0.995 font definition file for T1/iwona (MW)
@@ -941,12 +941,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OT1+pplj on input line 
-77.
+78.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1pplj.fd
 File: ot1pplj.fd 2004/09/06 font definitions for OT1/pplj.
 )
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 77
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 78
 .
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeur.fd
@@ -955,7 +955,7 @@ File: uzeur.fd 2005/01/11 v4.0 (WaS)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-eur.cfg
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+zeus on input line 77
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 78
 .
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeus.fd
@@ -965,7 +965,7 @@ File: uzeus.fd 2005/01/11 v4.0 (WaS)
 File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+zeuex on input line 7
-7.
+8.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
@@ -975,7 +975,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-77.
+78.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -994,7 +994,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Package tocbasic Info: character protrusion at toc deactivated on input line 87
+Package tocbasic Info: character protrusion at toc deactivated on input line 88
 .
 
 (./article_4.toc
@@ -1005,192 +1005,235 @@ Package microtype Info: Character `029' is missing
 \tf@toc=\write4
 \openout4 = `article_4.toc'.
 
-Package tocbasic Info: character protrusion at lof deactivated on input line 89
+Package tocbasic Info: character protrusion at lof deactivated on input line 90
 .
  (./article_4.lof
 Underfull \hbox (badness 1168) in paragraph at lines 3--3
  [][] []\T1/pplj/m/n/12 Different pic-tures of the virus as re-ported 
  []
 
+[3]
 LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 
-8.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+11.
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 ))
 \tf@lof=\write5
 \openout5 = `article_4.lof'.
 
-Package tocbasic Info: character protrusion at lot deactivated on input line 91
+Package tocbasic Info: character protrusion at lot deactivated on input line 92
 .
 
 (./article_4.lot)
 \tf@lot=\write6
 \openout6 = `article_4.lot'.
 
- [3]
+ [4]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/17.28'.
 (microtype)             Ignoring protrusion settings for this character.
-<Figures/Coronavirus1.jpg, id=75, 3071.475pt x 2398.9625pt>
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/iwona/b/sc/12'.
+(microtype)             Ignoring protrusion settings for this character.
+<Figures/Coronavirus1.jpg, id=98, 3071.475pt x 2398.9625pt>
 File: Figures/Coronavirus1.jpg Graphic file (type jpg)
 <use Figures/Coronavirus1.jpg>
-Package pdftex.def Info: Figures/Coronavirus1.jpg  used on input line 128.
+Package pdftex.def Info: Figures/Coronavirus1.jpg  used on input line 129.
 (pdftex.def)             Requested size: 129.49944pt x 101.14009pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--129
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
 [][]|\T1/pplj/m/n/10 Trans-mis-sion elec-tron mi-cro-scope
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 129--129
+Underfull \hbox (badness 2020) in paragraph at lines 130--130
 \T1/pplj/m/n/10 (TEM) im-age of SARS-CoV-2^^Valso
  []
 
-<Figures/Coronavirus2.jpg, id=76, 298.67836pt x 242.21742pt>
+<Figures/Coronavirus2.jpg, id=99, 298.67836pt x 242.21742pt>
 File: Figures/Coronavirus2.jpg Graphic file (type jpg)
 <use Figures/Coronavirus2.jpg>
-Package pdftex.def Info: Figures/Coronavirus2.jpg  used on input line 135.
+Package pdftex.def Info: Figures/Coronavirus2.jpg  used on input line 136.
 (pdftex.def)             Requested size: 129.49944pt x 105.01999pt.
-<Figures/Coronavirus3.jpg, id=77, 3071.475pt x 2398.9625pt>
+<Figures/Coronavirus3.jpg, id=100, 3071.475pt x 2398.9625pt>
 File: Figures/Coronavirus3.jpg Graphic file (type jpg)
 <use Figures/Coronavirus3.jpg>
-Package pdftex.def Info: Figures/Coronavirus3.jpg  used on input line 142.
+Package pdftex.def Info: Figures/Coronavirus3.jpg  used on input line 143.
 (pdftex.def)             Requested size: 129.49944pt x 101.14009pt.
-<Figures/Coronavirus4.jpg, id=78, 247.86351pt x 305.45367pt>
+<Figures/Coronavirus4.jpg, id=101, 247.86351pt x 305.45367pt>
 File: Figures/Coronavirus4.jpg Graphic file (type jpg)
 <use Figures/Coronavirus4.jpg>
-Package pdftex.def Info: Figures/Coronavirus4.jpg  used on input line 149.
+Package pdftex.def Info: Figures/Coronavirus4.jpg  used on input line 150.
 (pdftex.def)             Requested size: 129.49944pt x 159.5872pt.
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 125--153
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 126--154
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 125--153
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 126--154
 []$ $[]$ 
  []
 
-[4 <./Figures/Coronavirus1.jpg> <./Figures/Coronavirus2.jpg> <./Figures/Coronav
-irus3.jpg> <./Figures/Coronavirus4.jpg>] [5]
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/iwona/b/sc/12'.
-(microtype)             Ignoring protrusion settings for this character.
- [6]
-<Figures/Malthusian_growth_vs_logistic_growth-2.jpg, id=136, 1507.6325pt x 1059
+[5 <./Figures/Coronavirus1.jpg> <./Figures/Coronavirus2.jpg> <./Figures/Coronav
+irus3.jpg> <./Figures/Coronavirus4.jpg>] [6]
+<Figures/SpanishFLU.png, id=149, 1144.275pt x 687.56876pt>
+File: Figures/SpanishFLU.png Graphic file (type png)
+<use Figures/SpanishFLU.png>
+Package pdftex.def Info: Figures/SpanishFLU.png  used on input line 175.
+(pdftex.def)             Requested size: 370.0pt x 222.32411pt.
+<Figures/Mortality_spanish_flu.png, id=153, 752.8125pt x 533.995pt>
+File: Figures/Mortality_spanish_flu.png Graphic file (type png)
+<use Figures/Mortality_spanish_flu.png>
+Package pdftex.def Info: Figures/Mortality_spanish_flu.png  used on input line 
+182.
+(pdftex.def)             Requested size: 222.00226pt x 157.47012pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./Figures/SpanishFLU.png>] [8 <./Figures/Mortality_spanish_flu.png>]
+<Figures/Mixing_Flu.jpg, id=173, 1104.125pt x 735.74875pt>
+File: Figures/Mixing_Flu.jpg Graphic file (type jpg)
+<use Figures/Mixing_Flu.jpg>
+Package pdftex.def Info: Figures/Mixing_Flu.jpg  used on input line 195.
+(pdftex.def)             Requested size: 296.00113pt x 197.24026pt.
+
+[9
+
+ <./Figures/Mixing_Flu.jpg>] [10]
+<Figures/Malthusian_growth_vs_logistic_growth-2.jpg, id=208, 1507.6325pt x 1059
 .96pt>
 File: Figures/Malthusian_growth_vs_logistic_growth-2.jpg Graphic file (type jpg
 )
 <use Figures/Malthusian_growth_vs_logistic_growth-2.jpg>
 Package pdftex.def Info: Figures/Malthusian_growth_vs_logistic_growth-2.jpg  us
-ed on input line 213.
+ed on input line 255.
 (pdftex.def)             Requested size: 296.00113pt x 208.10657pt.
- [7 <./Figures/Malthusian_growth_vs_logistic_growth-2.jpg>] [8]
-<Figures/Home_figure_1.png, id=154, 437.00766pt x 497.98547pt>
+ [11 <./Figures/Malthusian_growth_vs_logistic_growth-2.jpg>] [12]
+<Figures/Home_figure_1.png, id=225, 437.00766pt x 497.98547pt>
 File: Figures/Home_figure_1.png Graphic file (type png)
 <use Figures/Home_figure_1.png>
-Package pdftex.def Info: Figures/Home_figure_1.png  used on input line 244.
+Package pdftex.def Info: Figures/Home_figure_1.png  used on input line 288.
 (pdftex.def)             Requested size: 185.0pt x 210.81657pt.
-<Figures/Home_figure_2.png, id=157, 140.39954pt x 105.01735pt>
+<Figures/Home_figure_2.png, id=227, 140.39954pt x 105.01735pt>
 File: Figures/Home_figure_2.png Graphic file (type png)
 <use Figures/Home_figure_2.png>
-Package pdftex.def Info: Figures/Home_figure_2.png  used on input line 253.
+Package pdftex.def Info: Figures/Home_figure_2.png  used on input line 297.
 (pdftex.def)             Requested size: 185.0pt x 138.38614pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9
+[13
 
  <./Figures/Home_figure_1.png>]
-<Figures/Home_figure_3.png, id=171, 442.27734pt x 181.80421pt>
+<Figures/Home_figure_3.png, id=241, 442.27734pt x 181.80421pt>
 File: Figures/Home_figure_3.png Graphic file (type png)
 <use Figures/Home_figure_3.png>
-Package pdftex.def Info: Figures/Home_figure_3.png  used on input line 270.
+Package pdftex.def Info: Figures/Home_figure_3.png  used on input line 314.
 (pdftex.def)             Requested size: 185.0pt x 76.04654pt.
- [10 <./Figures/Home_figure_2.png> <./Figures/Home_figure_3.png>]
-<Figures/Inspection_perc_occupancy.png, id=186, 881.2925pt x 302.12875pt>
+ [14 <./Figures/Home_figure_2.png> <./Figures/Home_figure_3.png>]
+<Figures/Inspection_perc_occupancy.png, id=256, 881.2925pt x 302.12875pt>
 File: Figures/Inspection_perc_occupancy.png Graphic file (type png)
 <use Figures/Inspection_perc_occupancy.png>
 Package pdftex.def Info: Figures/Inspection_perc_occupancy.png  used on input l
-ine 288.
+ine 332.
 (pdftex.def)             Requested size: 185.0pt x 63.42123pt.
-<Figures/Inspection_rawdata.png, id=187, 825.0825pt x 469.755pt>
+<Figures/Inspection_rawdata.png, id=257, 825.0825pt x 469.755pt>
 File: Figures/Inspection_rawdata.png Graphic file (type png)
 <use Figures/Inspection_rawdata.png>
-Package pdftex.def Info: Figures/Inspection_rawdata.png  used on input line 295
+Package pdftex.def Info: Figures/Inspection_rawdata.png  used on input line 339
 .
 (pdftex.def)             Requested size: 185.0pt x 105.32475pt.
-<Figures/Inspection_test_tracking.png, id=188, 413.04312pt x 240.39813pt>
+<Figures/Inspection_test_tracking.png, id=258, 413.04312pt x 240.39813pt>
 File: Figures/Inspection_test_tracking.png Graphic file (type png)
 <use Figures/Inspection_test_tracking.png>
 Package pdftex.def Info: Figures/Inspection_test_tracking.png  used on input li
-ne 302.
+ne 346.
 (pdftex.def)             Requested size: 185.0pt x 107.67561pt.
-<Figures/Inspection_Cattura.png, id=189, 671.50874pt x 251.94125pt>
+<Figures/Inspection_Cattura.png, id=259, 671.50874pt x 251.94125pt>
 File: Figures/Inspection_Cattura.png Graphic file (type png)
 <use Figures/Inspection_Cattura.png>
-Package pdftex.def Info: Figures/Inspection_Cattura.png  used on input line 309
+Package pdftex.def Info: Figures/Inspection_Cattura.png  used on input line 353
 .
 (pdftex.def)             Requested size: 185.0pt x 69.409pt.
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 285--313
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 329--357
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 285--313
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 329--357
 []$ $[]$ 
  []
 
-<Figures/Inspection_general_info.png, id=190, 855.69687pt x 309.65688pt>
+<Figures/Inspection_general_info.png, id=260, 855.69687pt x 309.65688pt>
 File: Figures/Inspection_general_info.png Graphic file (type png)
 <use Figures/Inspection_general_info.png>
 Package pdftex.def Info: Figures/Inspection_general_info.png  used on input lin
-e 320.
+e 364.
 (pdftex.def)             Requested size: 185.0pt x 66.94347pt.
-<Figures/Inspection_growth_monitoring.png, id=191, 434.12187pt x 300.62312pt>
+<Figures/Inspection_growth_monitoring.png, id=261, 434.12187pt x 300.62312pt>
 File: Figures/Inspection_growth_monitoring.png Graphic file (type png)
 <use Figures/Inspection_growth_monitoring.png>
 Package pdftex.def Info: Figures/Inspection_growth_monitoring.png  used on inpu
-t line 327.
+t line 371.
 (pdftex.def)             Requested size: 185.0pt x 128.10945pt.
-<Figures/Inspection_occupancy2.png, id=192, 878.78313pt x 301.62688pt>
+<Figures/Inspection_occupancy2.png, id=262, 878.78313pt x 301.62688pt>
 File: Figures/Inspection_occupancy2.png Graphic file (type png)
 <use Figures/Inspection_occupancy2.png>
 Package pdftex.def Info: Figures/Inspection_occupancy2.png  used on input line 
-334.
+378.
 (pdftex.def)             Requested size: 185.0pt x 63.49539pt.
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 317--338
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 361--382
 []$[]$ $[]$
  []
 
-[11 <./Figures/Inspection_perc_occupancy.png> <./Figures/Inspection_rawdata.png
+[15 <./Figures/Inspection_perc_occupancy.png> <./Figures/Inspection_rawdata.png
 > <./Figures/Inspection_test_tracking.png> <./Figures/Inspection_Cattura.png>]
-[12 <./Figures/Inspection_general_info.png> <./Figures/Inspection_growth_monito
-ring.png> <./Figures/Inspection_occupancy2.png>]
-<Figures/logistic_input.png, id=222, 257.46187pt x 320.69812pt>
+[16 <./Figures/Inspection_general_info.png> <./Figures/Inspection_growth_monito
+ring.png> <./Figures/Inspection_occupancy2.png>] [17]
+<Figures/logistic_input.png, id=305, 257.46187pt x 320.69812pt>
 File: Figures/logistic_input.png Graphic file (type png)
 <use Figures/logistic_input.png>
-Package pdftex.def Info: Figures/logistic_input.png  used on input line 362.
+Package pdftex.def Info: Figures/logistic_input.png  used on input line 426.
 (pdftex.def)             Requested size: 222.00226pt x 276.5339pt.
-<Figures/logistic_plot1.png, id=223, 557.08125pt x 350.81062pt>
+<Figures/logistic_plot1.png, id=306, 557.08125pt x 350.81062pt>
 File: Figures/logistic_plot1.png Graphic file (type png)
 <use Figures/logistic_plot1.png>
-Package pdftex.def Info: Figures/logistic_plot1.png  used on input line 369.
+Package pdftex.def Info: Figures/logistic_plot1.png  used on input line 433.
 (pdftex.def)             Requested size: 222.00226pt x 139.79716pt.
-<Figures/logistic_plot2.png, id=224, 560.8453pt x 352.31625pt>
+<Figures/logistic_plot2.png, id=307, 560.8453pt x 352.31625pt>
 File: Figures/logistic_plot2.png Graphic file (type png)
 <use Figures/logistic_plot2.png>
-Package pdftex.def Info: Figures/logistic_plot2.png  used on input line 376.
+Package pdftex.def Info: Figures/logistic_plot2.png  used on input line 440.
 (pdftex.def)             Requested size: 222.00226pt x 139.45638pt.
- [13] [14 <./Figures/logistic_input.png> <./Figures/logistic_plot1.png> <./Figu
-res/logistic_plot2.png>]
-(./article_4.bbl
+ [18]
+<Figures/logistic_plot3.png, id=314, 293.59688pt x 53.44969pt>
+File: Figures/logistic_plot3.png Graphic file (type png)
+<use Figures/logistic_plot3.png>
+Package pdftex.def Info: Figures/logistic_plot3.png  used on input line 453.
+(pdftex.def)             Requested size: 222.00226pt x 40.41582pt.
+<Figures/logistic_res1.png, id=315, 483.30562pt x 350.05782pt>
+File: Figures/logistic_res1.png Graphic file (type png)
+<use Figures/logistic_res1.png>
+Package pdftex.def Info: Figures/logistic_res1.png  used on input line 460.
+(pdftex.def)             Requested size: 222.00226pt x 160.79352pt.
+<Figures/logistic_smry1.png, id=316, 334.24875pt x 303.38344pt>
+File: Figures/logistic_smry1.png Graphic file (type png)
+<use Figures/logistic_smry1.png>
+Package pdftex.def Info: Figures/logistic_smry1.png  used on input line 467.
+(pdftex.def)             Requested size: 222.00226pt x 201.50673pt.
+ [19 <./Figures/logistic_input.png> <./Figures/logistic_plot1.png> <./Figures/l
+ogistic_plot2.png>]
+[20 <./Figures/logistic_plot3.png> <./Figures/logistic_res1.png> <./Figures/log
+istic_smry1.png>] (./article_4.bbl
 LaTeX Font Info:    Trying to load font information for T1+fvm on input line 4.
 
- (/usr/local/texlive/2019/texmf-dist/tex/latex/bera/t1fvm.fd
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
@@ -1205,88 +1248,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 1127) in paragraph at lines 7--11
+[]\T1/pplj/m/n/12 Daihai He, Jonathan Dushoff, Troy Day, Jun-ling Ma, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
 [][][]$\T1/fvm/m/n/12 https : / / commons . wikimedia . org / wiki / File : Mal
 thusian _
  []
 
+[21
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+]
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 [][][]$\T1/fvm/m/n/12 https : / / www . repubblica . it / politica / 2020 / 03 
 / 01 / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 [][][]$\T1/fvm/m/n/12 https : / / www . repubblica . it / politica / 2020 / 03 
 / 04 / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \T1/fvm/m/n/12 coronavirus _ governo _ chiuse _ le _ scuole _ in _ tutta _ ital
 ia _
  []
 
-[15
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 [][][]$\T1/fvm/m/n/12 http : / / www . salute . gov . it / portale / news / p3 
 _ 2 _ 1 _ 1 _ 1 . jsp ?
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 [][][]$\T1/fvm/m/n/12 https : / / www . istat . it / it / files / /2015 / 04 /
  []
 
 
-Overfull \hbox (84.90364pt too wide) in paragraph at lines 98--99
+Overfull \hbox (84.90364pt too wide) in paragraph at lines 165--166
 \T1/fvm/m/n/12 Superfici-[]delle-[]unit % C3 % A0-[]amministrative-[]Dati-[]com
 unali-[]e-[]provinciali .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 [][][]$\T1/fvm/m/n/12 http : / / dati . istat . it / Index . aspx ? DataSetCode
  = DCIS _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 [][][]$\T1/fvm/m/n/12 https : / / cran . r-[]project . org / web / packages / g
 rowthcurver /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
 [][][]$\T1/fvm/m/n/12 https : / / www . rdocumentation . org / packages / minpa
 ck . lm /
  []
 
-) [16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 407.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 407.
+) [23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
  (./article_4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 407.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 407.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 498.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 498.
 Package rerunfilecheck Info: File `article_4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 407.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 498.
  ) 
 Here is how much of TeX's memory you used:
- 18408 strings out of 480994
- 344858 string characters out of 5912142
+ 18518 strings out of 480994
+ 346954 string characters out of 5912142
  908181 words of memory out of 5000000
- 33365 multiletter control sequences out of 15000+600000
- 655225 words of font info for 198 fonts, out of 8000000 for 9000
+ 33431 multiletter control sequences out of 15000+600000
+ 656734 words of font info for 203 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 68i,23n,94p,10131b,716s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,23n,101p,10131b,859s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/local/texliv
 e/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/local/texlive/2019/t
@@ -1302,10 +1350,10 @@ nts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
 cki/iwona/iwonar.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/palati
 no/uplr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on article_4.pdf (16 pages, 9886499 bytes).
+Output written on article_4.pdf (23 pages, 10540817 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 47299 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 395 compressed objects within 4 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 47345 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -73,7 +73,6 @@ output$map_province <- output$map_province_modal <- highcharter::renderHighchart
 
 observeEvent(input$show, {
   showModal(modalDialog(
-    fluidPage(
     title = NULL, easyClose = TRUE, size = "l",
     
         tags$head(tags$style(HTML('
@@ -82,15 +81,15 @@ observeEvent(input$show, {
  .nav-tabs-custom > .nav-tabs > li.active {
      border-top-color: red !important;
  }
- 
+
  .btn-default {
     background-color: #dd4b39 !important;
     color: white !important;
     border-color: #dd4b39 !important;
 }
- 
+
                                   '))),
-        
+
     shinydashboard::tabBox(
           width = 12,
           # height = "250px",
@@ -106,7 +105,7 @@ observeEvent(input$show, {
                    color="#dd4b39"
                    )
           ),
-          tabPanel("By Region", 
+          tabPanel("By Region",
                    shinycssloaders::withSpinner(
                    highcharter::highchartOutput('map_region_modal',
                                                 width = "100%",
@@ -117,6 +116,6 @@ observeEvent(input$show, {
           )
         )
     
-  )))
+  ))
 })
   

@@ -9,7 +9,7 @@ countryTS = covid19:::get_countryTS()
 regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
-
+age_cases = covid19:::get_agecases(as.character(sort(names(regionTS))))
 
 
 readfile = as.data.frame(intensivecare_cap)
@@ -38,9 +38,7 @@ colnames(newdf) = c("data","occupancy","capacity","perc","region")
 intensivecare_capacity = newdf
 
 
-
 N <- nrow(countryTS)
-
 
 
 #===  Global function to check error 
@@ -91,11 +89,13 @@ pc_df$name
 # integrate population info
 pop_region <- italy_pop$region %>% 
   dplyr::rename(name=territorio,pop=valore) %>%
-  dplyr::mutate(name=tolower(name))
+  dplyr::mutate(name=tolower(name)) %>%
+  dplyr::mutate(name=ifelse(name=="emilia romagna", "emilia-romagna", name))
 
 territory_region <- italy_ext$region %>%
   dplyr::rename(name=territorio,ext=valore) %>% 
-  dplyr::mutate(name=tolower(name))
+  dplyr::mutate(name=tolower(name)) %>% 
+  dplyr::mutate(name=ifelse(name=="emilia romagna", "emilia-romagna", name))
 
 
 pc_df <- pc_df %>%

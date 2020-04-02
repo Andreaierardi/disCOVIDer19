@@ -1,4 +1,4 @@
-shinydashboard::tabItem(tabName = "tab_1",
+shinydashboard::tabItem(tabName = "home",
                         shinydashboard::valueBox("Coronavirus in Italy", 
                                                  paste("Most recent update:",
                                                        tail(countryTS$Italy$data,1)),
@@ -38,7 +38,8 @@ shinydashboard::tabItem(tabName = "tab_1",
                                                              
                                                              selectInput(inputId = "map_value",
                                                                          label = NULL,
-                                                                         choices = c("absolute", "percentage", "density")),
+                                                                         choices = c("absolute", "percentage", "density"),
+                                                                         width="150px"),
                                                              
                                                              #   shinyWidgets::pickerInput(inputId = "map_value",
                                                              #          label = NULL,
@@ -50,13 +51,13 @@ shinydashboard::tabItem(tabName = "tab_1",
                                                              #          )))
                                                              
                                                          ),
-                                                         div(style="display: inline-block;vertical-align:top;",
+                                                          div(style="display: inline-block;vertical-align:top;",
                                                              
                                                              # shinyWidgets::circleButton("show", icon=icon("search-plus"),size="sm")
+                                          
+                                                             # actionButton(inputId="show", icon=icon("search-plus"), label="")
                                                              
-                                                            # actionButton("show", icon=icon("search-plus"),label="show")
-                                                             
-                                                         )
+                                                          )
                                                        ),
                                                        # The id lets us use input$tabset1 on the server to find the current tab
                                                        id = "tabset1",

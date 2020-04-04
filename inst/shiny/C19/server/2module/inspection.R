@@ -33,12 +33,12 @@ shiny::observe({
     
     if(input$difference == 1)
     {
-      reac_dataset$name <- input$countrytab2
+      reac_dataset$name <- paste0(input$countrytab2, ", cumulative")
       reac_dataset$dataset <- countryTS$Italy 
     }
     else
     {
-      reac_dataset$name <- paste0("diff ", input$countrytab2)
+      reac_dataset$name <- paste0(input$countrytab2, ", daily")
       
       reac_dataset$dataset$totale_casi = diff(c(NA,  countryTS$Italy$totale_casi))
       reac_dataset$dataset$terapia_intensiva = diff( c(NA, countryTS$Italy$terapia_intensiva))
@@ -55,14 +55,14 @@ shiny::observe({
     
     if(input$difference == 1)
     {
-      reac_dataset$name <- input$regiontab2
+      reac_dataset$name <-  paste0(input$regiontab2, ", cumulative")
       
       reac_dataset$dataset <- regionTS[[input$regiontab2]]
     }
     
     else
     {
-      reac_dataset$name <- paste0("diff ",input$regiontab2)
+      reac_dataset$name <- paste0(input$regiontab2, ", daily")
       
       reac_dataset$dataset$totale_casi = diff(c(NA, regionTS[[input$regiontab2]]$totale_casi))
       reac_dataset$dataset$terapia_intensiva = diff( c(NA,regionTS[[input$regiontab2]]$terapia_intensiva))
@@ -76,7 +76,7 @@ shiny::observe({
   {
     
     
-    reac_dataset$plot = highcharter::hchart(reac_dataset$dataset,type =reac_dataset$plot_type,title= "General info",highcharter::hcaes(x=data,y = totale_casi),  name="Total cases", color="blue", yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth ,showInLegend=TRUE) %>% 
+    reac_dataset$plot = highcharter::hchart(reac_dataset$dataset,type =reac_dataset$plot_type,title= "General info",highcharter::hcaes(x=data,y = totale_casi),  name="Cases", color="blue", yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth ,showInLegend=TRUE) %>% 
       highcharter::hc_chart(zoomType = "xy") %>%
       highcharter::hc_yAxis_multiples(
         list(lineWidth = 3, title = list(text  =  '')),
@@ -84,17 +84,17 @@ shiny::observe({
       )  %>%
       highcharter::hc_add_series(data =reac_dataset$dataset, type = reac_dataset$plot_type, 
                                  yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth,  highcharter::hcaes(x = data, y = totale_ospedalizzati),
-                                 name="Total symptomatic", color="orange",showInLegend=TRUE)   %>%
+                                 name="Symptomatic", color="orange",showInLegend=TRUE)   %>%
     
       highcharter::hc_add_series(data =reac_dataset$dataset, type =reac_dataset$plot_type, 
                                  yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth,  highcharter::hcaes(x = data, y = dimessi_guariti),
-                                 name="Total recovered", color="green",showInLegend=TRUE)  %>%
+                                 name="Recovered", color="green",showInLegend=TRUE)  %>%
       highcharter::hc_add_series(data =reac_dataset$dataset, type = reac_dataset$plot_type, 
                                  yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth, highcharter::hcaes(x = data, y = deceduti),
-                                 name="Total Deaths", color="black",showInLegend=TRUE)  %>%
+                                 name="Deaths", color="black",showInLegend=TRUE)  %>%
       highcharter::hc_add_series(data = reac_dataset$dataset, type =reac_dataset$plot_type, 
                                  yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth, highcharter::hcaes(x = data, y = terapia_intensiva),
-                                 name="Total Intesive care", color="red",showInLegend=TRUE) %>%
+                                 name="Intesive care", color="red",showInLegend=TRUE) %>%
       
       highcharter::hc_legend(align = "top", verticalAlign = "top",
                              layout = "vertical", x = 30, y = 100, enabled=TRUE) %>%
@@ -108,14 +108,14 @@ shiny::observe({
     if(input$difference==1)
     {
       reac_dataset$dataset <- provTS[[input$provincetab2]]
-      reac_dataset$name <- input$provincetab2
+      reac_dataset$name <- paste0(input$provincetab2, ", daily")
       
     }
     
     else      
     {
       reac_dataset$dataset$totale_casi = diff(c(NA, provTS[[input$provincetab2]]$totale_casi))
-      reac_dataset$name <- paste0("diff ",input$provincetab2)
+      reac_dataset$name <- paste0(input$provincetab2, ", cumulative")
     }    
     
     
@@ -305,6 +305,11 @@ output$intensivecare_cap <- plotly::renderPlotly({
 
 hc <- highcharter::highchart(type = "stock") %>% 
   highcharter::hc_chart(zoomType = "xy") %>%
+  highcharter::hc_rangeSelector(buttons = list(list(type="week", count=1, text="1wk"), list(type="week", count=2, text="2wks"), 
+                                               list(type="week", count=3, text="3wks"), list(type="week", count=4, text="4wks"),
+                                               list(type="week", count=5, text="5wks"), list(type="week", count=6, text="6wks"),
+                                               list(type="all", count=1, text="All")), 
+                                selected = 7 ) %>%
   highcharter::hc_title(text = "% growth and growth change of total cases") %>%
   highcharter::hc_add_series(growth_xts, name="growth", color = "red", type = "spline") %>% 
   highcharter::hc_add_series(growth_change_xts, name="growth_change", color = "orange", type = "spline")
@@ -329,3 +334,34 @@ output$tamp_plot <- highcharter::renderHighchart(
                                yAxis = 1, highcharter::hcaes(x = date, y = share_infected_discovered),
                                name="share_infected_discovered", color="#383838")
 )
+
+
+# age distribution plot ---------------------------------------------------
+
+output$age_plot <- highcharter::renderHighchart(
+    highcharter::highchart() %>% 
+      # Data
+      highcharter::hc_add_series(dplyr::filter(age_df_final,region==input$regiontab3), "column",
+                                 highcharter::hcaes(x = age_int, y = cases), name = "cases") %>%
+      highcharter::hc_add_series(dplyr::filter(age_df_final,region==input$regiontab3), "pie", 
+                                 highcharter::hcaes(name = age_int, y = perc_cases), name = "% cases") %>%
+      # Optiosn for each type of series
+      highcharter::hc_plotOptions(
+        series = list(
+          showInLegend = FALSE,
+          pointFormat = "{point.y}%"
+        ),
+        column = list(
+          colorByPoint = TRUE
+        ),
+        pie = list(
+          colorByPoint = TRUE, center = c('15%', '20%'),
+          size = 150, dataLabels = list(enabled = FALSE)
+        )) %>%
+      # Axis
+      highcharter::hc_yAxis(
+        title = list(text = "cases")
+      ) %>%
+      highcharter::hc_xAxis(categories = dplyr::filter(age_df_final,region==input$regiontab3)$age_int)
+  )
+

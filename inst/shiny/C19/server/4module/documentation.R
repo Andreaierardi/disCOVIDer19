@@ -1,9 +1,9 @@
 output$downloadDocument <- downloadHandler(
-  filename <- "documentation_29032020.pdf",
+  filename <- "disCOVIDer19_documentation.pdf",
   
   
   content <- function(file) {
-    file.copy("www/documentation_29032020.pdf", file)
+    file.copy(paste0("www/",filename), file)
   },
 )
 
@@ -14,5 +14,5 @@ output$downloadDocument <- downloadHandler(
 tags$iframe(style="height:600px; width:100%", src="")
 
 output$pdfview <- renderText({
-  return(paste('<iframe style="height:600px; width:100%" src="documentation_29032020.pdf"></iframe>', sep = ""))
+  return(paste('<iframe style="height:600px; width:100%" src="',filename,'"></iframe>', sep = ""))
 })

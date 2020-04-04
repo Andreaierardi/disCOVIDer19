@@ -19,7 +19,7 @@ get_agecases <- function(regNames) {
   
   
   start_url = "https://www.epicentro.iss.it/coronavirus/bollettino/Bolletino-sorveglianza-integrata-COVID-19_"
-  #Sys.setlocale("LC_TIME", "Italian")
+  Sys.setlocale("LC_TIME", "Italian")
   url_file = format(Sys.Date(), "%d-%B-%Y")
   end_url = "_appendix.pdf"
   files = paste0(start_url,url_file,end_url)
@@ -88,11 +88,11 @@ get_agecases <- function(regNames) {
     
     regione = clean[1]
     casi_totali = as.integer(partition[[1]])
-    eta_media = as.integer(partition[[2]][1])
+    eta_mediana = as.integer(partition[[2]][1])
     deceduti = as.integer(partition[[3]])
     operatori_sanitari = as.integer(partition[[4]][1])
     
-    summary = data.frame(casi_totali,eta_media,deceduti,operatori_sanitari)
+    summary = data.frame(casi_totali,eta_mediana,deceduti,operatori_sanitari)
     
     m2 = gregexpr('[0-9]+-[0-9]+|[+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)',clean[5])
     part2 = regmatches(clean[5], m2)[[1]]

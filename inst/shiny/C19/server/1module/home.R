@@ -15,7 +15,7 @@ output$map_region <- output$map_region_modal <- highcharter::renderHighchart(
           
           highcharter::hc_add_series_map(map = map, df = dfita1,
                                          joinBy = "id", value = input$map_value, name="percentage (cases/pop * 100)")
-      } else {
+      } else if(input$map_value=="density") {
         highcharter::highchart(type = "map") %>% 
           highcharter::hc_chart(zoomType = "xy") %>%
           
@@ -23,6 +23,14 @@ output$map_region <- output$map_region_modal <- highcharter::renderHighchart(
                                          joinBy = "id", value = input$map_value, name="density (cases/km^2 * 1000)") %>%
           highcharter::hc_colorAxis(
             stops = highcharter::color_stops(4,c("#d8ebb5","#639a67","#2b580c","#003000")))
+      } else {
+        highcharter::highchart(type = "map") %>% 
+          highcharter::hc_chart(zoomType = "xy") %>%
+          
+          highcharter::hc_add_series_map(map = map, df = dfita1,
+                                         joinBy = "id", value = input$map_value, name="growth") %>%
+          highcharter::hc_colorAxis(
+            stops = highcharter::color_stops(4,c("#E6E6FA","#D8BFD8","#BA55D3","#800080")))
       }
   )
 
@@ -48,7 +56,7 @@ output$map_province <- output$map_province_modal <- highcharter::renderHighchart
       highcharter::hc_chart(zoomType = "xy") %>%
       highcharter::hc_add_series_map(map = ita, df = dfita2, 
                                      joinBy = "hasc", value = input$map_value, name="percentage (cases/pop * 100)")
-  } else {
+  } else if(input$map_value=="density") {
     highcharter::highchart(type = "map") %>% 
       highcharter::hc_chart(zoomType = "xy") %>%
       
@@ -56,6 +64,14 @@ output$map_province <- output$map_province_modal <- highcharter::renderHighchart
                                      joinBy = "hasc", value = input$map_value, name="density (cases/km^2 * 1000)") %>%
       highcharter::hc_colorAxis(
         stops = highcharter::color_stops(4,c("#d8ebb5","#639a67","#2b580c","#003000")))
+  } else {
+    highcharter::highchart(type = "map") %>% 
+      highcharter::hc_chart(zoomType = "xy") %>%
+      
+      highcharter::hc_add_series_map(map = ita, df = dfita2, 
+                                     joinBy = "hasc", value = input$map_value, name="growth") %>%
+      highcharter::hc_colorAxis(
+        stops = highcharter::color_stops(4,c("#E6E6FA","#D8BFD8","#BA55D3","#800080")))
   }
   
   

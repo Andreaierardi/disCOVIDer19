@@ -38,7 +38,7 @@ shinydashboard::tabItem(tabName = "home",
                                                              
                                                              selectInput(inputId = "map_value",
                                                                          label = NULL,
-                                                                         choices = c("absolute", "percentage", "density"),
+                                                                         choices = c("absolute", "percentage", "density", "growth"),
                                                                          width="150px"),
                                                              
                                                              #   shinyWidgets::pickerInput(inputId = "map_value",
@@ -65,7 +65,7 @@ shinydashboard::tabItem(tabName = "home",
                                                                 shinycssloaders::withSpinner(
                                                                   highcharter::highchartOutput('map_province',
                                                                                                width = "100%",
-                                                                                               height = "475px"),
+                                                                                               height = "510px"),
                                                                   color="#dd4b39"
                                                                 )
                                                        ),
@@ -73,7 +73,7 @@ shinydashboard::tabItem(tabName = "home",
                                                                 shinycssloaders::withSpinner(
                                                                   highcharter::highchartOutput('map_region',
                                                                                                width = "100%",
-                                                                                               height = "475px"
+                                                                                               height = "510px"
                                                                   ),
                                                                   color="#dd4b39"
                                                                 )

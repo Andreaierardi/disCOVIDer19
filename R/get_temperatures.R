@@ -23,6 +23,9 @@ get_temperatures <- function() {
   provnames <- italy_ext$province$territorio
   temperatures <- data.frame()
   
+  init_date <- as.Date("2020-02-24")
+  fin_date <- Sys.Date()
+  
   for(prov in provnames) {
     skip <- FALSE
     url1 <- paste("https://www.ilmeteo.it/portale/archivio-meteo/",
@@ -31,30 +34,42 @@ get_temperatures <- function() {
     url2 <- paste("https://www.ilmeteo.it/portale/archivio-meteo/",
                   prov,
                   "/2020/Marzo?format=csv", sep = "")
+    url3 <- paste("https://www.ilmeteo.it/portale/archivio-meteo/",
+                  prov,
+                  "/2020/Aprile?format=csv", sep = "")
     tryCatch( {tab1 <- read.csv(url1, sep = ";")
-               tab2 <- read.csv(url2, sep = ";")}, 
+               tab2 <- read.csv(url2, sep = ";")
+               tab3 <- read.csv(url3, sep = ";")}, 
               error = function(e){ skip <<- TRUE }
               )
-    if(skip || nrow(tab1) == 0 || nrow(tab2) == 0) { next }
+    if(skip || nrow(tab1) == 0 || nrow(tab2) == 0 || nrow(tab3) == 0) { next }
     
     tab1 <- tab1 %>%
       dplyr::rename(loc = 1, date = 2, temp = 3, hum = 7, press = 12) %>%
       dplyr::select(loc,date,temp, hum, press) %>%
       dplyr::mutate(date = as.Date(date, format = "%d/%m/%Y")) %>%
       dplyr::mutate(loc = prov) %>%
-      dplyr::filter(date >= as.Date("2020-02-24"))
+      dplyr::filter(date >= init_date && date <= fin_date)
     
     tab2 <- tab2 %>%
       dplyr::rename(loc = 1, date = 2, temp = 3, hum = 7, press = 12) %>%
       dplyr::select(loc,date,temp, hum, press) %>%
       dplyr::mutate(date = as.Date(date, format = "%d/%m/%Y")) %>%
-      dplyr::mutate(loc = prov)
+      dplyr::mutate(loc = prov) %>%
+      dplyr::filter(date >= init_date && date <= fin_date)
     
-    temperatures <- rbind(temperatures, tab1, tab2)
+    tab3 <- tab3 %>%
+      dplyr::rename(loc = 1, date = 2, temp = 3, hum = 7, press = 12) %>%
+      dplyr::select(loc,date,temp, hum, press) %>%
+      dplyr::mutate(date = as.Date(date, format = "%d/%m/%Y")) %>%
+      dplyr::mutate(loc = prov) %>%
+      dplyr::filter(date >= init_date && date <= fin_date)
+    
+    temperatures <- rbind(temperatures, tab1, tab2, tab3)
   }
   
   # adding missing dates
-  seqDates <- seq(as.Date("2020-02-24"), Sys.Date()-1, by = 1)
+  seqDates <- seq(init_date, fin_date-1, by = 1)
   tmp <- data.frame()
   availableProv <- unique(temperatures$loc)
   for(prov in availableProv) {

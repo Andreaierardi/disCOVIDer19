@@ -11,9 +11,8 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                  color = "navy", width = NULL),
                         
                         
-                        shinydashboard::box(title="General info", solidHeader = T,
+                        shinydashboard::box(title="General info", status = "danger", solidHeader = T,
                                             width = NULL,
-                                            color = "red",
                                             tags$head(tags$style(HTML('
                                                      /* tabBox background */
                                                      
@@ -30,7 +29,7 @@ shinydashboard::tabItem(tabName = "tab_2",
                                             
                                             shinydashboard::tabBox(width = 12,
                                                                    title = NULL,
-                                                                   tabPanel(h2("Plot"),
+                                                                   tabPanel(h3("Plot"),
                                                                             
                                                                             
                                                                             shiny::fluidRow(
@@ -49,12 +48,12 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                                                                            , provNames
                                                                                                            ), selected = NULL),
                                                                                             
-                                                                                            radioButtons("difference", label = "Select cumulative or difference plot",
-                                                                                                         choices = list("Cumulative" = 1, "Difference" = 2), 
+                                                                                            radioButtons("difference", label = "Select one plot type",
+                                                                                                         choices = list("Cumulative" = 1, "Daily" = 2), 
                                                                                                          selected = 1),
                                                                                             
                                                                                             hr(),
-                                                                                            p("For province, only total case data are available")
+                                                                                            helpText("Total cases is the only available data for provinces")
                                                                               ),
                                                                               shiny::column(10,
                                                                                             highcharter::highchartOutput("general_infos_plot") %>% shinycssloaders::withSpinner( color="#dd4b39")
@@ -64,11 +63,47 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                                             
                                                                    ),
                                                                    
-                                                                   tabPanel(h2("Raw data"),
+                                                                   tabPanel(h3("Raw data"),
                                                                             shiny::uiOutput("rawData_input"),
                                                                             DT::dataTableOutput("rawData_table")
                                                                    )
                                             )
+                        ),
+                        
+                        # age distribution
+                        shinydashboard::box(
+                          title="Infected Age Distribution", status = "danger", solidHeader = T,
+                          width = NULL,
+                          tags$head(tags$style(HTML('
+                                                     /* background */
+                                                     
+                                                     .nav-tabs-custom > .nav-tabs > li.active {
+                                                     border-top-color: red !important;
+                                                     }
+                                                     
+                                                     .btn-default {
+                                                     background-color: #dd4b39 !important;
+                                                     color: white !important;
+                                                     border-color: #dd4b39 !important;
+                                                     }
+                                                     '))),
+                          
+                          shiny::fluidRow(
+                            shiny::column(2,
+                                          shiny::selectInput(
+                                            inputId = "countrytab3", label = "Country",
+                                            choices = countryNames, selected = "Italy"),
+                                          
+                                          shiny::selectInput(
+                                            inputId = "regiontab3", label = "Region",
+                                            choices = unique(age_df_final$region), selected = "--- ALL ---")
+                            ),
+                            shiny::column(10,
+                                          highcharter::highchartOutput("age_plot")%>%shinycssloaders::withSpinner( color="#dd4b39")
+                                          
+                            )
+                          )
+                          
                         ),
                         
                         

@@ -1,15 +1,11 @@
-# disCOVIDer19
-A navigator within the pandemia
-
-
-<h1 align="center"> covid19 Package </h1>
+<h1 align="center"> Covid_19 Rates Package </h1>
 
 The package has a Shiny app to explore the Covid-19 outbreak in Italy.
 
-<br>
  <h1> ShinyApp.io    </h1>
  <h2> Try the ShinyApp.io:  <a href= "https://andreaierardi.shinyapps.io/disCOVIDer19"> disCOVIDERer19 </a>   </h2>
 <br> 
+
 
 
 # Contributors :busts_in_silhouette:
@@ -60,3 +56,4 @@ The function of the package is `runC19()` and is run without arguments.
 ```R
 runC19()
 ```
+

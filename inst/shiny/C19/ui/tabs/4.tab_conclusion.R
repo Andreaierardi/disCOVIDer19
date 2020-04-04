@@ -124,7 +124,7 @@ shinydashboard::tabItem(tabName = "tab_4",
                                                             <li><h4>  <a href="http://dati.istat.it/Index.aspx?DataSetCode=DCIS_POPRES1">  Istat - Population  </a> </h4> </li>                                                                                                                           
                                                             <li><h4>  <a href="https://www.istat.it/it/files//2015/04/Superfici-delle-unit%C3%A0-amministrative-Dati-comunali-e-provinciali.zip">  Istat - Territory </a> </h4> </li>
                                                             <li><h4>  <a href="https://www.corriere.it/cronache/20_marzo_16/coronavirus-quanti-posti-terapia-intensiva-ci-sono-italia-quanti-ne-arriveranno-0fbafa76-678a-11ea-93a4-da8ab3a8afb1.shtml" rel="nofollow noreferrer">   Corriere.it - Hospital intensive care capacity </a>  </h4></li>
-                                                            <li><h4>  <a href="https://www.epicentro.iss.it"> Istituto superiore di Sanita' - Age distribution report </a> </h4> </li>
+                                                            <li><h4>  <a href="https://www.epicentro.iss.it"> Istituto superiore di Sanita\' - Age distribution report </a> </h4> </li>
 
                                                             </ul>
                                                                  ')

@@ -36,7 +36,8 @@ Imports:
     DT,
     pdftools,
     stringr,
-    ddpcr
+    ddpcr,
+    tibble
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

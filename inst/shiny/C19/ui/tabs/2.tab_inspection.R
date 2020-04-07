@@ -27,45 +27,52 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                      }
                                                      '))),
                                             
+                                            fluidRow(
+                                              column(4,
+                                                     shiny::selectInput(
+                                                       inputId = "geninfo_coun", label = "Country",
+                                                       choices = countryNames, selected = "Italy")
+                                                     ),
+                                              column(4,
+                                                     shiny::selectInput(
+                                                       inputId = "geninfo_reg", label = "Region",
+                                                       choices = c("--- ALL ---" = "default", regNames), selected = NULL)
+                                                     ),
+                                              column(4,
+                                                     shiny::selectInput(
+                                                       inputId = "geninfo_prov", label = "Province",
+                                                       choices = c("--- ALL ---" = "default", provNames), selected = NULL)
+                                                     )
+                                            ),
+                                            
+                                            fluidRow(
+                                              column(5),
+                                              column(4,
+                                                     shiny::radioButtons(
+                                                       inputId = "geninfo_type", 
+                                                       label = "Data type:",
+                                                       choiceNames = list(HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)</p>"),
+                                                                          HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily)</p>"),
+                                                                          HTML("<p><span style='background-color: rgb(255, 204, 0); color: rgb(255, 255, 255);'><strong>Current</strong></span></p>")
+                                                       ),
+                                                       choiceValues = list("tot", "new", "cur"),
+                                                       selected = "tot",
+                                                       inline = FALSE)
+                                                     ),
+                                              column(3)
+                                            ),
+                                            
+                                            helpText("Total cases is the only available data for provinces"),
+                                            
+                                            hr(),
+                                            
                                             shinydashboard::tabBox(width = 12,
                                                                    title = NULL,
                                                                    tabPanel(h4("Plot"),
-                                                                            
-                                                                            
-                                                                            shiny::fluidRow(
-                                                                              shiny::column(2,
-                                                                                            shiny::selectInput(
-                                                                                              inputId = "countrytab2", label = "Country",
-                                                                                              choices = countryNames, selected = "Italy"),
-                                                                                            
-                                                                                            shiny::selectInput(
-                                                                                              inputId = "regiontab2", label = "Region",
-                                                                                              choices = c("--- ALL ---" = "default", regNames), selected = NULL),
-                                                                                            
-                                                                                               shiny::selectInput(
-                                                                                               inputId = "provincetab2", label = "Province",
-                                                                                               choices = c("--- ALL ---" = "default"
-                                                                                                           , provNames
-                                                                                                           ), selected = NULL),
-                                                                                            
-                                                                                            radioButtons("difference", label = "Select one plot type",
-                                                                                                         choices = list("Cumulative" = 1, "Daily" = 2), 
-                                                                                                         selected = 1),
-                                                                                            
-                                                                                            hr(),
-                                                                                            helpText("Total cases is the only available data for provinces")
-                                                                              ),
-                                                                              shiny::column(10,
-                                                                                            highcharter::highchartOutput("general_infos_plot") %>% shinycssloaders::withSpinner( color="#dd4b39")
-                                                                                            
-                                                                              )
-                                                                            )
-                                                                            
+                                                                            highcharter::highchartOutput("geninfo_plot") %>% shinycssloaders::withSpinner( color="#dd4b39")
                                                                    ),
-                                                                   
                                                                    tabPanel(h4("Table"),
-                                                                            shiny::uiOutput("rawData_input"),
-                                                                            DT::dataTableOutput("rawData_table") %>% shinycssloaders::withSpinner( color="#dd4b39")
+                                                                            DT::dataTableOutput("geninfo_table") %>% shinycssloaders::withSpinner( color="#dd4b39")
                                                                    )
                                             )
                         ),

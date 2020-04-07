@@ -3,12 +3,12 @@
 reac_dataset <- shiny::reactiveValues()
 
 shiny::observe({
-  if(input$regiontab2 != "default") {
-    ch <- c("--- ALL ---" = "default", regAndProv[regAndProv$region == input$regiontab2, "province"])
+  if(input$geninfo_reg != "default") {
+    ch <- c("--- ALL ---" = "default", regAndProv[regAndProv$region == input$geninfo_reg, "province"])
   } else {
     ch <- c("--- ALL ---" = "default", provNames)
   }
-  shiny::updateSelectizeInput(session, inputId = "provincetab2", choices = ch, selected = NULL)
+  shiny::updateSelectizeInput(session, inputId = "geninfo_prov", choices = ch, selected = NULL)
 })
 
 
@@ -16,246 +16,147 @@ shiny::observe({
 # General info reactive dataset
 shiny::observe({
 
-  if(input$difference ==1)
+  shiny::validate(
+    shiny::need(is_ready(input$geninfo_reg), "Wait...")
+  )
+  
+  # UPDATE RADIO BUTTONS if province or region/country
+  if(input$geninfo_prov != "default" ) {
+    
+    inpt = input$geninfo_type
+    if(inpt == "cur")
+    {
+      inpt = "tot"
+    }
+    updateRadioButtons(session, inputId = "geninfo_type",selected =inpt, choiceValues = c("tot","new"),   choiceNames = list(HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)</p>"),
+                                                                                                                               HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily)</p>")))
+  }
+  
+  else if (input$geninfo_prov == "default" )
   {
+    updateRadioButtons(session, inputId = "geninfo_type",choiceValues = c("tot","new","cur"), choiceNames = list(HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)</p>"),
+                                                                                                                 HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily)</p>"),
+                                                                                                                 HTML("<p><span style='background-color: rgb(255, 204, 0); color: rgb(255, 255, 255);'><strong>Current</strong></span></p>")
+    ), selected = input$geninfo_type)
+                                                                                                                               
+  }
+  
+
+  # Switch over territory input
+  if(input$geninfo_reg == "default" && input$geninfo_prov == "default") {
+    reac_dataset$name <- input$geninfo_coun
+    reac_dataset$data <- expression(countryTS)
+  } else if(input$geninfo_reg != "default" &&  input$geninfo_prov == "default") {
+    reac_dataset$name <-  input$geninfo_reg
+    reac_dataset$data <- expression(regionTS)
+  } else {
+    reac_dataset$name <- input$geninfo_prov
+    reac_dataset$data <- expression(provTS)
+  }
+    
+  
+  #Switch over data type
+  if(input$geninfo_type == "tot") {
     reac_dataset$plot_type = "spline"
     reac_dataset$pointWidth = 0
     reac_dataset$yAxis = 1
-  }
-  else 
-  {
+    reac_dataset$headerCol <- DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});", "}")
+    
+    if(input$geninfo_prov == "default") {
+      reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
+        dplyr::select("Date" = data, "Tot. cases" = totale_casi, "Tot. deaths" = deceduti, "Tot. recoveries" = dimessi_guariti)
+      reac_dataset$colors <- c("blue", "black", "green")
+    } else {
+      reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
+        dplyr::select("Date" = data, "Tot. cases" = totale_casi)
+      reac_dataset$colors <- c("blue")
+    }
+    
+    
+  } else if(input$geninfo_type == "new") {
     reac_dataset$plot_type = "column"
     reac_dataset$pointWidth = 15
     reac_dataset$yAxis = 0
+    reac_dataset$headerCol <- DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#e62e00', 'color': '#fff'});", "}")
+    
+    if(input$geninfo_prov == "default") {
+      reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
+        dplyr::mutate("New deaths" = c(NA,diff(deceduti)), "New recoveries" = c(NA,diff(dimessi_guariti)), "New cases" = c(NA,diff(totale_casi))) %>%
+        dplyr::select("Date" = data, "New cases", "New deaths", "New recoveries")
+      reac_dataset$colors <- c("blue", "black", "green")
+    } else {
+      reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
+        dplyr::mutate("New cases" = c(NA,diff(totale_casi))) %>%
+        dplyr::select("Date" = data, "New cases")
+      reac_dataset$colors <- c("blue")
+    }
+    
+    
+  } else if(input$geninfo_prov == "default" && input$geninfo_type == "cur") {
+    reac_dataset$plot_type = "spline"
+    reac_dataset$pointWidth = 0
+    reac_dataset$yAxis = 1
+    reac_dataset$headerCol <- DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#ffcc00', 'color': '#fff'});", "}")
+    
+    reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
+      dplyr::select("Date" = data, "Current pos. cases" = totale_positivi, "Current hospitalised" = totale_ospedalizzati, "Current intensive care" = terapia_intensiva, "Current home isol." = isolamento_domiciliare)
+    # reac_dataset$colors <- c("darkorchid", "darkseagreen3", "firebrick2", "cyan2")
+    reac_dataset$colors <- c("#cc66ff", "#00e673", "#ff3300", "#00bfff")
   }
-  
-  if(input$regiontab2 == "default" && input$provincetab2 == "default") {
     
-    if(input$difference == 1)
-    {
-      reac_dataset$name <- paste0(input$countrytab2, ", cumulative")
-      reac_dataset$dataset <- countryTS$Italy 
-    }
-    else
-    {
-      reac_dataset$name <- paste0(input$countrytab2, ", daily")
-      
-      reac_dataset$dataset$totale_casi = diff(c(NA,  countryTS$Italy$totale_casi))
-    #  reac_dataset$dataset$terapia_intensiva = diff( c(NA, countryTS$Italy$terapia_intensiva))
-     # reac_dataset$dataset$totale_ospedalizzati = diff(c(NA,  countryTS$Italy$totale_ospedalizzati))
-      reac_dataset$dataset$deceduti = diff(c(NA,  countryTS$Italy$deceduti))
-      reac_dataset$dataset$dimessi_guariti = diff(c(NA,  countryTS$Italy$dimessi_guariti))
-    }
-    
-    
-  }
   
   
-  else if(input$regiontab2 != "default" &&  input$provincetab2 == "default") {
-    
-    if(input$difference == 1)
-    {
-      reac_dataset$name <-  paste0(input$regiontab2, ", cumulative")
-      
-      reac_dataset$dataset <- regionTS[[input$regiontab2]]
-    }
-    
-    else
-    {
-      reac_dataset$name <- paste0(input$regiontab2, ", daily")
-      
-      reac_dataset$dataset$totale_casi = diff(c(NA, regionTS[[input$regiontab2]]$totale_casi))
-     # reac_dataset$dataset$terapia_intensiva = diff( c(NA,regionTS[[input$regiontab2]]$terapia_intensiva))
-     # reac_dataset$dataset$totale_ospedalizzati = diff(c(NA, regionTS[[input$regiontab2]]$totale_ospedalizzati))
-      reac_dataset$dataset$deceduti = diff(c(NA, regionTS[[input$regiontab2]]$deceduti))
-      reac_dataset$dataset$dimessi_guariti = diff(c(NA, regionTS[[input$regiontab2]]$dimessi_guariti))
-    }
-  }
-  
-  if(input$provincetab2 == "default")
-  {
-    
-    
-    reac_dataset$plot = highcharter::hchart(reac_dataset$dataset,type =reac_dataset$plot_type,title= "General info",highcharter::hcaes(x=data,y = totale_casi),  name="Cases", color="blue", yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth ,showInLegend=TRUE) %>% 
+  reac_dataset$plot = highcharter::hchart(tidyr::gather((reac_dataset$table_plot), key="key", value="value", -Date),
+                                          type = reac_dataset$plot_type, title= "General info",
+                                          highcharter::hcaes(x = Date, y = value, group = key),
+                                          color=reac_dataset$colors,
+                                          yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth ,showInLegend=TRUE) %>%
       highcharter::hc_chart(zoomType = "xy") %>%
       highcharter::hc_yAxis_multiples(
         list(lineWidth = 3, title = list(text  =  '')),
         list(showLastLabel = TRUE, opposite = TRUE, title = list(text  =  ''))
       )  %>%
-      # highcharter::hc_add_series(data =reac_dataset$dataset, type = reac_dataset$plot_type, 
-      #                           yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth,  highcharter::hcaes(x = data, y = totale_ospedalizzati),
-      #                            name="Symptomatic", color="orange",showInLegend=TRUE)   %>%
-    
-      highcharter::hc_add_series(data =reac_dataset$dataset, type =reac_dataset$plot_type, 
-                                 yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth,  highcharter::hcaes(x = data, y = dimessi_guariti),
-                                 name="Recovered", color="green",showInLegend=TRUE)  %>%
-      highcharter::hc_add_series(data =reac_dataset$dataset, type = reac_dataset$plot_type, 
-                                 yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth, highcharter::hcaes(x = data, y = deceduti),
-                                 name="Deaths", color="black",showInLegend=TRUE)  %>%
-     #highcharter::hc_add_series(data = reac_dataset$dataset, type =reac_dataset$plot_type, 
-     #                           yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth, highcharter::hcaes(x = data, y = terapia_intensiva),
-     #                           name="Intesive care", color="red",showInLegend=TRUE) %>%
-      
       highcharter::hc_legend(align = "top", verticalAlign = "top",
                              layout = "vertical", x = 30, y = 100, enabled=TRUE) %>%
       highcharter::hc_title(text = paste0("General info for: ",reac_dataset$name),
                             margin = 20, align = "left",
                             style = list(useHTML = TRUE))
-  }
-  else if(input$provincetab2 != "default"){
-    
-    
-    if(input$difference==1)
-    {
-      reac_dataset$dataset <- provTS[[input$provincetab2]]
-      reac_dataset$name <- paste0(input$provincetab2, ", daily")
-      
-    }
-    
-    else      
-    {
-      reac_dataset$dataset$totale_casi = diff(c(NA, provTS[[input$provincetab2]]$totale_casi))
-      reac_dataset$name <- paste0(input$provincetab2, ", cumulative")
-    }    
-    
-    
-    reac_dataset$plot = highcharter::hchart(reac_dataset$dataset,type = reac_dataset$plot_type,title= "General info",highcharter::hcaes(x=data,y = totale_casi),  name="Total cases", color="blue",    yAxis = reac_dataset$yAxis,pointWidth= reac_dataset$pointWidth,showInLegend=TRUE) %>% 
-      highcharter::hc_chart(zoomType = "xy") %>%
-      highcharter::hc_yAxis_multiples(
-        list(lineWidth = 3, title = list(text  =  '')),
-        list(showLastLabel = TRUE, opposite = TRUE, title = list(text  =  ''))
-      )  %>%
-      
-      highcharter::hc_legend(align = "top", verticalAlign = "top",
-                             layout = "vertical", x = 30, y = 100, enabled=TRUE) %>%
-      highcharter::hc_title(text = paste0("General info for: ",reac_dataset$name),
-                            margin = 20, align = "left",
-                            style = list(useHTML = TRUE))
-    
-  }
-  else
-  {
-    reac_dataset$dataset <- need(FALSE, "Wrong inputs")
-  }
-}
 
-)
+})
 
 
 # General info reactive plot
-output$general_infos_plot <- highcharter::renderHighchart(
+output$geninfo_plot <- highcharter::renderHighchart(
   reac_dataset$plot
 )
 
 
+#======= TABLE ====== 
 
-#======= RAW DATA ====== 
+# General info table
 
-# General info raw data
+output$geninfo_table <- DT::renderDataTable({
 
-output$rawData_input <- shiny::renderUI({
-  shiny::fluidPage(
-    shiny::fluidRow(
-      shiny::column(3,
-                    shiny::radioButtons(
-                      inputId = "rawData_terr",
-                      label = NULL,
-                      choices = list("National" = 1, "By region" = 2, "By province" = 3),
-                      selected = 2
-                    )
-      ),
-      shiny::column(4,
-                    shiny::uiOutput("rawData_sel_input")
-      ),
-      shiny::column(5,
-                    shiny::radioButtons(
-                      inputId = "rawData_type", 
-                      label = "Data type:",
-                      choiceNames = list(HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)</p>"),
-                                     HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily)</p>"),
-                                     HTML("<p><span style='background-color: rgb(255, 204, 0); color: rgb(255, 255, 255);'><strong>Current</strong></span></p>")
-                                     ),
-                      choiceValues = list("tot", "new", "cur"),
-                      selected = "tot",
-                      inline = TRUE)
-      )
-    )
-    
-  )
-  
-})
-
-output$rawData_sel_input <- shiny::renderUI({
-  
-  if(is_ready(input$rawData_terr))
-  {
-    
-    if(input$rawData_terr != 1) {
-      if(input$rawData_terr == 2)
-        shiny::selectInput(inputId = "rawData_reg_sel", label = NULL,
-                           choices = regNames, selected = "Lombardia")
-      else if(input$rawData_terr == 3)
-        shiny::selectInput(inputId = "rawData_prov_sel", label = NULL,
-                           choices = provNames, selected = "Milano")
-    }
-  }
-})
-
-
-
-
-output$rawData_table <- DT::renderDataTable({
-  
-  if( is_ready(input$rawData_terr) && input$rawData_terr == 1 | (input$rawData_terr == 2 && is_ready(input$rawData_reg_sel)) | (input$rawData_terr == 3 && is_ready(input$rawData_prov_sel)) & is_ready(input$rawData_type) ) {
-    
-    headerCol <- switch(input$rawData_type,
-                        "tot" = DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});", "}"),
-                        "new" = DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#e62e00', 'color': '#fff'});", "}"),
-                        "cur" = DT::JS("function(settings, json) {", "$(this.api().table().header()).css({'background-color': '#ffcc00', 'color': '#fff'});", "}")
-                        )
-    
-    DT::datatable( 
-      switch(input$rawData_terr,
-             "1" = (switch(input$rawData_type,
-                      "tot" = countryTS$Italy %>% 
-                                dplyr::select("Date" = data, "Tot. cases" = totale_casi, "Tot. deaths" = deceduti, "Tot. recoveries" = dimessi_guariti, "Tot. swabs" = tamponi),
-                      "new" = countryTS$Italy %>%
-                                dplyr::mutate("New deaths" = dplyr::lag(deceduti), "New recoveries" = dplyr::lag(dimessi_guariti), "New swabs" = dplyr::lag(tamponi)) %>%
-                                dplyr::select("Date" = data, "New cases" = nuovi_positivi, "New deaths", "New recoveries", "New swabs"),
-                      "cur" = countryTS$Italy %>%
-                                dplyr::select("Date" = data, "Current pos. cases" = totale_positivi, "Current hospitalised" = totale_ospedalizzati, "Current intensive care" = terapia_intensiva, "Current home isol." = isolamento_domiciliare)
-                      )
-                    ),
-               
-             "2" = (switch(input$rawData_type,
-                      "tot" = regionTS[[input$rawData_reg_sel]] %>% 
-                                dplyr::select("Date" = data, "Tot. cases" = totale_casi, "Tot. deaths" = deceduti, "Tot. recoveries" = dimessi_guariti, "Tot. swabs" = tamponi),
-                      "new" = regionTS[[input$rawData_reg_sel]] %>% 
-                                dplyr::mutate("New deaths" = dplyr::lag(deceduti), "New recoveries" = dplyr::lag(dimessi_guariti), "New swabs" = dplyr::lag(tamponi)) %>%
-                                dplyr::select("Date" = data, "New cases" = nuovi_positivi, "New deaths", "New recoveries", "New swabs"),
-                      "cur" = regionTS[[input$rawData_reg_sel]] %>% 
-                                dplyr::select("Date" = data, "Current pos. cases" = totale_positivi, "Current hospitalised" = totale_ospedalizzati, "Current intensive care" = terapia_intensiva, "Current home isol." = isolamento_domiciliare)
-                      )
-                    ),
-               
-             "3" = provTS[[input$rawData_prov_sel]] %>%
-                        dplyr::select("Date" = data, "Tot. cases" = totale_casi)        
-      ), options = list(
+  if(is_ready(reac_dataset$table_plot)) {
+    newnam <- paste(stringr::str_to_title(input$geninfo_type), "swabs")
+    newcol <- switch(input$geninfo_type,
+                        "tot" = eval(reac_dataset$data)[[reac_dataset$name]]$tamponi,
+                        "new" = c(NA,diff(eval(reac_dataset$data)[[reac_dataset$name]]$tamponi)),
+                        "cur" = NULL)
+    dt <- reac_dataset$table_plot
+    dt[,newnam] <- newcol
+    DT::datatable(
+      dt,
+      caption = paste0("General info for: ",reac_dataset$name),
+      options = list(
         searching = FALSE,
         pageLength = 6, lengthMenu = c(6,10,14), scrollX = T,
-        initComplete = headerCol)
+        initComplete = reac_dataset$headerCol)
     )
   }
-  
+
 })
 
-
-
-# tabbox selection
-output$tabset2Selected <- renderText({
-  #input$tabset2
-  paste(input$rawData_go)
-})
 
 # =============== INTENSIVE CARE PLOTS
 

@@ -253,14 +253,23 @@ output$fit_smry <- shiny::renderPrint({
 output$selected_terr <- shiny::renderPrint({
 })
 
-output$selected_info <- shiny::renderUI({
-  
+selected_info_func <- function() {
   if(is_ready(t$name))
   {
-    
-    h3(paste("Selected territory:", t$name))
+    div(h2(strong(paste("Selected territory:", t$name))), align = "center", style = "color:red")
   }
-  
+}
+
+output$selected_info1 <- shiny::renderUI({
+  selected_info_func()
+})
+
+output$selected_info2 <- shiny::renderUI({
+  selected_info_func()
+})
+
+output$selected_info3 <- shiny::renderUI({
+  selected_info_func()
 })
 
 output$resid_smry <- shiny::renderPrint({
@@ -548,5 +557,12 @@ output$arima_shell_resid <- shiny::renderPrint({
   }
   
 })
+
+
+
+
+#======================= SEIR MODEL ==================================
+
+
 
 

@@ -32,10 +32,9 @@ shinydashboard::tabItem(
                                             inputId = "province", label = "Province",
                                             choices = c("--- ALL ---" = "", provNames), selected = NULL)
                             )
-                          ),
+                          )
                          
-                        ),
-                        shiny::htmlOutput("selected_info")
+                        )
     )
   ),
   
@@ -49,6 +48,13 @@ shinydashboard::tabItem(
     icon = icon("analytics"),
     color = "navy",
     width = NULL
+  ),
+  
+  shinydashboard::box(
+    width = 12,
+    status = "danger",
+    solidHeader = TRUE,
+    shiny::htmlOutput("selected_info1")
   ),
   
   fluidRow(
@@ -144,6 +150,14 @@ shinydashboard::tabItem(
     icon = icon("analytics"),
     color = "navy",
     width = NULL
+  ),
+  
+  
+  shinydashboard::box(
+    width = 12,
+    status = "danger",
+    solidHeader = TRUE,
+    shiny::htmlOutput("selected_info2")
   ),
   
   
@@ -265,5 +279,43 @@ shinydashboard::tabItem(
         width = 12
       )
     )
+  ),
+  
+  #====== SEIR ======
+  
+  shinydashboard::valueBox(
+    "SEIR model",
+    "Compartmental model based on confirmed cases of infection and recovery",
+    icon = icon("analytics"),
+    color = "navy",
+    width = NULL
+  ),
+  
+  
+  shinydashboard::box(
+    width = 12,
+    status = "danger",
+    solidHeader = TRUE,
+    shiny::htmlOutput("selected_info3")
+  ),
+  
+  shinydashboard::box(
+     color = "red",
+     status = "danger",
+     solidHeader = TRUE,
+     title = "Input",
+     width = 12,
+     fluidRow(
+       column(4,
+              h5("Incubation time"),
+              hr(),
+              shiny::sliderInput("IT_mean", "Mean", min = 2, max = 10, value = 6),
+              shiny::sliderInput("IT_std", "St. deviation", min = 0.5, max = 1.5, value = 1)
+              ),
+       column(4
+              ),
+       column(4
+              )
+     )
   )
 )

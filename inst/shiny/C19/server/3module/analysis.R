@@ -1,10 +1,10 @@
 ## REACTIVES OF THIS CODE
 reac_ARIMA <- shiny::reactiveValues(arimaOK = FALSE)
-    
-    # THIS IS THE REACTIVE CONTAINER OF TERRITORY SELECTION VARIABLES.
+
+# THIS IS THE REACTIVE CONTAINER OF TERRITORY SELECTION VARIABLES.
 t <- shiny::reactiveValues()
-    
-    ## Reactive values for global storage 
+
+## Reactive values for global storage 
 reac_general <- shiny::reactiveValues()
 
 ## CHECKS FOR ERROR PREVENTING ##
@@ -138,8 +138,8 @@ output$coolplot1 <- plotly::renderPlotly({
   sample_diff_rem <- sample_diff[!logic_interval]
   
   fit_data <- covid19:::exe_fit(sample_cases = sample_cases_trim,
-                      sample_date = sample_serial_date_trim,
-                      days = days)
+                                sample_date = sample_serial_date_trim,
+                                days = days)
   
   reac_general$model <- fit_data$out_fit$model
   reac_general$resid <- fit_data$out_resid
@@ -316,9 +316,9 @@ output$plot_residual <- plotly::renderPlotly({
         yaxis = list(title="Residuals")
       )
       p= p %>%plotly::add_trace(name = "residual",showlegend=FALSE,data=Res_DF_1,x=~Res_DF_1$fitted1,y=~Res_DF_1$res,marker = list(size = 15,
-                                                                                                                  color = 'rgba(255, 182, 193, .9)',
-                                                                                                                  line = list(color = 'rgba(152, 0, 0, .8)',
-                                                                                                                              width = 2)))
+                                                                                                                                   color = 'rgba(255, 182, 193, .9)',
+                                                                                                                                   line = list(color = 'rgba(152, 0, 0, .8)',
+                                                                                                                                               width = 2)))
       p <- p %>%plotly::add_trace(data=Res_DF_2,x=~Res_DF_1$fitted1,y = 0, name = "liney0", line = list(color = 'rgb(0,0,0)', width = 1, dash = 'dot'),showlegend = FALSE, mode = 'lines')
       
       p
@@ -334,9 +334,9 @@ output$plot_residual <- plotly::renderPlotly({
         yaxis = list(title="Standardized residuals")
       )
       p <- p %>%plotly::add_trace(name="Standardised residuals",showlegend=FALSE,data=Res_DF_2,x=~Res_DF_2$fitted2,y=~Res_DF_2$res_stand,marker = list(size = 15,
-                                                                                                                                      color = 'rgba(255, 182, 193, .9)',
-                                                                                                                                      line = list(color = 'rgba(152, 0, 0, .8)',
-                                                                                                                                                  width = 2)))
+                                                                                                                                                       color = 'rgba(255, 182, 193, .9)',
+                                                                                                                                                       line = list(color = 'rgba(152, 0, 0, .8)',
+                                                                                                                                                                   width = 2)))
       p <- p %>%plotly::add_trace(data=Res_DF_2,x=~Res_DF_2$fitted2,y = 0, name = "liney0", line = list(color = 'rgb(0,0,0)', width = 1, dash = 'dot'),showlegend = FALSE, mode = 'lines')
       p <- p %>%plotly::add_trace(data=Res_DF_2,x=~Res_DF_2$fitted2,y = 2, name = 'liney2', line = list(color = 'rgb(0,0,0)', width = 1),showlegend = FALSE ,mode = 'lines')
       
@@ -351,9 +351,9 @@ output$plot_residual <- plotly::renderPlotly({
         yaxis = list(title="Residuals i+1"),
         title ="Autocorrelation")
       p = p %>%plotly::add_trace(name = "Autocorrelation", showlegend=FALSE,data=Res_DF_3,x=~Res_DF_3$fitted3,y=~Res_DF_3$resiplus1,marker = list(size = 15,
-                                                                                                                                 color = 'rgba(255, 182, 193, .9)',
-                                                                                                                                 line = list(color = 'rgba(152, 0, 0, .8)',
-                                                                                                                                             width = 2)))
+                                                                                                                                                  color = 'rgba(255, 182, 193, .9)',
+                                                                                                                                                  line = list(color = 'rgba(152, 0, 0, .8)',
+                                                                                                                                                              width = 2)))
       p <- p %>%plotly::add_trace(data=Res_DF_3,x=~Res_DF_3$fitted3,y = 0, name = "liney0", line = list(color = 'rgb(0,0,0)', width = 1, dash = 'dot'),showlegend = FALSE, mode="lines")
       
       p
@@ -369,9 +369,9 @@ output$plot_residual <- plotly::renderPlotly({
       )
       colnames(Res_DF_4)=c("fitted4","qq")
       p = p %>%plotly::add_trace(name="Sqrt of abs of res vs fitted",showlegend=FALSE,data=Res_DF_4,x=~Res_DF_4$fitted4,y=~Res_DF_4$qq,marker = list(size = 15,
-                                                                                                                                    color = 'rgba(255, 182, 193, .9)',
-                                                                                                                                    line = list(color = 'rgba(152, 0, 0, .8)',
-                                                                                                                                                width = 2)))
+                                                                                                                                                     color = 'rgba(255, 182, 193, .9)',
+                                                                                                                                                     line = list(color = 'rgba(152, 0, 0, .8)',
+                                                                                                                                                                 width = 2)))
       p
       #grafico1
     }
@@ -382,7 +382,7 @@ output$plot_residual <- plotly::renderPlotly({
 
 ##===================================== ARIMA SECTION =============================================##
 
-  
+
 
 ## HERE GOES ALL ARIMA IMPLEMENTATION COMMON TO ALL GRAPHS
 shiny::observe({
@@ -480,7 +480,7 @@ output$arima_coolplot2 <- plotly::renderPlotly({
     
     p <- p %>%plotly::layout(xaxis = list(title = "LAG"), yaxis = list(title = "ACF"), title="Autocorrelation", showlegend = TRUE, 
                              plot_bgcolor = "rgb(255, 255, 255)")
-      
+    
     
   }
   
@@ -498,7 +498,7 @@ output$arima_coolplot3 <- plotly::renderPlotly({
     
     p <- p %>%plotly::layout(xaxis = list(title = "LAG"), yaxis = list(title = "PACF"), title="Partial Autocorrelation", showlegend = TRUE, 
                              plot_bgcolor = "rgb(255, 255, 255)")
- 
+    
   }
   
 })
@@ -551,8 +551,8 @@ output$arima_shell_resid <- shiny::renderPrint({
   
   wait <- waitLoading()
   if(reac_ARIMA$arimaOK) {
-   
-   checkExp(forecast::checkresiduals(reac_ARIMA$arima,plot=FALSE), "There is not a suitable ARIMA model")
+    
+    checkExp(forecast::checkresiduals(reac_ARIMA$arima,plot=FALSE), "There is not a suitable ARIMA model")
     
   }
   

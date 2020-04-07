@@ -33,7 +33,7 @@ shinydashboard::tabItem(
                                             choices = c("--- ALL ---" = "", provNames), selected = NULL)
                             )
                           )
-                         
+                          
                         )
     )
   ),
@@ -247,7 +247,7 @@ shinydashboard::tabItem(
   
   
   fluidRow(
-   
+    
     column(
       6,
       shinydashboard::box(
@@ -261,7 +261,7 @@ shinydashboard::tabItem(
     ),
     
     #background-color: #f5f5f5; */
-
+    
     column(
       6,
       shinydashboard::box(
@@ -275,7 +275,7 @@ shinydashboard::tabItem(
                                   }
                                   '))),
         shiny::verbatimTextOutput("arima_shell_resid") %>% shinycssloaders::withSpinner(color =
-                                                                                           "#dd4b39"),
+                                                                                          "#dd4b39"),
         width = 12
       )
     )
@@ -300,22 +300,23 @@ shinydashboard::tabItem(
   ),
   
   shinydashboard::box(
-     color = "red",
-     status = "danger",
-     solidHeader = TRUE,
-     title = "Input",
-     width = 12,
-     fluidRow(
-       column(4,
-              h5("Incubation time"),
-              hr(),
-              shiny::sliderInput("IT_mean", "Mean", min = 2, max = 10, value = 6),
-              shiny::sliderInput("IT_std", "St. deviation", min = 0.5, max = 1.5, value = 1)
-              ),
-       column(4
-              ),
-       column(4
-              )
-     )
+    color = "red",
+    status = "danger",
+    solidHeader = TRUE,
+    title = "Input",
+    width = 12,
+    fluidRow(
+      column(4,
+             helpText("Under construction...")
+             #h5("Incubation time"),
+             #hr(),
+             #shiny::sliderInput("IT_mean", "Mean", min = 2, max = 10, value = 6),
+             #shiny::sliderInput("IT_std", "St. deviation", min = 0.5, max = 1.5, value = 1)
+      ),
+      column(4
+      ),
+      column(4
+      )
+    )
   )
 )

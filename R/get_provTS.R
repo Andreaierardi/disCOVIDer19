@@ -17,10 +17,15 @@ get_provTS <- function() {
 
   out <- list()
   for(province in unique(data$denominazione_provincia)) {
-    out[[as.character(province)]] <- subset(data, denominazione_provincia == province)
-    n <- nrow(out[[as.character(province)]])
-    out[[as.character(province)]]$data_seriale <- c(1:n)
+    chr_prov <- as.character(province)
+    out[[chr_prov]] <- subset(data, denominazione_provincia == province)
+    n <- nrow(out[[chr_prov]])
+    out[[chr_prov]]$data_seriale <- c(1:n)
+    
+    ### data cleaning ###
+    out[[chr_prov]] <- data_cleaner(out[[chr_prov]])
   }
+  
 
   return(out)
 }

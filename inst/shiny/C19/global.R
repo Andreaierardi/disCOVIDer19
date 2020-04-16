@@ -10,6 +10,7 @@ regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
 age_cases = covid19:::get_agecases(as.character(sort(names(regionTS))))
+decrees = covid19:::get_decrees()
 
 
 readfile = as.data.frame(intensivecare_cap)
@@ -36,7 +37,6 @@ for(i in 1:length(readfile$region))
 colnames(newdf) = c("data","occupancy","capacity","perc","region")
 
 intensivecare_capacity = newdf
-
 
 
 N <- nrow(countryTS)
@@ -81,15 +81,16 @@ pc_data <- regionTS
 names(pc_data) <- tolower(names(pc_data))
 
 pc_df <- purrr::map_df(names(pc_data), function(x){
-  casi <- tail(pc_data[[x]],1)$totale_casi
-  casi_vecchi <- tail(pc_data[[x]],2)$totale_casi[[1]]
-  dplyr::data_frame(name=x,cases=casi, cases_old=casi_vecchi)
+  dplyr::tibble(
+    name=x,
+    date=pc_data[[x]]$data,
+    cases=pc_data[[x]]$totale_casi)
 })
 
 pc_df <- pc_df %>%
   dplyr::ungroup() %>% 
-  dplyr::mutate(growth=round(((cases-cases_old)/cases_old)*100,2) ) %>% 
-  dplyr::select(-cases_old)
+  dplyr::group_by(name) %>%
+  dplyr::mutate(growth=round(((cases-dplyr::lag(cases))/dplyr::lag(cases))*100,2))
 
 pc_df$name
 
@@ -108,14 +109,16 @@ territory_region <- italy_ext$region %>%
 pc_df <- pc_df %>%
   dplyr::left_join(pop_region) %>% 
   dplyr::left_join(territory_region) %>%
+  dplyr::ungroup() %>% 
   dplyr::filter(!name%in%c("friuli v. g. ")) %>%
   dplyr::mutate(name=ifelse(name%in%c("trento","bolzano","p.a. trento","p.a. bolzano"),
                             "trentino-alto adige/sudtirol",name)) %>%
-  dplyr::group_by(name) %>%
+  dplyr::group_by(name, date) %>%
   dplyr::summarise(cases=sum(cases),
-                   growth=sum(growth),
+                   growth=mean(growth,na.rm=T),
                    pop=sum(pop),
                    ext=sum(ext)) %>%
+  dplyr::ungroup() %>% 
   dplyr::mutate(name=ifelse(name=="emilia romagna","emilia-romagna",name))
 
 
@@ -133,7 +136,10 @@ dfita1 <- dfita1 %>%
   dplyr::mutate(density=(cases/ext)*1000) %>%
   dplyr::rename(absolute=cases) %>%
   dplyr::mutate(percentage = round(percentage,2)) %>%
-  dplyr::mutate(density = round(density, 2))
+  dplyr::mutate(density = round(density, 2)) %>%
+  dplyr::select(id, date, absolute, percentage, density, growth) %>%
+  dplyr::ungroup() %>%
+  tidyr::gather(key="type",value="value",-id,-date)
 
 
 
@@ -142,19 +148,18 @@ dfita1 <- dfita1 %>%
 # --- province ---
 
 clean_prov <- purrr::map_df(names(provTS), function(x) {
-  tail(provTS[[x]],1)$totale_casi
   dplyr::data_frame(
     name=x,
-    cases=tail(provTS[[x]],1)$totale_casi,
-    cases_old=tail(provTS[[x]],2)$totale_casi[[1]]
+    date=provTS[[x]]$data,
+    cases=provTS[[x]]$totale_casi
   )
 })
 
 clean_prov <- clean_prov %>%
   dplyr::ungroup() %>% 
-  dplyr::mutate(growth=round(((cases-cases_old)/cases_old)*100,2) ) %>% 
-  dplyr::select(-cases_old)
-
+  dplyr::group_by(name) %>%
+  dplyr::mutate(growth=round(((cases-dplyr::lag(cases))/dplyr::lag(cases))*100,2)) %>%
+  dplyr::ungroup()
 
 url <- "http://code.highcharts.com/mapdata/countries/it/it-all.geo.json"
 tmpfile <- tempfile(fileext = ".json")
@@ -192,6 +197,7 @@ territory_prov <- italy_ext$province %>%
 clean_prov <- clean_prov %>%
   dplyr::left_join(pop_prov) %>% 
   dplyr::left_join(territory_prov) %>%
+  dplyr::ungroup() %>%
   dplyr::mutate(name = ifelse(name=="Massa Carrara","Massa-Carrara",name)) %>%
   dplyr::mutate(name = ifelse(name=="Reggio nell'Emilia","Reggio Emilia",name)) %>% 
   dplyr::mutate(name = ifelse(name=="Bolzano","Bozen",name)) %>%
@@ -207,7 +213,9 @@ dfita2 <- dfita2 %>%
   dplyr::ungroup() %>% 
   dplyr::mutate(percentage=(cases/pop)*100) %>%
   dplyr::mutate(density=(cases/ext)*1000) %>%
-  dplyr::rename(absolute=cases)
+  dplyr::rename(absolute=cases) %>% 
+  dplyr::select(hasc, date, absolute, percentage, density, growth) %>%
+  tidyr::gather(key="type",value="value",-hasc,-date)
 
 
 
@@ -221,32 +229,39 @@ dfita2 <- dfita2 %>%
 
 
 # plot growth monitoring --------------------------------------------------------------------
-out_growth <- country_growth
-
-growth <- data.frame(date=countryTS$Italy$data,
-                     growth=out_growth$growth)
-
-growth_xts <- xts::xts(growth[,-1], order.by=growth[,1])
-
-growth_change <- data.frame(date=countryTS$Italy$data,
-                            growth=out_growth$growth_change)
-
-growth_change_xts <- xts::xts(growth_change[,-1], order.by=growth_change[,1])
-
-hc <- highcharter::highchart(type = "stock") %>% 
-  highcharter::hc_title(text = "% growth and growth change of total cases") %>%
-  highcharter::hc_add_series(growth_xts, name="growth", color = "red", type = "spline") %>% 
-  highcharter::hc_add_series(growth_change_xts, name="growth_change", color = "orange", type = "spline")
-
+# out_growth <- country_growth
+# 
+# growth <- data.frame(date=countryTS$Italy$data,
+#                      growth=out_growth$growth)
+# 
+# growth_xts <- xts::xts(growth[,-1], order.by=growth[,1])
+# 
+# growth_change <- data.frame(date=countryTS$Italy$data,
+#                             growth=out_growth$growth_change)
+# 
+# growth_change_xts <- xts::xts(growth_change[,-1], order.by=growth_change[,1])
 
 # tamponi graph -----------------------------------------------------------
-tamp_data <- tibble::tibble(
+
+tamp_country <- tibble::tibble(
   data=countryTS$Italy$data,
   tamponi=countryTS$Italy$tamponi,
-  totale_casi=countryTS$Italy$totale_casi
-) %>% 
-  dplyr::mutate(casi_giornalieri=totale_casi-dplyr::lag(totale_casi)) %>%
-  dplyr::mutate(casi_giornalieri=ifelse(data==as.Date("2020-02-24"),totale_casi,casi_giornalieri)) %>% 
+  totale_casi=countryTS$Italy$totale_casi,
+  region = "--- ALL ---"
+)
+
+tamp_region <- purrr::map_df(names(regionTS), function(x){
+  regionTS[[x]] %>%
+    dplyr::select(data,tamponi,totale_casi) %>%
+    dplyr::mutate(region=x)
+})
+
+tamp_creg <- tamp_country %>% 
+  dplyr::bind_rows(tamp_region) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(region) %>%
+  dplyr::mutate(casi_giornalieri=totale_casi-dplyr::lag(totale_casi)) %>% 
+  dplyr::mutate(casi_giornalieri=ifelse(data==as.Date("2020-02-24"),totale_casi,casi_giornalieri)) %>%
   dplyr::mutate(tamponi_giornalieri=tamponi-dplyr::lag(tamponi)) %>%
   dplyr::mutate(tamponi_giornalieri=ifelse(data==as.Date("2020-02-24"),tamponi,tamponi_giornalieri)) %>%
   dplyr::mutate(share_infected_discovered = casi_giornalieri/tamponi_giornalieri) %>%
@@ -254,10 +269,8 @@ tamp_data <- tibble::tibble(
   dplyr::rename(daily_cases=casi_giornalieri,daily_tests=tamponi_giornalieri,date=data) %>%
   dplyr::mutate(share_infected_discovered=round(share_infected_discovered,2))
 
-tamp_data_1 <- tamp_data %>% dplyr::select(1:3) %>%
-  tidyr::gather(key="key",value="value",-date)
-
-
+tamp_creg_1 <- tamp_creg %>% dplyr::select(1:4) %>%
+  tidyr::gather(key="key",value="value",-date, -region)
 
 # age_cases ---------------------------------------------------------------
 
@@ -324,3 +337,4 @@ for(prov in provNames) {
 }
 
 #================================
+

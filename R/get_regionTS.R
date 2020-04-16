@@ -17,12 +17,18 @@ get_regionTS <- function() {
 
   out <- list()
   for(region in unique(data$denominazione_regione)) {
-    out[[as.character(region)]] <- subset(data, denominazione_regione == region)
-    n <- nrow(out[[as.character(region)]])
-    out[[as.character(region)]]$data_seriale <- c(1:n)
+    chr_reg <- as.character(region)
+    out[[chr_reg]] <- subset(data, denominazione_regione == region)
+    n <- nrow(out[[chr_reg]])
+    out[[chr_reg]]$data_seriale <- c(1:n)
+    
+    ### data cleaning ###
+    out[[chr_reg]] <- data_cleaner(out[[chr_reg]])
   }
 
 
+  
+  
 
   return(out)
 }

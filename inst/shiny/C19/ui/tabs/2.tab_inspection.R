@@ -10,6 +10,10 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                  icon=icon("chart-line"),
                                                  color = "navy", width = NULL),
                         
+                        shinydashboard::box(title = "Decrees timeline", status = "danger", solidHeader = TRUE,
+                                            width = NULL,
+                                            highcharter::highchartOutput("decree_tl")),
+                        
                         
                         shinydashboard::box(title="General info", status = "danger", solidHeader = T,
                                             width = NULL,
@@ -131,7 +135,7 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                      selectInput("occupancy_date",
                                                                  label = "Select date",
                                                                  choices = seq(init_date,by=1,fin_date),
-                                                                 selected = fin_date),
+                                                                 selected = fin_date)
                                                      
                                                      
                                  
@@ -176,7 +180,7 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                                                      ) %>%
                                                                                        shinycssloaders::withSpinner( color="#dd4b39")
                                                                             )
-                                                     ),
+                                                     )
                                                      
                                                      
 
@@ -190,14 +194,30 @@ shinydashboard::tabItem(tabName = "tab_2",
                           ))),
                         hr(),
                         fluidRow(
-                          column(6,
-                                 
                                  
                                  
                                  shinydashboard::box(title="Growth Monitoring", solidHeader = T,
                                                      width = NULL,
                                                      color = "red",
                                                      
+                                                     column(2,
+                                                            
+                                                            
+                                                            shiny::selectInput(
+                                                              inputId = "growth_country", label = "Country",
+                                                              choices = countryNames, selected = "Italy"),
+                                                            
+                                                            shiny::selectInput(
+                                                              inputId = "growth_region", label = "Region",
+                                                              choices = c(names(regionTS), "--- ALL ---"), selected = "--- ALL ---"),
+                                                            
+                                                            shiny::uiOutput("regprov_dfout"),
+                                                            shiny::uiOutput("growth_NAlog")
+                                                            
+                                                            
+                                                            ),
+                                                     
+                                                     column(10,
                                                      
                                                      shinydashboard::box(    
                                                        title=NULL,
@@ -209,47 +229,46 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                        footer = fluidRow(
                                                          column(
                                                            width = 6,
-                                                           shinydashboardPlus::descriptionBlock(
-                                                             number = paste0(tail(country_growth$growth,1),"%"),
-                                                             number_color = ifelse(tail(country_growth$growth,1)>0,"red","green"), 
-                                                             number_icon = ifelse(tail(country_growth$growth,1)>0,"fa fa-caret-up","fa fa-caret-down"),
-                                                             header = "CASES GROWTH", 
-                                                             text = NULL, 
-                                                             right_border = TRUE,
-                                                             margin_bottom = FALSE
-                                                           )
+                                                           uiOutput("summary_box_growth")
                                                          ),
                                                          column(
                                                            width = 6,
-                                                           shinydashboardPlus::descriptionBlock(
-                                                             number = paste0(tail(country_growth$growth_change,1),"%"),
-                                                             number_color = ifelse(tail(country_growth$growth_change,1)>0,"red","green"), 
-                                                             number_icon = ifelse(tail(country_growth$growth_change,1)>0,"fa fa-caret-up","fa fa-caret-down"),
-                                                             header = HTML("CASES GROWTH &Delta;"), 
-                                                             text = NULL, 
-                                                             right_border = FALSE,
-                                                             margin_bottom = FALSE
-                                                           )
+                                                           uiOutput("summary_box_growth_change")
                                                          )
                                                        )
                                                      ),
                                                      
                                                      
                                                      highcharter::highchartOutput("plot_test", width = "100%",
-                                                                                  height = "400px")%>% shinycssloaders::withSpinner( color="#dd4b39"),
+                                                                                  height = "400px")%>% shinycssloaders::withSpinner( color="#dd4b39")
+                                                     ),
                                                      height=NULL, status="danger")
                                  
                                  
-                                 
-                          ),
+                        ),
                           
-                          column(6,
+                          fluidRow(
                                  shinydashboard::box(title="Tests Tracking", status="danger", 
                                                      solidHeader = TRUE, 
                                                      width=12,
-                                                     highcharter::highchartOutput("tamp_plot")%>%shinycssloaders::withSpinner( color="#dd4b39")
+                                                     
+                                                       column(2,
+                                                              shiny::selectInput(
+                                                                inputId = "test_country", label = "Country",
+                                                                choices = countryNames, selected = "Italy"),
+                                                              
+                                                              shiny::selectInput(
+                                                                inputId = "test_region", label = "Region",
+                                                                choices = c(names(regionTS), "--- ALL ---"), selected = "--- ALL ---"),
+                                                              
+                                                              shiny::uiOutput("test_NAlog")
+                                                              ),
+                                                       column(10,
+                                                              highcharter::highchartOutput("tamp_plot")%>%shinycssloaders::withSpinner( color="#dd4b39")
+                                                              )
+                                                     
                                  )
                           )
-                        )
+                        
                         
 )

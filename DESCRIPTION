@@ -37,6 +37,8 @@ Imports:
     pdftools,
     stringr,
     ddpcr
+Remotes: 
+    github::jbkunst/highcharter
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

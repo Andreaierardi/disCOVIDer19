@@ -119,11 +119,11 @@ output$coolplot1 <- plotly::renderPlotly({
   
   sample_serial_date <- eval(t$data)[[t$name]]$data_seriale
   
-  sample_cases <- eval(t$data)[[t$name]]$totale_casi
+  sample_cases <- imputeTS::na_locf(eval(t$data)[[t$name]]$totale_casi)
   sample_diff <-  c(NA,diff(sample_cases))
   
   if( !t$p && input$swab_std ) {
-    swabs <- eval(t$data)[[t$name]]$tamponi
+    swabs <- imputeTS::na_interpolation(eval(t$data)[[t$name]]$tamponi)
     sample_cases <- sample_cases / swabs
     sample_diff <-  c(NA,sample_diff[-1] / diff(swabs))
   }
@@ -393,7 +393,7 @@ shiny::observe({
       eval(t$data)[[t$name]]$data <= input$arima_interval[2] 
     
     reac_ARIMA$sample_date <- eval(t$data)[[t$name]]$data
-    reac_ARIMA$sample_cases <- eval(t$data)[[t$name]]$totale_casi
+    reac_ARIMA$sample_cases <- imputeTS::na_locf(eval(t$data)[[t$name]]$totale_casi)
     
     reac_ARIMA$sample_date_trim <- reac_ARIMA$sample_date[reac_ARIMA$logic_interval]
     reac_ARIMA$sample_cases_trim <- reac_ARIMA$sample_cases[reac_ARIMA$logic_interval]+1

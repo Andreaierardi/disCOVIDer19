@@ -13,7 +13,10 @@ get_countryTS <- function() {
                    header = TRUE)
 
   data$data <- as.Date(as.character(data$data), format = "%Y-%m-%d")
-  data["data_seriale"] = c(1:length(data$data)-1)
+  data["data_seriale"] = c(1:length(data$data))
+  
+  ### data cleaning ###
+  data <- data_cleaner(data)
   
   return(list("Italy" = data))
 

@@ -349,7 +349,7 @@ highcharter::highchart(type = "stock") %>%
 
 output$tamp_plot <- highcharter::renderHighchart(
   highcharter::hchart(dplyr::filter(tamp_creg_1,region==input$test_region), "column", highcharter::hcaes(x = date, y = value, group = key), color=c("red","#888888")) %>% 
-    highcharter::hc_chart(zoomType = "xy", scrollablePlotArea = list(minWidth = 1000, scrollPositionX = 1)) %>%
+    highcharter::hc_chart(zoomType = "xy") %>%
     
     highcharter::hc_yAxis_multiples(
       list(lineWidth = 3, title = list(text  =  '')),

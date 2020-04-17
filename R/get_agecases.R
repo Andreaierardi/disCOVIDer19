@@ -83,23 +83,24 @@ get_agecases <- function(regNames) {
   {
     clean = stringr::str_trim(pages_split[[reg]])
     
-    m = gregexpr('[0-9]+',clean[2:5])
-    partition = regmatches(clean[2:5], m)
+    m = gregexpr('[0-9]+',clean[2:4])
+    partition = regmatches(clean[2:4], m)
     
     regione = clean[1]
     casi_totali = as.integer(partition[[1]])
     eta_mediana = as.integer(partition[[2]][1])
-    deceduti = as.integer(partition[[3]])
-    operatori_sanitari = as.integer(partition[[4]][1])
+    deceduti = as.integer(partition[[3]][1])
+  #  operatori_sanitari = as.integer(partition[[4]][1])
     
-    summary = data.frame(casi_totali,eta_mediana,deceduti,operatori_sanitari)
+#    summary = data.frame(casi_totali,eta_mediana,deceduti,operatori_sanitari)
+    summary = data.frame(casi_totali,eta_mediana,deceduti)
     
-    m2 = gregexpr('[0-9]+-[0-9]+|[+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)',clean[5])
-    part2 = regmatches(clean[5], m2)[[1]]
+    m2 = gregexpr('[0-9]+-[0-9]+|[+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)',clean[4])
+    part2 = regmatches(clean[4], m2)[[1]]
     
     age_cases = data.frame()
     
-    for (i in seq(2,length(part2)-1, by = 3))
+    for (i in seq(2,length(part2)-1, by =3))
     {
       age_int = part2[i]
       cases = as.integer(part2[i+1])
@@ -120,7 +121,7 @@ get_agecases <- function(regNames) {
     names(age_lis[[reg]]) = c("summary","age_cases")
     
   }
-  
+  age_lis
   names(age_lis) = regions
   return(age_lis)
   

@@ -123,7 +123,7 @@ shiny::observe({
   wait <- waitLoading()
   
   reac_general$sample_date <- eval(t$data)[[t$name]]$data
-  reac_general$sample_cases <- level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
+  reac_general$sample_cases <-   covid19:::level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
 })
 
 

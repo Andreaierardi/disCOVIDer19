@@ -36,7 +36,10 @@ Imports:
     DT,
     pdftools,
     stringr,
-    ddpcr
+    ddpcr,
+    spectral,
+    R0,
+    deSolve
 Remotes: 
     github::jbkunst/highcharter
 License: MIT + file LICENSE

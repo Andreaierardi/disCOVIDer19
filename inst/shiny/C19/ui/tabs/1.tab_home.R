@@ -38,16 +38,16 @@ shinydashboard::tabItem(tabName = "home",
                                                              
                                                              selectInput(inputId = "map_value",
                                                                          label = NULL,
-                                                                         choices = c("absolute", "percentage", "density", "growth"),
+                                                                         choices = c("absolute", "proportion", "density", "growth"),
                                                                          width="150px"),
                                                              
                                                              #   shinyWidgets::pickerInput(inputId = "map_value",
                                                              #          label = NULL,
-                                                             #          choices = c("absolute", "percentage", "density"),
+                                                             #          choices = c("absolute", "proportion", "density"),
                                                              #          choicesOpt = list(content = c(
-                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/4699.png' width=30px><div class='jhr'>%s</div></img>", factor("absolute",levels=c("absolute","percentage","density")) ),
-                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/12521.png' width=30px><div class='jhr'>%s</div></img>", factor("percentage",levels=c("absolute","percentage","density")) ),
-                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/30573.png' width=30px><div class='jhr'>%s</div></img>", factor("density",levels=c("absolute","percentage","density")) )
+                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/4699.png' width=30px><div class='jhr'>%s</div></img>", factor("absolute",levels=c("absolute","proportion","density")) ),
+                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/12521.png' width=30px><div class='jhr'>%s</div></img>", factor("proportion",levels=c("absolute","proportion","density")) ),
+                                                             #            sprintf("<img src='https://www.color-hex.com/palettes/30573.png' width=30px><div class='jhr'>%s</div></img>", factor("density",levels=c("absolute","proportion","density")) )
                                                              #          )))
                                                              
                                                          ),

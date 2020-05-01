@@ -13,6 +13,7 @@ age_cases = covid19:::get_agecases(as.character(sort(names(regionTS))))
 decrees = covid19:::get_decrees()
 
 
+
 readfile = as.data.frame(intensivecare_cap)
 colnames(readfile) = c("region","capacity")
 
@@ -39,6 +40,7 @@ colnames(newdf) = c("data","occupancy","capacity","perc","region")
 intensivecare_capacity = newdf
 
 
+
 N <- nrow(countryTS)
 
 
@@ -58,6 +60,11 @@ checkExp <- function(expression, message) {
 toLog10<- function(num)
 {
   return(log(num)/log(10))
+}
+
+# from date to UTS date (milliseconds from Jan 1, 1970)
+UTSdate <- function(date) {
+  return(as.integer(date) * 86400000)
 }
 
 #================================
@@ -132,12 +139,12 @@ setdiff(b,a)
 dfita1 <- dfita1 %>%
   dplyr::left_join(pc_df) %>%
   dplyr::ungroup() %>% 
-  dplyr::mutate(percentage=(cases/pop)*100) %>%
-  dplyr::mutate(density=(cases/ext)*1000) %>%
+  dplyr::mutate(proportion=(cases/pop)*100) %>%
+  dplyr::mutate(density=(cases/ext)) %>%
   dplyr::rename(absolute=cases) %>%
-  dplyr::mutate(percentage = round(percentage,2)) %>%
+  dplyr::mutate(proportion = round(proportion,2)) %>%
   dplyr::mutate(density = round(density, 2)) %>%
-  dplyr::select(id, date, absolute, percentage, density, growth) %>%
+  dplyr::select(id, date, absolute, proportion, density, growth) %>%
   dplyr::ungroup() %>%
   tidyr::gather(key="type",value="value",-id,-date)
 
@@ -211,10 +218,10 @@ clean_prov <- clean_prov %>%
 dfita2 <- dfita2 %>%
   dplyr::left_join(clean_prov) %>% 
   dplyr::ungroup() %>% 
-  dplyr::mutate(percentage=(cases/pop)*100) %>%
-  dplyr::mutate(density=(cases/ext)*1000) %>%
+  dplyr::mutate(proportion=(cases/pop)*100) %>%
+  dplyr::mutate(density=(cases/ext)) %>%
   dplyr::rename(absolute=cases) %>% 
-  dplyr::select(hasc, date, absolute, percentage, density, growth) %>%
+  dplyr::select(hasc, date, absolute, proportion, density, growth) %>%
   tidyr::gather(key="type",value="value",-hasc,-date)
 
 
@@ -309,6 +316,8 @@ age_df_final <- age_df %>%
 #====== MODULE 3 - ANALYSIS ====== 
 
 # Inital and final dates of samples
+'%then%' <- shiny:::'%OR%'
+
 init_date <- min(countryTS$Italy$data)
 
 init_date_arima = init_date
@@ -337,4 +346,3 @@ for(prov in provNames) {
 }
 
 #================================
-

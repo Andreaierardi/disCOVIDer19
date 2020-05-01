@@ -1,11 +1,16 @@
 ## REACTIVES OF THIS CODE
+reac_general <- shiny::reactiveValues()
+reac_logistic <- shiny::reactiveValues()
 reac_ARIMA <- shiny::reactiveValues(arimaOK = FALSE)
+reac_FFT <- shiny::reactiveValues()
+reac_R <- shiny::reactiveValues()
+reac_SEIR <- shiny::reactiveValues()
     
     # THIS IS THE REACTIVE CONTAINER OF TERRITORY SELECTION VARIABLES.
 t <- shiny::reactiveValues()
     
     ## Reactive values for global storage 
-reac_general <- shiny::reactiveValues()
+
 
 ## CHECKS FOR ERROR PREVENTING ##
 is_ready <- function(x) {
@@ -34,8 +39,10 @@ waitInput <- shiny::reactive({
 # DEPENDS ON REACTIVE t
 suggest_dates <- function()
 {
+
   index = covid19::const_trim(eval(t$data)[[t$name]]$totale_casi,1)
   sugStart = eval(t$data)[[t$name]]$data[index]
+  #sugStart = reac_general$sample_date[index]
   
   return(c(sugStart, fin_date))
 }
@@ -88,10 +95,14 @@ shiny::observe( {
   }
   
   reac_general$sugg_dates = suggest_dates()
+  
   shiny::updateSliderInput(session,"arima_interval",min = init_date, max = fin_date, timeFormat = "%d %b",
                            step = 1, value = c(reac_general$sugg_dates[1], reac_general$sugg_dates[2]))
-  shiny::updateSliderInput(session, "fitInterval",min = init_date, max = fin_date, timeFormat = "%d %b",
-                           step = 1, value = c(reac_general$sugg_dates[1],reac_general$sugg_dates[2]))
+   shiny::updateSliderInput(session, "fitInterval",min = init_date, max = fin_date, timeFormat = "%d %b",
+                            step = 1, value = c(reac_general$sugg_dates[1],reac_general$sugg_dates[2]))
+   shiny::updateSliderInput(session,"FFT_interval",min = init_date, max = fin_date, timeFormat = "%d %b",
+                            step = 1, value = c(reac_general$sugg_dates[1], reac_general$sugg_dates[2]))
+  
 })
 
 
@@ -107,23 +118,33 @@ output$dates_sugg <- shiny::renderUI({
 })
 
 
+shiny::observe({
+  
+  wait <- waitLoading()
+  
+  reac_general$sample_date <- eval(t$data)[[t$name]]$data
+  reac_general$sample_cases <- level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
+})
+
 
 output$coolplot1 <- plotly::renderPlotly({
   
   wait <- waitLoading()
   #waiter::waiter_show(id = "coolplot1", html = waiter::spin_loaders(id = 1, color = "#ff471a"), color = "white")
   # Data trim and curve fitting #
+  
+  if(is_ready(reac_general$sample_cases)) {
   n <- nrow(eval(t$data)[[t$name]])
-  logic_interval <- eval(t$data)[[t$name]]$data >= input$fitInterval[1] &
-    eval(t$data)[[t$name]]$data <= input$fitInterval[2]
+  logic_interval <- reac_general$sample_date >= input$fitInterval[1] &
+    reac_general$sample_date <= input$fitInterval[2]
   
   sample_serial_date <- eval(t$data)[[t$name]]$data_seriale
   
-  sample_cases <- imputeTS::na_locf(eval(t$data)[[t$name]]$totale_casi)
+  sample_cases <- reac_general$sample_cases
   sample_diff <-  c(NA,diff(sample_cases))
   
   if( !t$p && input$swab_std ) {
-    swabs <- imputeTS::na_interpolation(eval(t$data)[[t$name]]$tamponi)
+    swabs <- level_and_fill(eval(t$data)[[t$name]]$tamponi, direction = input$direction_fill, method = input$method_fill)
     sample_cases <- sample_cases / swabs
     sample_diff <-  c(NA,sample_diff[-1] / diff(swabs))
   }
@@ -141,11 +162,11 @@ output$coolplot1 <- plotly::renderPlotly({
                       sample_date = sample_serial_date_trim,
                       days = days)
   
-  reac_general$model <- fit_data$out_fit$model
-  reac_general$resid <- fit_data$out_resid
-  reac_general$vals <- fit_data$out_fit$vals
+  reac_logistic$model <- fit_data$out_fit$model
+  reac_logistic$resid <- fit_data$out_resid
+  reac_logistic$vals <- fit_data$out_fit$vals
   
-  conf <- nlstools::confint2(level = 0.95, object = reac_general$model)
+  conf <- nlstools::confint2(level = 0.95, object = reac_logistic$model)
   
   yConf_up <- (conf["n0",2]*conf["k",2])/(conf["n0",2] + (conf["k",2]-conf["n0",2]) * exp(-conf["r",2]*sample_serial_date_trim))
   yConf_down <- (conf["n0",1]*conf["k",1])/(conf["n0",1] + (conf["k",1]-conf["n0",1]) * exp(-conf["r",1]*sample_serial_date_trim))
@@ -153,13 +174,13 @@ output$coolplot1 <- plotly::renderPlotly({
   
   
   # Conversion to real date and creation of fitted points #
-  points_trim <- data.frame("sample_serial_date_trim" = eval(t$data)[[t$name]]$data[logic_interval],
+  points_trim <- data.frame("sample_serial_date_trim" = reac_general$sample_date[logic_interval],
                             sample_cases_trim)
-  points_rem <- data.frame("sample_serial_date_rem" = eval(t$data)[[t$name]]$data[!logic_interval],
+  points_rem <- data.frame("sample_serial_date_rem" = reac_general$sample_date[!logic_interval],
                            sample_cases_rem)
-  points_diff_trim <- data.frame("sample_serial_date_trim" = eval(t$data)[[t$name]]$data[logic_interval],
+  points_diff_trim <- data.frame("sample_serial_date_trim" = reac_general$sample_date[logic_interval],
                                  sample_diff_trim)
-  points_diff_rem <- data.frame("sample_serial_date_rem" = eval(t$data)[[t$name]]$data[!logic_interval],
+  points_diff_rem <- data.frame("sample_serial_date_rem" = reac_general$sample_date[!logic_interval],
                                 sample_diff_rem)
   
   fittedPoints <- fit_data$fittedPoints
@@ -168,9 +189,9 @@ output$coolplot1 <- plotly::renderPlotly({
   fittedPoints$days <- seq_dates
   fittedPoints_der$days <- seq_dates
   
-  confPoints_up <- data.frame("sample_serial_date_trim" = eval(t$data)[[t$name]]$data[logic_interval],
+  confPoints_up <- data.frame("sample_serial_date_trim" = reac_general$sample_date[logic_interval],
                               yConf_up)
-  confPoints_down <- data.frame("sample_serial_date_trim" = eval(t$data)[[t$name]]$data[logic_interval],
+  confPoints_down <- data.frame("sample_serial_date_trim" = reac_general$sample_date[logic_interval],
                                 yConf_down)
   
   # PLOT with plotly #
@@ -186,8 +207,8 @@ output$coolplot1 <- plotly::renderPlotly({
     
     hovlabels <- c("")
     for(i in c(1:n)) {
-      hovlabels[i] <- paste(format(eval(t$data)[[t$name]]$data[i], "%d %b"),
-                            ", Tot cases = ", eval(t$data)[[t$name]]$totale_casi[i], sep ="")
+      hovlabels[i] <- paste(format(reac_general$sample_date[i], "%d %b"),
+                            ", Tot cases = ", sample_cases[i], sep ="")
       if( !t$p && input$swab_std )
         hovlabels[i] <- paste(hovlabels[i], ", Tot swabs = ", swabs[i], sep = "")
     }
@@ -205,9 +226,9 @@ output$coolplot1 <- plotly::renderPlotly({
   {
     hovlabels <- c("")
     for(i in c(2:n)) {
-      hovlabels[i] <- paste(format(eval(t$data)[[t$name]]$data[i], "%d %b"),
+      hovlabels[i] <- paste(format(reac_general$sample_date[i], "%d %b"),
                             ", Cases = ", 
-                            eval(t$data)[[t$name]]$totale_casi[i] - eval(t$data)[[t$name]]$totale_casi[i-1], 
+                            sample_cases[i] - sample_cases[i-1], 
                             sep ="")
       if( !t$p && input$swab_std )
         hovlabels[i] <- paste(hovlabels[i], ", Swabs = ", swabs[i]-swabs[i-1], sep = "")
@@ -238,16 +259,17 @@ output$coolplot1 <- plotly::renderPlotly({
   
   # labels and plot
   fig <- fig %>%plotly::layout(xaxis = list(title = "day"), yaxis = list(title = "Infected"))
-  if( reac_general$vals$k > 1e7 )
+  if( reac_logistic$vals$k > 1e7 )
     fig <- fig %>%plotly::layout(title = "Warning: unrealistic model estimated", font = list(color = 'red'),dtick= 5 )
   fig
   
+  }
 })
 
 #-- Summary of regions ---
 output$fit_smry <- shiny::renderPrint({
   wait <- waitLoading()
-  summary(reac_general$model)
+  summary(reac_logistic$model)
 })
 
 output$selected_terr <- shiny::renderPrint({
@@ -272,10 +294,28 @@ output$selected_info3 <- shiny::renderUI({
   selected_info_func()
 })
 
+output$selected_info4 <- shiny::renderUI({
+  selected_info_func()
+})
+
+output$selected_info5 <- shiny::renderUI({
+  if(is_ready(reac_SEIR$name) && is_ready(reac_SEIR$notAvail))
+  {
+    if(reac_SEIR$notAvail) {
+      fluidPage(
+        div(h2(strong(paste("Selected territory:", reac_SEIR$name))), align = "center", style = "color:red"),
+        div(h5(em(paste("Data for SEIR not available at province level"))), align = "center", style = "color:red")
+      )
+    } else {
+      div(h2(strong(paste("Selected territory:", reac_SEIR$name))), align = "center", style = "color:red")
+    }
+  }
+})
+
 output$resid_smry <- shiny::renderPrint({
   wait <- waitLoading()
   print("Data: residuals from nls regression")
-  nlstools::test.nlsResiduals(reac_general$resid)
+  nlstools::test.nlsResiduals(reac_logistic$resid)
 })
 
 
@@ -284,10 +324,10 @@ output$resid_smry <- shiny::renderPrint({
 output$plot_residual <- plotly::renderPlotly({
   wait <- waitLoading()
   
-  Res_DF_1<-as.data.frame(reac_general$resid$resi1)
-  Res_DF_2<-as.data.frame(reac_general$resid$resi2)
-  Res_DF_3<-as.data.frame(reac_general$resid$resi4)
-  Res_DF_4<-as.data.frame(reac_general$resid$resi3)
+  Res_DF_1<-as.data.frame(reac_logistic$resid$resi1)
+  Res_DF_2<-as.data.frame(reac_logistic$resid$resi2)
+  Res_DF_3<-as.data.frame(reac_logistic$resid$resi4)
+  Res_DF_4<-as.data.frame(reac_logistic$resid$resi3)
   
   p = plotly::plot_ly(type = 'scatter')
   
@@ -388,15 +428,12 @@ output$plot_residual <- plotly::renderPlotly({
 shiny::observe({
   wait <- waitLoading()
   
-  if(is_ready(input$arima_interval[1])) {
-    reac_ARIMA$logic_interval <- eval(t$data)[[t$name]]$data >=  input$arima_interval[1]  &
-      eval(t$data)[[t$name]]$data <= input$arima_interval[2] 
+  if(is_ready(input$arima_interval[1]) && is_ready(reac_general$sample_cases)) {
+    reac_ARIMA$logic_interval <- reac_general$sample_date >=  input$arima_interval[1]  &
+      reac_general$sample_date <= input$arima_interval[2] 
     
-    reac_ARIMA$sample_date <- eval(t$data)[[t$name]]$data
-    reac_ARIMA$sample_cases <- imputeTS::na_locf(eval(t$data)[[t$name]]$totale_casi)
-    
-    reac_ARIMA$sample_date_trim <- reac_ARIMA$sample_date[reac_ARIMA$logic_interval]
-    reac_ARIMA$sample_cases_trim <- reac_ARIMA$sample_cases[reac_ARIMA$logic_interval]+1
+    reac_ARIMA$sample_date_trim <- reac_general$sample_date[reac_ARIMA$logic_interval]
+    reac_ARIMA$sample_cases_trim <- reac_general$sample_cases[reac_ARIMA$logic_interval]+1
     
     reac_ARIMA$sugg_lags <- suggest_lags()
     updateSliderInput(session,"ARIMA_p", value=  reac_ARIMA$sugg_lags[1])
@@ -560,9 +597,243 @@ output$arima_shell_resid <- shiny::renderPrint({
 
 
 
+#============ FFT ======================================
+
+shiny::observe({
+  wait <- waitLoading()
+  
+  if(is_ready(reac_general$sample_cases)) {
+    reac_FFT$logic_interval <- reac_general$sample_date >=  input$FFT_interval[1]  &
+      reac_general$sample_date <= input$FFT_interval[2] 
+    
+    reac_FFT$sample_date_trim <- reac_general$sample_date[reac_FFT$logic_interval]
+    reac_FFT$sample_cases_trim <- reac_general$sample_cases[reac_FFT$logic_interval]+1
+  }
+})
+
+
+output$FFT_day_cases<- shiny::renderPlot({
+  
+  if(is_ready(reac_FFT$sample_cases_trim)) {
+    FFTX<-spectral::spec.fft(diff(reac_FFT$sample_cases_trim))
+    plot(FFTX,type = "l",ylab = "Amplitude",xlab = "Frequency",lwd = 2)
+  }
+})
+
+output$FFT_day_cases_diff<- shiny::renderPlot({
+  
+  if(is_ready(reac_FFT$sample_cases_trim)) {
+    FFTX<-spectral::spec.fft(diff(diff(reac_FFT$sample_cases_trim)))
+    plot(FFTX,type = "l",ylab = "Amplitude",xlab = "Frequency",lwd = 2)
+  }
+})
+
+#======================= R(T) ==================================
+
+#DEFAULT 1.4, 0.8
+#
+
+shiny::observe({
+  
+  if(is_ready(reac_general$sample_cases) && is_ready(input$"Gamma_1")) {
+    
+    GT.chld.hsld2<-R0::generation.time("gamma", c(input$"Gamma_1", input$"Gamma_2"))
+    time_R <- as.numeric(length(reac_general$sample_cases))-2
+    
+    tryCatch(
+      {
+        reac_R$R0_data <- R0::est.R0.TD(diff(reac_general$sample_cases),GT.chld.hsld2, begin=1, end=time_R)
+      },
+      error = function(e)
+      {
+        reac_R$R0_data <- FALSE
+      }
+    )
+  }
+})
+
+R0_data <- shiny::reactive({
+
+  shiny::validate(
+    shiny::need(is_ready(reac_R$R0_data), "Wait...") %then%
+    shiny::need(!isFALSE(reac_R$R0_data), "The estimates cannot be calculated")
+  )
+  return(reac_R$R0_data)
+})
+
+
+
+output$R_t_evaluation<- shiny::renderPlot({
+
+    plot( R0_data())
+  
+})
+
+output$R_t_goodness_of_fit<- shiny::renderPlot({
+
+    R0::plotfit(R0_data())
+ 
+})
+
+output$R_t_evaluation_FFT<- shiny::renderPlot({
+
+    R0_data_raw_FFT <- spectral::spec.fft(R0_data()[["R"]])
+    plot(R0_data_raw_FFT,type = "l",ylab = "Amplitude",xlab = "Frequency",lwd = 2)
+
+})
+
+
 
 #======================= SEIR MODEL ==================================
-
-
-
-
+# 
+# 
+# #---- data retrieval, common to both
+# 
+# distr_IT <- 'exp'
+# distr_SRT <- 'exp'
+# distr_IBST <- 'none'
+# 
+# shiny::observe({
+#   
+#   wait <- waitLoading()
+# 
+#   # territory selection for SEIR
+#   if(t$p) {
+#     reac_SEIR$data <- expression(regionTS)
+#     reac_SEIR$notAvail <- TRUE
+#     reac_SEIR$name <- regAndProv[ regAndProv$province == t$name, "region"]
+#   } else {
+#     reac_SEIR$data <- t$data
+#     reac_SEIR$notAvail <- FALSE
+#     reac_SEIR$name <- t$name
+#   }
+#   
+#   # N =  population of area
+#   if(t$c) {
+#     reac_SEIR$N <- italy_pop$country[1,"valore"]
+#   } else {
+#     reac_SEIR$N <- italy_pop$region[italy_pop$region$territorio == reac_SEIR$name, "valore"]
+#   }
+#   
+#   ## Time series
+#   # Infected Time Series
+#   reac_SEIR$P <- level_and_fill(eval(reac_SEIR$data)[[reac_SEIR$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
+#   
+#   # Removed Time Series (recovered + dead)
+#   reac_SEIR$R <- level_and_fill(eval(reac_SEIR$data)[[reac_SEIR$name]]$dimessi_guariti, direction = input$direction_fill, method = input$method_fill) +
+#     level_and_fill(eval(reac_SEIR$data)[[reac_SEIR$name]]$deceduti, direction = input$direction_fill, method = input$method_fill)
+#   
+#   
+#   reac_SEIR$par_IT <- list('rate'=1/input$rate_IT)
+#   reac_SEIR$par_SRT <- list('rate'=1/input$rate_SRT)
+#   reac_SEIR$par_IBST <- NULL
+#   
+#   reac_SEIR$IT <- covid19::generate(distr_IT, reac_SEIR$par_IT)
+#   reac_SEIR$SRT <- covid19::generate(distr_SRT, reac_SEIR$par_SRT)
+#   reac_SEIR$IBST <- covid19::generate(distr_IBST, reac_SEIR$par_IBST)
+#   
+#   reac_SEIR$m <- max(length(reac_SEIR$IT), length(reac_SEIR$SRT), length(reac_SEIR$IBST))
+#   reac_SEIR$end <- length(reac_SEIR$P) #Rt goes from day 1 to day n_obs-m BUT also the SEIR data series will go from day 1 to that day after refinement
+#   reac_SEIR$len <- reac_SEIR$end - reac_SEIR$m
+# })
+# 
+# 
+# #---- R0 part
+#
+# shiny::observeEvent(input$est_R0, {
+# 
+#   out <- SEIR_factotum(P = reac_SEIR$P, R = reac_SEIR$R, N = reac_SEIR$N,
+#                        end=reac_SEIR$end, future=input$future,
+#                        distr_IT=distr_IT, distr_SRT=distr_SRT, distr_IBST=distr_IBST,
+#                        par_IT=reac_SEIR$par_IT, par_SRT=reac_SEIR$par_SRT, par_IBST=reac_SEIR$par_IBST,
+#                        R0_exp_est_end=input$R0_exp_est_end,
+#                        plot_data=input$plot_data)
+# 
+#   reac_SEIR$R0 <- out$R0
+# 
+#   S_ <- reac_SEIR$N*out$S_ 
+#   E_ <- reac_SEIR$N*out$E_ 
+#   I_ <- reac_SEIR$N*out$I_ 
+#   R_ <- reac_SEIR$N*out$R_
+#   S <- reac_SEIR$N*out$S 
+#   E <- reac_SEIR$N*out$E 
+#   I <- reac_SEIR$N*out$I
+#   R <- reac_SEIR$N*out$R
+# 
+#   reac_SEIR$U <- data.frame(date = seq(from = init_date, by = 1, length.out = reac_SEIR$len), 'S'=S, 'E'=E, 'I'=I, 'R'=R)
+#   reac_SEIR$U_ <- data.frame(date = seq(from = init_date, by = 1, length.out = reac_SEIR$len), 'S_'=S_, 'E_'=E_, 'I_'=I_, 'R_'=R_)
+# 
+#   reac_SEIR$current <- "R0"
+# 
+# })
+# 
+# 
+# shiny::observeEvent(input$est_Rt, {
+# 
+# 
+#   # REFERS TO INPUT IN PRECEDENT TAB
+# 
+#   GT<-R0::generation.time("gamma", c(input$"Gamma_1", input$"Gamma_2"))
+#   R0_out <- R0::est.R0.TD(diff(reac_SEIR$P),GT,begin=1, end=as.numeric(reac_SEIR$len))
+#   Rt <- R0_out$R
+#   R0_stages <- (1:(length(Rt)-1))
+# 
+#   out <- SEIR_factotum(P = reac_SEIR$P, R = reac_SEIR$R, N = reac_SEIR$N,
+#                        end=reac_SEIR$end, future=input$future,
+#                        distr_IT=distr_IT, distr_SRT=distr_SRT, distr_IBST=distr_IBST,
+#                        par_IT=reac_SEIR$par_IT, par_SRT=reac_SEIR$par_SRT, par_IBST=reac_SEIR$par_IBST,
+#                        R0_msp=Rt, R0_stages=R0_stages,
+#                        plot_data=input$plot_data)
+# 
+#   S_ <- reac_SEIR$N*out$S_ 
+#   E_ <- reac_SEIR$N*out$E_ 
+#   I_ <- reac_SEIR$N*out$I_ 
+#   R_ <- reac_SEIR$N*out$R_
+#   S <- reac_SEIR$N*out$S 
+#   E <- reac_SEIR$N*out$E 
+#   I <- reac_SEIR$N*out$I
+#   R <- reac_SEIR$N*out$R
+# 
+#   reac_SEIR$U <- data.frame(date = seq(from = init_date, by = 1, length.out = reac_SEIR$len), 'S'=S, 'E'=E, 'I'=I, 'R'=R)
+#   reac_SEIR$U_ <- data.frame(date = seq(from = init_date, by = 1, length.out = reac_SEIR$len), 'S_'=S_, 'E_'=E_, 'I_'=I_, 'R_'=R_)
+# 
+#   reac_SEIR$current <- "R(t)"
+# 
+# })
+# 
+# 
+# shiny::observe({
+#   if(is_ready(reac_SEIR$U_) ) {
+#     reac_SEIR$SEIR_plot <- highcharter::hchart(tidyr::gather((reac_SEIR$U_), key="key", value="value", -date), 
+#                                                highcharter::hcaes(x = date, y = value, group = key), 
+#                                                type = "line",
+#                                                color = c("#bf40bf", "#e60000", "#00b300", "#fec501"),
+#                                                name = c("Exposed", "Infectious", "Recovered", "Susceptible"),
+#                                                marker = list(enabled = FALSE),
+#                                                legendIndex = c(2,3,4,1),
+#                                                tooltip = list(valueDecimals = 0)
+#     ) %>%
+#       highcharter::hc_add_series(tidyr::gather((reac_SEIR$U), key="key", value="value", -date), 
+#                                  highcharter::hcaes(x = date, y = value, group = key), 
+#                                  type = "scatter",
+#                                  name = c("Exposed (true)", "Infectious (true)", "Recovered (true)", "Susceptible (true)"),
+#                                  color = c("#bf40bf", "#e60000", "#00b300", "#fec501"),
+#                                  legendIndex = c(2,3,4,1),
+#                                  tooltip = list(valueDecimals = 0, 
+#                                                 pointFormat = '<span style="color:{point.color}">■</span> {series.name}: <b>{point.y}</b><br/>',
+#                                                 headerFormat = '<span style="font-size: 10px">{point.key}</span><br/>')
+#       ) %>%
+#       highcharter::hc_title(text = paste("SEIR based on", reac_SEIR$current))
+#   }
+# })
+# 
+# 
+# output$SEIR_R0 <- renderPrint({
+#   if(is_ready(reac_SEIR$R0)) {
+#     print(reac_SEIR$R0)
+#   }
+# })
+# 
+# output$SEIR_plot <- highcharter::renderHighchart(
+#   reac_SEIR$SEIR_plot
+# )

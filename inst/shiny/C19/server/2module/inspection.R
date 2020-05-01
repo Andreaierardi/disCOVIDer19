@@ -45,6 +45,7 @@ output$decree_tl <- highcharter::renderHighchart(
     highcharter::hc_yAxis(gridLineWidth = 1, title = NULL, labels = list(enabled = FALSE), visible = FALSE) %>%
     highcharter::hc_legend(enabled = FALSE) %>%
     highcharter::hc_title(text = "Timeline of Ministerial Decrees concerning COVID-19") %>%
+    highcharter::hc_subtitle(text = "Click on events to show official documents") %>%
     highcharter::hc_tooltip(style = list(width = 300)) %>%
     highcharter::hc_plotOptions(series = list(cursor = "pointer", 
                                               point = list(
@@ -110,10 +111,31 @@ shiny::observe({
       reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
         dplyr::select("Date" = data, "Tot. cases" = totale_casi, "Tot. deaths" = deceduti, "Tot. recoveries" = dimessi_guariti)
       reac_dataset$colors <- c("blue", "black", "green")
+      # maxima labels
+      reac_dataset$annotations_labels <- list(
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. cases"]))) , "Date" ]),
+                          y = reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. cases"]))) , "Tot. cases" ], xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Inflection: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(63, 63, 191, 0.4)'),
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. deaths"]))) , "Date" ]),
+                          y = reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. deaths"]))) , "Tot. deaths" ], xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Inflection: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(0, 0, 0, 0.4)'),
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. recoveries"]))) , "Date" ]),
+                          y = reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. recoveries"]))) , "Tot. recoveries" ], xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Inflection: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(27, 150, 27, 0.4)')
+      )
     } else {
       reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
         dplyr::select("Date" = data, "Tot. cases" = totale_casi)
       reac_dataset$colors <- c("blue")
+      reac_dataset$annotations_labels <- list(
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. cases"]))) , "Date" ]),
+                          y = reac_dataset$table_plot[ which.max(c(NA,diff(reac_dataset$table_plot[,"Tot. cases"]))) , "Tot. cases" ], xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Inflection: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(63, 63, 191, 0.4)')
+      )
     }
     
     
@@ -128,11 +150,34 @@ shiny::observe({
         dplyr::mutate("New deaths" = c(NA,diff(deceduti)), "New recoveries" = c(NA,diff(dimessi_guariti)), "New cases" = c(NA,diff(totale_casi))) %>%
         dplyr::select("Date" = data, "New cases", "New deaths", "New recoveries")
       reac_dataset$colors <- c("blue", "black", "green")
+      # maxima labels
+      reac_dataset$annotations_labels <- list(
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"New cases"]) , "Date" ]),
+                          y = max(reac_dataset$table_plot[,"New cases"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(63, 63, 191, 0.4)'),
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"New deaths"]) , "Date" ]),
+                          y = max(reac_dataset$table_plot[,"New deaths"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(0, 0, 0, 0.4)'),
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"New recoveries"]) , "Date" ]),
+                          y = max(reac_dataset$table_plot[,"New recoveries"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(27, 150, 27, 0.4)')
+      )
+      reac_dataset$yAxis_max <- max(reac_dataset$table_plot[,"New cases"], na.rm = T)*125/100
+      
     } else {
       reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
         dplyr::mutate("New cases" = c(NA,diff(totale_casi))) %>%
         dplyr::select("Date" = data, "New cases")
       reac_dataset$colors <- c("blue")
+      reac_dataset$annotations_labels <- list(
+        list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"New cases"]) , "Date" ]),
+                          y = max(reac_dataset$table_plot[,"New cases"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+             text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+             backgroundColor = 'rgba(63, 63, 191, 0.4)')
+      )
     }
     
     
@@ -144,8 +189,25 @@ shiny::observe({
     
     reac_dataset$table_plot <- eval(reac_dataset$data)[[reac_dataset$name]] %>%
       dplyr::select("Date" = data, "Current pos. cases" = totale_positivi, "Current hospitalised" = totale_ospedalizzati, "Current intensive care" = terapia_intensiva, "Current home isol." = isolamento_domiciliare)
-    # reac_dataset$colors <- c("darkorchid", "darkseagreen3", "firebrick2", "cyan2")
-    reac_dataset$colors <- c("#cc66ff", "#00e673", "#ff3300", "#00bfff")
+    reac_dataset$colors <- c("#00bfff", "#00e673", "#ff3300", "#cc66ff")
+    reac_dataset$annotations_labels <- list(
+      list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"Current pos. cases"]) , "Date" ]),
+                        y = max(reac_dataset$table_plot[,"Current pos. cases"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+           text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+           backgroundColor = 'rgba(204, 102, 255, 0.4)'),
+      list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"Current hospitalised"]) , "Date" ]),
+                        y = max(reac_dataset$table_plot[,"Current hospitalised"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+           text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+           backgroundColor = 'rgba(0, 230, 115, 0.4)'),
+      list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"Current intensive care"]) , "Date" ]),
+                        y = max(reac_dataset$table_plot[,"Current intensive care"], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+           text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+           backgroundColor = 'rgba(255, 51, 0, 0.4)'),
+      list(point = list(x = UTSdate(reac_dataset$table_plot[ which.max(reac_dataset$table_plot[,"Current home isol."]) , "Date" ]),
+                        y = max(reac_dataset$table_plot[,"Current home isol."], na.rm = T), xAxis = 0, yAxis = reac_dataset$yAxis),
+           text = 'Peak: <strong>{y}</strong><br/>{x:%d %b %Y}',
+           backgroundColor = 'rgba(0, 191, 255, 0.4)')
+    )
   }
     
   
@@ -156,15 +218,30 @@ shiny::observe({
                                           color=reac_dataset$colors,
                                           yAxis = reac_dataset$yAxis,
                                           showInLegend=TRUE) %>%
+    highcharter::hc_xAxis(
+      plotBands = list(list(color = "#ffe6e6", from = UTSdate(as.Date("2020-03-09")), to = UTSdate(fin_date),
+                       label = list(text = "Complete lockdown", style = list(color = "#cc0000")))
+                       ),
+      plotLines = list(list(color = "#e60000", value = UTSdate(as.Date("2020-03-09")), width = 4,
+                            label = list(text = "Decree of March 9th"))
+                       )
+    ) %>%
+    highcharter::hc_yAxis(
+      max = reac_dataset$yAxis_max
+    ) %>%
+    highcharter::hc_annotations(list(
+      labels = reac_dataset$annotations_labels,
+      labelOptions = list(useHTML = T, distance = 15))
+      ) %>%
     highcharter::hc_plotOptions(column = reac_dataset$plotOptions_column) %>%
-      highcharter::hc_chart(zoomType = "xy") %>%
-      highcharter::hc_yAxis_multiples(
+    highcharter::hc_chart(zoomType = "xy") %>%
+    highcharter::hc_yAxis_multiples(
         list(lineWidth = 3, title = list(text  =  '')),
         list(showLastLabel = TRUE, opposite = TRUE, title = list(text  =  ''))
       )  %>%
-      highcharter::hc_legend(align = "top", verticalAlign = "top",
-                             layout = "vertical", x = 30, y = 100, enabled=TRUE) %>%
-      highcharter::hc_title(text = paste0("General info for: ",reac_dataset$name),
+    highcharter::hc_legend(align = "top", verticalAlign = "top",
+                           layout = "vertical", x = 30, y = 100, enabled=TRUE) %>%
+    highcharter::hc_title(text = paste0("General info for: ",reac_dataset$name),
                             margin = 20, align = "left",
                             style = list(useHTML = TRUE))
 
@@ -175,6 +252,8 @@ shiny::observe({
 output$geninfo_plot <- highcharter::renderHighchart(
   reac_dataset$plot
 )
+
+output$log_geninfo <- renderPrint(reac_dataset$annotations_labels)
 
 
 #======= TABLE ====== 
@@ -323,10 +402,41 @@ shiny::observe({
     reac_growth$growth_change <- data.frame(date=reac_growth$out_growth$data, growth=reac_growth$out_growth$growth_change)
     
     reac_growth$growth_change_xts <- xts::xts(reac_growth$growth_change[,-1], order.by=reac_growth$growth_change[,1])
+    
+    reac_growth$table_growth <- data.frame(date=reac_growth$out_growth$data, growth=reac_growth$out_growth$growth, growth_change = reac_growth$out_growth$growth_change)
   }
  
 })
 
+# boxes with arrows and growth in growth monitoring
+output$summary_box_growth <- renderUI({
+  
+  shinydashboardPlus::descriptionBlock(
+    number = paste0(tail(reac_growth$out_growth$growth,1),"%"),
+    number_color = ifelse(tail(reac_growth$out_growth$growth,1)>0,"red","green"), 
+    number_icon = ifelse(tail(reac_growth$out_growth$growth,1)>0,"fa fa-caret-up","fa fa-caret-down"),
+    header = "CASES GROWTH", 
+    text = NULL, 
+    right_border = TRUE,
+    margin_bottom = FALSE
+  )
+  
+})
+
+
+output$summary_box_growth_change <- renderUI({
+  
+  shinydashboardPlus::descriptionBlock(
+    number = paste0(tail(reac_growth$out_growth$growth_change,1),"%"),
+    number_color = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"red","green"), 
+    number_icon = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"fa fa-caret-up","fa fa-caret-down"),
+    header = HTML("&Delta; CASES GROWTH"), 
+    text = NULL, 
+    right_border = FALSE,
+    margin_bottom = FALSE
+  )
+  
+})
 
 output$plot_test <- highcharter::renderHighchart(
   if(is_ready(reac_growth$growth_xts)){
@@ -338,9 +448,26 @@ highcharter::highchart(type = "stock") %>%
                                                list(type="all", count=1, text="All")), 
                                 selected = 7 ) %>%
   highcharter::hc_title(text = "% growth and growth change of total cases") %>%
-  highcharter::hc_add_series(reac_growth$growth_xts, name="growth", color = "red", type = "spline") %>% 
-  highcharter::hc_add_series(reac_growth$growth_change_xts, name="growth_change", color = "orange", type = "spline")
-} else {Sys.sleep(1)}
+  # highcharter::hc_add_series(reac_growth$growth_xts, name="growth", color = "red", type = "spline", yAxis = 0,
+  #                            tooltip = list(
+  #                              pointFormat = '<span style="color:{point.color}">-</span> Growth: <b>{point.y}</b><br>Growth change: <b>prova</b>',
+  #                              valueSuffix = '%')) %>% 
+  highcharter::hc_add_series(reac_growth$table_growth, name="growth", 
+                             highcharter::hcaes(x = date, y = growth, yd = growth_change),
+                             color = "red", type = "spline", yAxis = 0,
+                              tooltip = list(
+                               pointFormat = '<span style="color:{point.color}">-</span> Growth: <b>{point.y}</b><br>Growth change: <b>{point.yd}</b>',
+                               valueSuffix = '%')) %>% 
+  # highcharter::hc_add_series(reac_growth$growth_change_xts, name="growth_change", color = "orange", type = "spline", yAxis = 1) %>%
+  highcharter::hc_yAxis(
+    plotLines = list(list(color = "black", value = 0, width = 3, dashStyle = "ShortDash"))
+  )
+  #   %>%
+  # highcharter::hc_yAxis_multiples(
+  #   list(lineWidth = 3, title = list(text  =  ''), plotLines = list(list(color = "#e60000", value = 1, width = 4, dashStyle = "ShortDash"))),
+  #   list(showLastLabel = FALSE, opposite = TRUE, title = list(text  =  ''))
+  # )
+}
 
 )
 
@@ -349,8 +476,9 @@ highcharter::highchart(type = "stock") %>%
 
 output$tamp_plot <- highcharter::renderHighchart(
   highcharter::hchart(dplyr::filter(tamp_creg_1,region==input$test_region), "column", highcharter::hcaes(x = date, y = value, group = key), color=c("red","#888888")) %>% 
+    # BUGGED
+    #highcharter::hc_chart(zoomType = "xy", scrollablePlotArea = list(minWidth = 1000, scrollPositionX = 1)) %>%
     highcharter::hc_chart(zoomType = "xy") %>%
-    
     highcharter::hc_yAxis_multiples(
       list(lineWidth = 3, title = list(text  =  '')),
       list(showLastLabel = FALSE, opposite = TRUE, title = list(text  =  ''))
@@ -391,34 +519,7 @@ output$regprov_dfout <- renderUI({
   
 })
 
-# boxes with arrows and growth in growth monitoring
-output$summary_box_growth <- renderUI({
-  
-  shinydashboardPlus::descriptionBlock(
-    number = paste0(tail(reac_growth$out_growth$growth,1),"%"),
-    number_color = ifelse(tail(reac_growth$out_growth$growth,1)>0,"red","green"), 
-    number_icon = ifelse(tail(reac_growth$out_growth$growth,1)>0,"fa fa-caret-up","fa fa-caret-down"),
-    header = "CASES GROWTH", 
-    text = NULL, 
-    right_border = TRUE,
-    margin_bottom = FALSE
-  )
-  
-})
 
-output$summary_box_growth_change <- renderUI({
-  
-  shinydashboardPlus::descriptionBlock(
-    number = paste0(tail(reac_growth$out_growth$growth_change,1),"%"),
-    number_color = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"red","green"), 
-    number_icon = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"fa fa-caret-up","fa fa-caret-down"),
-    header = HTML("&Delta; CASES GROWTH"), 
-    text = NULL, 
-    right_border = FALSE,
-    margin_bottom = FALSE
-  )
-  
-})
 
 output$growth_NAlog <- renderUI({
 

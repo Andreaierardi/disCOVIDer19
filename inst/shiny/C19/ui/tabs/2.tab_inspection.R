@@ -12,7 +12,7 @@ shinydashboard::tabItem(tabName = "tab_2",
                         
                         shinydashboard::box(title = "Decrees timeline", status = "danger", solidHeader = TRUE,
                                             width = NULL,
-                                            highcharter::highchartOutput("decree_tl")),
+                                            highcharter::highchartOutput("decree_tl"))%>%shinycssloaders::withSpinner( color="#dd4b39"),
                         
                         
                         shinydashboard::box(title="General info", status = "danger", solidHeader = T,

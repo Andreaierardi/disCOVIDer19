@@ -12,13 +12,7 @@ t <- shiny::reactiveValues()
     ## Reactive values for global storage 
 
 
-## CHECKS FOR ERROR PREVENTING ##
-is_ready <- function(x) {
-  if(( is.null(x) || length(x) == 0 ))
-    return(FALSE)
-  
-  return(TRUE)
-}
+
 
 # Use this function waitLoading() to validate the content of t$r and prevent errors
 # (just use it at the beginning of each chunk of code)
@@ -123,7 +117,7 @@ shiny::observe({
   wait <- waitLoading()
   
   reac_general$sample_date <- eval(t$data)[[t$name]]$data
-  reac_general$sample_cases <-   covid19:::level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
+  reac_general$sample_cases <- covid19::level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
 })
 
 

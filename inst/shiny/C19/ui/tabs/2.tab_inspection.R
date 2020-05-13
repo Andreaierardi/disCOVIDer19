@@ -268,7 +268,20 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                               )
                                                      
                                  )
-                          )
+                          ),
+                        
+                        fluidRow(
+                          shinydashboard::box(title = "Spreading delay", status = "danger", solidHeader = TRUE, width=12,
+                                column(12,
+                                       shiny::radioButtons("rank_type", "Rank by:",
+                                                           choices = c("Start of outbreak" = "start", 
+                                                                       "Peak of outbreak" = "peak",
+                                                                       "End of outbreak" = "end"),
+                                                           selected = "start"),
+                                       highcharter::highchartOutput('map_rank', width = "100%", height = "510px")
+                                       )
+                        )
+                        )
                         
                         
 )

@@ -3,6 +3,7 @@ load(file = "italy_pop.rda")
 load(file = "italy_ext.rda")
 load(file = "intensivecare_cap.rda")
 
+
 #================================
 #====== GENERAL DATA ACQUISITION =====
 countryTS = covid19:::get_countryTS()
@@ -54,6 +55,14 @@ checkExp <- function(expression, message) {
   
   return(expression)
   
+}
+
+## CHECKS FOR ERROR PREVENTING ##
+is_ready <- function(x) {
+  if(( is.null(x) || length(x) == 0 ))
+    return(FALSE)
+  
+  return(TRUE)
 }
 
 #=== Function to pass from log e to log 10
@@ -186,7 +195,25 @@ dfita2 <-  ita$features %>%
   }) %>%  # extract the keys
   dplyr::mutate(random = runif(nrow(.))) # create random value
 
-head(dfita2)
+
+# spreading delay
+
+clean_prov_delay <- purrr::map_df(names(provTS), function(x) {
+  st_en <- covid19::detect_start_end(provTS[[x]]$totale_casi)
+  dplyr::data_frame(
+    name=x,
+    start=provTS[[x]][st_en[[1]], "data"],
+    end=provTS[[x]][st_en[[2]], "data"],
+    peak=provTS[[x]][which.max(diff(provTS[[x]]$totale_casi)), "data"]
+  )
+}) %>% 
+  dplyr::ungroup()
+
+dfita3 <-  ita$features %>% 
+  purrr::map_df(function(x){
+    dplyr::data_frame(hasc = x$properties$hasc, name = x$properties$name)
+  }) %>%  # extract the keys
+  dplyr::mutate(random = runif(nrow(.)))
 
 
 
@@ -223,6 +250,27 @@ dfita2 <- dfita2 %>%
   dplyr::rename(absolute=cases) %>% 
   dplyr::select(hasc, date, absolute, proportion, density, growth) %>%
   tidyr::gather(key="type",value="value",-hasc,-date)
+
+
+clean_prov_delay <- clean_prov_delay %>%
+  dplyr::left_join(pop_prov) %>% 
+  dplyr::left_join(territory_prov) %>%
+  dplyr::mutate(name = ifelse(name=="Massa Carrara","Massa-Carrara",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Reggio nell'Emilia","Reggio Emilia",name)) %>% 
+  dplyr::mutate(name = ifelse(name=="Bolzano","Bozen",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Aosta","Aoste",name)) %>% 
+  dplyr::mutate(name = ifelse(name=="Monza e della Brianza","Monza e Brianza",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Reggio di Calabria","Reggio Calabria",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Torino","Turin",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Oristano","Oristrano",name)) %>%
+  dplyr::mutate(name = ifelse(name=="Barletta-Andria-Trani","Barletta-Andria Trani",name))
+
+dfita3 <- dfita3 %>%
+  dplyr::left_join(clean_prov_delay) %>% 
+  dplyr::ungroup()
+
+
+# View(dfita3)
 
 
 

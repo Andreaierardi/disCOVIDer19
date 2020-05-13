@@ -39,7 +39,8 @@ Imports:
     ddpcr,
     spectral,
     R0,
-    deSolve
+    deSolve,
+    scales
 Remotes: 
     github::jbkunst/highcharter
 License: MIT + file LICENSE

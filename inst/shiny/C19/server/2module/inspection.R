@@ -1,6 +1,7 @@
 # ====== GENERAL INFO ==== 
 #Dataset and plot reactive
 reac_dataset <- shiny::reactiveValues()
+reac_delay <- shiny::reactiveValues()
 
 disc_NAfind <- function(v) {
   n <- length(v)
@@ -219,11 +220,15 @@ shiny::observe({
                                           yAxis = reac_dataset$yAxis,
                                           showInLegend=TRUE) %>%
     highcharter::hc_xAxis(
-      plotBands = list(list(color = "#ffe6e6", from = UTSdate(as.Date("2020-03-09")), to = UTSdate(fin_date),
-                       label = list(text = "Complete lockdown", style = list(color = "#cc0000")))
+      plotBands = list(list(color = "#ffe6e6", from = UTSdate(as.Date("2020-03-09")), to = UTSdate(as.Date("2020-05-04")),
+                       label = list(text = "First stage", style = list(color = "#cc0000"))),
+                       list(color = "#ffebcc", from = UTSdate(as.Date("2020-05-04")), to = UTSdate(fin_date),
+                            label = list(text = "Second stage", style = list(color = "#cc7a00")))
                        ),
       plotLines = list(list(color = "#e60000", value = UTSdate(as.Date("2020-03-09")), width = 4,
-                            label = list(text = "Decree of March 9th"))
+                            label = list(text = "Decree of March 9th")),
+                       list(color = "#e67300", value = UTSdate(as.Date("2020-05-04")), width = 4,
+                            label = list(text = "Decree of April 26th"))
                        )
     ) %>%
     highcharter::hc_yAxis(
@@ -487,6 +492,55 @@ output$tamp_plot <- highcharter::renderHighchart(
                                yAxis = 1, highcharter::hcaes(x = date, y = share_infected_discovered),
                                name="share_infected_discovered", color="#383838")
 )
+
+
+
+# SPREADING DELAY ---------------------------------------------------------
+
+# shiny::observe({
+# 
+#   
+#   reac_delay$data
+# })
+
+dfita4 <- dfita3 %>%
+  dplyr::mutate(
+    start_num = scales::rescale(as.numeric(start)),
+    end_num = scales::rescale(as.numeric(end)),
+    peak_num = scales::rescale(as.numeric(peak)))
+
+shiny::observe({
+  
+  switch(input$rank_type,
+         "start" = {
+           reac_delay$pointFormat = "region: {point.name} <br> <strong>start: {point.start}</strong> <br> end: {point.end} <br> peak: {point.peak}"
+           reac_delay$color_stops = highcharter::color_stops(4,c("#dfbf9f", "#996633", "#ecec13", "#ff944d"))
+         },
+         "peak" = {
+           reac_delay$pointFormat = "region: {point.name} <br> start: {point.start} <br> end: {point.end} <br> <strong>peak: {point.peak}</strong>"
+           reac_delay$color_stops = highcharter::color_stops(4,c("#dfbf9f", "#996633", "#ecec13", "#ff944d"))
+          },
+         "end" = {
+           reac_delay$pointFormat = "region: {point.name} <br> start: {point.start} <br> <strong>end: {point.end}</strong> <br> peak: {point.peak}"
+           reac_delay$color_stops = highcharter::color_stops(4,c("#dfbf9f", "#996633", "#ecec13", "#ff944d"))
+         })
+  
+  reac_delay$map_rank <- highcharter::highchart(type = "map") %>% 
+    highcharter::hc_chart(zoomType = "xy") %>%
+    highcharter::hc_add_series_map(map = ita, df = dfita4, 
+                                   joinBy = "hasc", value = paste0(input$rank_type, "_num"),
+                                   name = "") %>%
+    highcharter::hc_tooltip(pointFormat = reac_delay$pointFormat) %>% 
+    highcharter::hc_colorAxis(
+      stops = reac_delay$color_stops
+    )
+})
+
+output$map_rank <- highcharter::renderHighchart({
+  reac_delay$map_rank
+})
+
+
 
 
 

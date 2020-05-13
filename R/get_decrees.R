@@ -171,10 +171,10 @@ get_decrees <- function() {
     ),
     list(
       x = (as.integer(as.Date("2020-04-26")) * 86400000),
-      name = "Conferenza stampa 26 Aprile 2020",
-      label = "Conferenza stampa del Presidente Conte",
+      name = "DPCM 26 Aprile 2020",
+      label = "Decreto Ministeriale",
       description = "Il Presidente Conte ha annunciato in conferenza stampa le misure per il contenimento dell'emergenza Covid-19 nella cosiddetta 'fase due'. Tra le novità introdotte dal nuovo Dpcm, le cui misure saranno in vigore a partire dal 4 maggio e per le successive due settimane: la riapertuta delle attività manifatturiere, di costruzioni, di intermediazione immobiliare e il commercio all’ingrosso; è consentita la ristorazione con asporto fermo restando l’obbligo di rispettare la distanza di sicurezza interpersonale di almeno un metro, il divieto di consumare i prodotti all’interno dei locali e il divieto di sostare nelle immediate vicinanze degli stessi.",
-      link = "http://www.governo.it/it/articolo/conferenza-stampa-del-presidente-conte/14518",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/04/27/20A02352/sg",
       status = "active",
       flag = TRUE
     )

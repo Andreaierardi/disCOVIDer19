@@ -13,6 +13,24 @@ country_growth = covid19:::get_country_growth()
 age_cases = covid19:::get_agecases(as.character(sort(names(regionTS))))
 decrees = covid19:::get_decrees()
 
+detect_start_end <- function(v, threshold = 0.005) {
+  if(is.null(v) || !is.numeric(v) || length(v) == 0)
+    return(NULL)
+  
+  tot <- tail(v[!is.na(v)],1)
+  
+  for(i in c(1:length(v))) {
+    if(!is.na(v[i]) && v[i]/tot > threshold)
+      break
+  }
+  
+  for(j in c(length(v):1)) {
+    if(!is.na(v[j]) && v[j]/tot < (1-threshold) )
+      break
+  }
+  
+  return(list("start" = i, "end" = j))
+}
 
 
 readfile = as.data.frame(intensivecare_cap)
@@ -199,7 +217,7 @@ dfita2 <-  ita$features %>%
 # spreading delay
 
 clean_prov_delay <- purrr::map_df(names(provTS), function(x) {
-  st_en <- covid19:::detect_start_end(provTS[[x]]$totale_casi)
+  st_en <- detect_start_end(provTS[[x]]$totale_casi)
   dplyr::data_frame(
     name=x,
     start=provTS[[x]][st_en[[1]], "data"],

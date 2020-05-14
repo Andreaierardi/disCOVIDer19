@@ -179,6 +179,5 @@ get_decrees <- function() {
       flag = TRUE
     )
   )
-  
   return(decrees)
 }

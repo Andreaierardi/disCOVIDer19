@@ -117,7 +117,7 @@ shiny::observe({
   wait <- waitLoading()
   
   reac_general$sample_date <- eval(t$data)[[t$name]]$data
-  reac_general$sample_cases <- covid19::level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
+  reac_general$sample_cases <- covid19:::level_and_fill(eval(t$data)[[t$name]]$totale_casi, direction = input$direction_fill, method = input$method_fill)
 })
 
 
@@ -138,7 +138,7 @@ output$coolplot1 <- plotly::renderPlotly({
   sample_diff <-  c(NA,diff(sample_cases))
   
   if( !t$p && input$swab_std ) {
-    swabs <- level_and_fill(eval(t$data)[[t$name]]$tamponi, direction = input$direction_fill, method = input$method_fill)
+    swabs <- covid19:::level_and_fill(eval(t$data)[[t$name]]$tamponi, direction = input$direction_fill, method = input$method_fill)
     sample_cases <- sample_cases / swabs
     sample_diff <-  c(NA,sample_diff[-1] / diff(swabs))
   }

@@ -59,7 +59,6 @@ colnames(newdf) = c("data","occupancy","capacity","perc","region")
 intensivecare_capacity = newdf
 
 
-
 N <- nrow(countryTS)
 
 
@@ -217,7 +216,7 @@ dfita2 <-  ita$features %>%
 # spreading delay
 
 clean_prov_delay <- purrr::map_df(names(provTS), function(x) {
-  st_en <- detect_start_end(provTS[[x]]$totale_casi)
+  st_en <- covid19:::detect_start_end(provTS[[x]]$totale_casi)
   dplyr::data_frame(
     name=x,
     start=provTS[[x]][st_en[[1]], "data"],

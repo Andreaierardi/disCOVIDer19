@@ -177,6 +177,33 @@ get_decrees <- function() {
       link = "https://www.gazzettaufficiale.it/eli/id/2020/04/27/20A02352/sg",
       status = "active",
       flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-05-10")) * 86400000),
+      name = "Decreto-Legge 10 Maggio 2020, n. 29",
+      label = "Decreto Legge",
+      description = "Misure urgenti in materia di detenzione domiciliare o differimento dell'esecuzione della pena, nonche' in materia di sostituzione della custodia cautelare in carcere con la misura degli arresti domiciliari, per motivi connessi all'emergenza sanitaria da COVID-19, di persone detenute o internate per delitti di criminalita' organizzata di tipo mafioso, terroristico e mafioso, o per delitti di associazione a delinquere legati al traffico di sostanze stupefacenti o per delitti commessi avvalendosi delle condizioni o al fine di agevolare l'associazione mafiosa, nonche' di detenuti e internati sottoposti al regime previsto dall'articolo 41-bis della legge 26 luglio 1975, n. 354, nonche', infine, in materia di colloqui con i congiunti o con altre persone cui hanno diritto i condannati, gli internati e gli imputati.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/05/10/20G00047/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-05-16")) * 86400000),
+      name = "Decreto-Legge 16 Maggio 2020, n. 33",
+      label = "Decreto Legge",
+      description = "Il Consiglio dei Ministri n. 46 ha approvato un decreto-legge che introduce ulteriori misure urgenti per fronteggiare l’emergenza epidemiologica da COVID-19. Il decreto delinea il quadro normativo nazionale all’interno del quale, dal 18 maggio al 31 luglio 2020, con appositi decreti od ordinanze, statali, regionali o comunali, potranno essere disciplinati gli spostamenti delle persone fisiche e le modalità di svolgimento delle attività economiche, produttive e sociali.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/05/16/20G00051/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-05-17")) * 86400000),
+      name = "DPCM 17 Maggio 2020",
+      label = "Decreto Ministeriale",
+      description = "Disposizioni attuative del decreto-legge 25 marzo 2020, n. 19, recante misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19, e del decreto-legge 16 maggio 2020, n. 33, recante ulteriori misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/05/17/20A02717/sg",
+      status = "active",
+      flag = TRUE
     )
   )
   return(decrees)

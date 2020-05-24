@@ -11,7 +11,7 @@ regionTS = covid19:::get_regionTS()
 provTS = covid19:::get_provTS()
 country_growth = covid19:::get_country_growth()
 age_cases = covid19:::get_agecases(as.character(sort(names(regionTS))))
-decrees = covid19:::get_decrees()
+decrees = covid19::get_decrees()
 
 detect_start_end <- function(v, threshold = 0.005) {
   if(is.null(v) || !is.numeric(v) || length(v) == 0)

@@ -18,39 +18,40 @@
 get_agecases <- function(regNames) {
   
   
-  start_url = "https://www.epicentro.iss.it/coronavirus/bollettino/Bolletino-sorveglianza-integrata-COVID-19_"
-  Sys.setlocale("LC_TIME", "Italian")
-  url_file = format(Sys.Date(), "%d-%B-%Y")
-  end_url = "_appendix.pdf"
-  files = paste0(start_url,url_file,end_url)
-  day = 0
-  document = NULL
-  while(day <30)
-  {
-    url_file = format(Sys.Date()-day, "%d-%B-%Y")
-    files = paste0(start_url,url_file,end_url)
-    message("checking URL : ",files)
-    x <- tryCatch(
-      {
+  #start_url = "https://www.epicentro.iss.it/coronavirus/bollettino/Bolletino-sorveglianza-integrata-COVID-19_"
+  #Sys.setlocale("LC_TIME", "Italian")
+  #url_file = format(Sys.Date(), "%d-%B-%Y")
+  #end_url = "_appendix.pdf"
+  #files = paste0(start_url,url_file,end_url)*/
+  #day = 0
+  #document = NULL
+  #while(day <30)
+  #{
+   # url_file = format(Sys.Date()-day, "%d-%B-%Y")
+  #  files = paste0(start_url,url_file,end_url)
+  #  message("checking URL : ",files)
+  #  x <- tryCatch(
+  #    {
       #  quiet(pdftools::pdf_text(files))
-        ddpcr::quiet( pdftools::pdf_text(files))
+   #     ddpcr::quiet( pdftools::pdf_text(files))
         
-        document =  pdftools::pdf_text(files)
-        day = 50
+    #    document =  pdftools::pdf_text(files)
+     #   day = 50
 
         
-      },
-      error = function(e){
-       message("Trying the day before..")
+      #},
+      #error = function(e){
+      # message("Trying the day before..")
 
-      }
-    )
-    
-    day = day+1
-  }
+      #}
+  #  )
+    #
+   # day = day+1
+#  }
  
 #  https://www.epicentro.iss.it/coronavirus/bollettino/Bolletino-sorveglianza-integrata-COVID-19_30-marzo-2020_appendix.pdf
-
+  files = "https://www.epicentro.iss.it/coronavirus/bollettino/Bolletino-sorveglianza-integrata-COVID-19_20-maggio-2020_appendix.pdf"
+  document = pdftools::pdf_text(files)
   #"https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_30-marzo-2020.pdf"
 #  lapply(document, length) 
   alldocument_pages = document

@@ -204,6 +204,42 @@ get_decrees <- function() {
       link = "https://www.gazzettaufficiale.it/eli/id/2020/05/17/20A02717/sg",
       status = "active",
       flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-06-11")) * 86400000),
+      name = "DPCM 11 Giugno 2020",
+      label = "Decreto Ministeriale",
+      description = "Il nuovo Dpcm autorizza la ripresa di ulteriori attività a partire dal 15 giugno tra cui:centri estivi per i bambini, sale giochi, sale scommesse, sale bingo, così come le attività di centri benessere, centri termali, culturali e centri sociali. Riprendono, inoltre, gli spettacoli aperti al pubblico, le sale teatrali, sale da concerto, sale cinematografiche e in altri spazi anche all'aperto ma con alcune cautele/precauzioni. Restano invece sospese tutte le attività che abbiano luogo in sale da ballo, discoteche, locali assimilati sia all'aperto che al chiuso. A partire dal 12 giugno, riprendono invece gli eventi e le competizioni sportive a porte chiuse ovvero all'aperto senza la presenza del pubblico nel rispetto dei protocolli di sicurezza emanati dalle rispettive Federazioni sportive al fine di prevenire le occasioni di contagio. A decorrere dal 25 giugno 2020 è consentito lo svolgimento anche degli sport di contatto nelle Regioni e Province Autonome che, d’intesa con il Ministero della Salute e dell’Autorità di Governo delegata in materia di sport, abbiano preventivamente accertato la compatibilità delle suddette attività con l’andamento della situazione epidemiologica nei rispettivi territori.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/06/11/20A03194/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-07-14")) * 86400000),
+      name = "DPCM 14 Luglio 2020",
+      label = "Decreto Ministeriale",
+      description = "Proroga al 31 luglio 2020 le misure del Dpcm 11 giugno 2020. Sono inoltre confermate e restano in vigore, sino a tale data, le disposizioni contenute nelle ordinanze del Ministro della salute 30 giugno 2020 e 9 luglio 2020.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/07/14/20A03814/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-07-30")) * 86400000),
+      name = "Decreto-Legge del 30 Luglio 2020",
+      label = "Decreto Legge",
+      description = "Introduzione di misure urgenti connesse con la scadenza della dichiarazione di emergenza epidemiologica da COVID-19 deliberata il 31 gennaio 2020.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/07/30/20G00112/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-08-07")) * 86400000),
+      name = "DPCM 7 Agosto 2020",
+      label = "Decreto Ministeriale",
+      description = "Il Consiglio dei Ministri ha approvato un decreto-legge che introduce misure urgenti per il sostegno e il rilancio dell’economia. Con il decreto, il Governo ha stanziato ulteriori 25 miliardi di euro, da utilizzare per proseguire e rafforzare l’azione di ripresa dalle conseguenze negative dell’epidemia da COVID-19 e sostenere lavoratori, famiglie e imprese, con particolare riguardo alle aree svantaggiate del Paese. Inoltre, con il Dpcm firmato dal Presidente Conte vengono prorogate, fino al 7 settembre 2020, le misure precauzionali minime per contrastare e contenere il diffondersi del virus Covid-19.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/08/08/20A04399/sg",
+      status = "active",
+      flag = TRUE
     )
   )
   return(decrees)

@@ -14,6 +14,12 @@ Jeffery~K Taubenberger and David~M Morens.
 \newblock 1918 influenza: the mother of all pandemics.
 \newblock {\em Emerging infectious diseases}, 12(1):15, 2006.
 
+\bibitem{RYU2017195}
+Wang-Shick Ryu.
+\newblock Chapter 15 - influenza viruses.
+\newblock In Wang-Shick Ryu, editor, {\em Molecular Virology of Human
+  Pathogenic Viruses}, pages 195 -- 211. Academic Press, Boston, 2017.
+
 \bibitem{malthus_vs_logistic}
 \url{https://commons.wikimedia.org/wiki/File:Malthusian_growth_vs_logistic_growth.png}.
 
@@ -124,12 +130,6 @@ Philip~J Haythornthwaite.
 \newblock {\em The World War One Source Book}.
 \newblock Arms and Armour, 1996.
 
-\bibitem{RYU2017195}
-Wang-Shick Ryu.
-\newblock Chapter 15 - influenza viruses.
-\newblock In Wang-Shick Ryu, editor, {\em Molecular Virology of Human
-  Pathogenic Viruses}, pages 195 -- 211. Academic Press, Boston, 2017.
-
 \bibitem{protezionecivile+git}
 \url{https://github.com/pcm-dpc/COVID-19}.
 
@@ -160,6 +160,10 @@ Robert~E Serfling.
 Junling Ma, Jonathan Dushoff, Benjamin~M Bolker, and David~JD Earn.
 \newblock Estimating initial epidemic growth rates.
 \newblock {\em Bulletin of mathematical biology}, 76(1):245--260, 2014.
+
+\bibitem{kittel1998thermal}
+Charles Kittel and Herbert Kroemer.
+\newblock Thermal physics, 1998.
 
 \bibitem{Istat+res0}
 \url{https://www.istat.it/it/files//2015/04/Superfici-delle-unit%C3%A0-amministrative-Dati-comunali-e-provinciali.zip}.

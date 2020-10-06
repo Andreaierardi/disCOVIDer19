@@ -8,12 +8,14 @@
 \contentsline {section}{\numberline {2}{Theoretical Background}}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}{Population growth dynamics}}{10}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}{Application to the epidemiology}}{11}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}{Time series approach}}{12}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}{An ab-initio approach: the SEIR model}}{12}{subsection.2.4}%
-\contentsline {section}{\numberline {3}{Data Origin}}{12}{section.3}%
-\contentsline {section}{\numberline {4}{Panels}}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}{Home}}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}{Data Inspection}}{14}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}{Data Analysis}}{16}{subsection.4.3}%
-\contentsline {section}{\numberline {5}{Conclusions}}{21}{section.5}%
-\contentsline {section}{\numberline {6}{Packages used}}{21}{section.6}%
+\contentsline {subsection}{\numberline {2.3}{Entropy}}{12}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}{Fourier Analysis}}{13}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}{Time series approach}}{13}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}{An ab-initio approach: the SEIR model}}{13}{subsection.2.6}%
+\contentsline {section}{\numberline {3}{Data Origin}}{13}{section.3}%
+\contentsline {section}{\numberline {4}{Panels}}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}{Home}}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}{Data Inspection}}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}{Data Analysis}}{17}{subsection.4.3}%
+\contentsline {section}{\numberline {5}{Conclusions}}{22}{section.5}%
+\contentsline {section}{\numberline {6}{Packages used}}{22}{section.6}%

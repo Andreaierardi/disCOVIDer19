@@ -2,6 +2,7 @@
 #Dataset and plot reactive
 reac_dataset <- shiny::reactiveValues()
 reac_delay <- shiny::reactiveValues()
+reac_test <- shiny::reactiveValues()
 
 disc_NAfind <- function(v) {
   n <- length(v)
@@ -222,17 +223,13 @@ shiny::observe({
     highcharter::hc_xAxis(
       plotBands = list(list(color = "#ffe6e6", from = UTSdate(as.Date("2020-03-09")), to = UTSdate(as.Date("2020-05-04")),
                        label = list(text = "First stage", style = list(color = "#cc0000"))),
-                       list(color = "#ffebcc", from = UTSdate(as.Date("2020-05-04")), to = UTSdate(as.Date("2020-06-11")),
-                       label = list(text = "Second stage", style = list(color = "#cc7a00"))),
-                       list(color = "#ccffcc", from = UTSdate(as.Date("2020-06-11")), to = UTSdate(fin_date),
-                       label = list(text = "Third stage", style = list(color = "#009900")))
+                       list(color = "#ffebcc", from = UTSdate(as.Date("2020-05-04")), to = UTSdate(fin_date),
+                            label = list(text = "Second stage", style = list(color = "#cc7a00")))
                        ),
       plotLines = list(list(color = "#e60000", value = UTSdate(as.Date("2020-03-09")), width = 4,
                             label = list(text = "Decree of March 9th")),
                        list(color = "#e67300", value = UTSdate(as.Date("2020-05-04")), width = 4,
-                            label = list(text = "Decree of April 26th")),
-                       list(color = "#00e600", value = UTSdate(as.Date("2020-06-11")), width = 4,
-                            label = list(text = "Decree of June 11th"))
+                            label = list(text = "Decree of April 26th"))
                        )
     ) %>%
     highcharter::hc_yAxis(
@@ -422,12 +419,12 @@ output$summary_box_growth <- renderUI({
   
   shinydashboardPlus::descriptionBlock(
     number = paste0(tail(reac_growth$out_growth$growth,1),"%"),
-    number_color = ifelse(tail(reac_growth$out_growth$growth,1)>0,"red","green"), 
-    number_icon = ifelse(tail(reac_growth$out_growth$growth,1)>0,"fa fa-caret-up","fa fa-caret-down"),
+    numberColor = ifelse(tail(reac_growth$out_growth$growth,1)>0,"red","green"), 
+    numberIcon = ifelse(tail(reac_growth$out_growth$growth,1)>0,"fas fa-caret-up","fas fa-caret-down"),
     header = "CASES GROWTH", 
     text = NULL, 
-    right_border = TRUE,
-    margin_bottom = FALSE
+    rightBorder = TRUE,
+    marginBottom = FALSE
   )
   
 })
@@ -437,12 +434,12 @@ output$summary_box_growth_change <- renderUI({
   
   shinydashboardPlus::descriptionBlock(
     number = paste0(tail(reac_growth$out_growth$growth_change,1),"%"),
-    number_color = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"red","green"), 
-    number_icon = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"fa fa-caret-up","fa fa-caret-down"),
+    numberColor = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"red","green"), 
+    numberIcon = ifelse(tail(reac_growth$out_growth$growth_change,1)>0,"fas fa-caret-up","fas fa-caret-down"),
     header = HTML("&Delta; CASES GROWTH"), 
     text = NULL, 
-    right_border = FALSE,
-    margin_bottom = FALSE
+    rightBorder = FALSE,
+    marginBottom = FALSE
   )
   
 })
@@ -480,11 +477,32 @@ highcharter::highchart(type = "stock") %>%
 
 )
 
-# tamponi graph -----------------------------------------------------------
+# Tests tracking -----------------------------------------------------------
+
+shiny::observe({
+  if(input$test_aggr) {
+    if(is_ready(input$test_avgbut)) {
+      switch(input$test_avgbut,
+             "abs" = {
+               reac_test$tamp_creg <- tamp_creg_wly
+               reac_test$tamp_creg_1 <- tamp_creg_1_wly
+             }, 
+             "avg" = {
+               reac_test$tamp_creg <- tamp_creg_avg_wly
+               reac_test$tamp_creg_1 <- tamp_creg_1_avg_wly
+             })
+    }
+  } else {
+    reac_test$tamp_creg <- tamp_creg
+    reac_test$tamp_creg_1 <- tamp_creg_1
+  }
+  
+})
 
 
 output$tamp_plot <- highcharter::renderHighchart(
-  highcharter::hchart(dplyr::filter(tamp_creg_1,region==input$test_region), "column", highcharter::hcaes(x = date, y = value, group = key), color=c("red","#888888")) %>% 
+  highcharter::hchart(dplyr::filter(reac_test$tamp_creg_1,region==input$test_region), "column", 
+                      highcharter::hcaes(x = Date, y = value, group = key), color=c("red","#888888")) %>% 
     # BUGGED
     #highcharter::hc_chart(zoomType = "xy", scrollablePlotArea = list(minWidth = 1000, scrollPositionX = 1)) %>%
     highcharter::hc_chart(zoomType = "xy") %>%
@@ -492,9 +510,9 @@ output$tamp_plot <- highcharter::renderHighchart(
       list(lineWidth = 3, title = list(text  =  '')),
       list(showLastLabel = FALSE, opposite = TRUE, title = list(text  =  ''))
     ) %>%
-    highcharter::hc_add_series(data = dplyr::filter(tamp_creg,region==input$test_region), type = "spline", 
-                               yAxis = 1, highcharter::hcaes(x = date, y = share_infected_discovered),
-                               name="share_infected_discovered", color="#383838")
+    highcharter::hc_add_series(data = dplyr::filter(reac_test$tamp_creg,region==input$test_region), 
+                               type = "spline", yAxis = 1, highcharter::hcaes(x = Date, y = share_infected_discovered),
+                               name="Share of infected discovered", color="#383838")
 )
 
 
@@ -593,10 +611,21 @@ output$growth_NAlog <- renderUI({
 
 output$test_NAlog <- renderUI({
 
-  if( is_ready(input$test_region) && disc_NAfind(dplyr::filter(tamp_creg,region==input$test_region)$share_infected_discovered) ) {
+  if( is_ready(input$test_region) && disc_NAfind(dplyr::filter(reac_test$tamp_creg,region==input$test_region)$share_infected_discovered) ) {
     fluidRow(
       hr(),
       helpText(em("Warning: NA introduced"))
+    )
+  }
+})
+
+output$test_avg <- renderUI({
+  
+  if( is_ready(input$test_aggr) && input$test_aggr) {
+    shiny::fluidRow(
+      shiny::radioButtons("test_avgbut", label=NULL,
+                          choices=list("Absolute"="abs", "Average"="avg"),
+                          inline = TRUE)
     )
   }
 })

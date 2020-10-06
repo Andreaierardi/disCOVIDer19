@@ -25,7 +25,7 @@ Imports:
     waiter (>= 0.1.0),
     shinyWidgets (>= 0.5.0),
     shinyjs,
-    shinydashboardPlus,
+    shinydashboardPlus (>= 0.7.5),
     shinyalert,
     highcharter,
     growthcurver,
@@ -40,7 +40,8 @@ Imports:
     spectral,
     R0,
     deSolve,
-    scales
+    scales,
+    lubridate
 Remotes: 
     github::jbkunst/highcharter
 License: MIT + file LICENSE

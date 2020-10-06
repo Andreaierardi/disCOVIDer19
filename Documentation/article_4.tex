@@ -262,6 +262,29 @@ In Fig. \ref{Malthusian_growth_vs_logistic_growth} this solution is compared to 
 The dynamics of the two models described before can be used to shape the spread of an infection \cite{serfling1952historical,ma2014estimating} in this case the population $P$ is replaced with the total number of infected people, $P_{0}$ the number of first infected people, $r$ the spreading rate and the carrying capacity $K$ with the maximum number of people that can be infected. The latter is the key point for the modelling: in principle this parameter would be equal to the population number, in practice due to the restrictive measure a large part of population can be removed from this computation: this lowers the predicted number of infected people. Thus we can argue that the effectiveness of the restrictive measures can be inferred from the linear behaviour of the cumulative curve (except, of course, if the numer of infected people is close to the population size). It is worth nothing that if the quarantine fails for also one/few infected people, the carrying capacity is increased up to the people that can be infected by these subjects. If this contribution is not negligible a new logistic growth may be found, with of course an exponential starting behaviour. Thus the prediction with the logistic curve should be taken as an evaluation of the effectiveness of restrictive measures and as the best scenario that can may realize. For this reason it is advisable to see the logistic curve as a local (in time) estimator. In principle one can model a differential set of equation were the carrying capacity is time dependent. This possibility may be considered  by the authors in a future version of this App. Furthermore it is worth nothing that other similar models such as Gopertz, Richards or Bertalanffy can be considered \cite{ma2014estimating} : the authors may consider to include them in  a future version of this App.
 
 
+\subsection{Entropy}
+
+In order to evaluate the effectiveness of the containment of the virus, we considered to use the Gibbs formulation of the entropy: 
+
+\begin{equation}
+\textbf{H}=-\sum^{n}_{i=1}\textbf{P}(x_{i})log\textbf{P}(x_{i})
+\end{equation}
+
+where, in our case, we considered $\textbf{P}(x_{i})$ as the number of currently infected people for the single cluster $i$ (the sum runs on the overall number of clusters) and the the Boltzmann's constant was set to 1. Note that, in a different context, this expression is the Shannon Entropy where $\textbf{P}(x_{i})$ is the probability of the outcome $x_{i}$. If for each cluster the ratio is the same, the containment of the virus between the clusters is failed: in this case a large value of entropy will be found; on the other hand if a strong dissimilarity between the clusters is present (e.g. the cases are located only in to a single one), the entropy will be low. The situation can be compared with the expansion of a gas: suppose that a toxic gas spreads in to building that has different rooms; the gas, due to the thermal noise, tends to expand uniformly into the whole building so that an homogeneous concentration will be obtained at least. This behaviour is due to the fact that, since the atoms are indistinguishable, the configurations in which all the atoms are distributed isotropically in to the space are much more than the configurations in which the atoms are localized \cite{kittel1998thermal} .  This natural spread can be stopped with an external work, for instance by closing some doors or by building walls: in this case the spread will be stopped. It is worth nothing that this analogy, that motivated our use of the entropy index is valid as long as the virus the overall number of infected people is the same (more precisely if the overall R(t) is close to 1): otherwise, differently with respect to the molecules of the gas that are constant over time the active cases abruptly change as the time increase
+
+
+\subsection{Fourier Analysis}
+
+Since we were also interested in the evaluation of the cases seasonality, we included in our App the Fourier analysis for different data. The idea of such analysis is to apply the following transformation: 
+
+ \begin{equation}
+S(f)=\int^{+\infty}_{-\infty}s(t)e^{-2i\pi}\textit{dt}
+\end{equation}
+in order to change the basis of the function $s(t)$ from the domain of time $(t)$ to the domain of frequency $(f)$. For our analysis the function s(t) is the number of cases as function of time (days). It is worth nothing that in reality the algorithm does not evaluate the integral but instead the following expression, know as Fast Fourier Transformation: 
+ \begin{equation}
+X_{q}=\sum^{N-1}_{k=0}x_{k}e^{-i\dfrac{2\pi}{N}kq}
+\end{equation}
+
 
 \subsection{Time series approach}
 
@@ -474,7 +497,13 @@ The user is suggested to take full advantage of plotly features. Besides showing
 
 \clearpage
 
+
+
 \section{Conclusions}
+
+
+
+
 
 \section{Packages used}
 

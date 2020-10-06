@@ -14,6 +14,9 @@ server <- function(input, output, session) {
   source(file.path("server/2module", "inspection.R"),  local = TRUE)$value
   
   source(file.path("server/3module", "analysis.R"),  local = TRUE)$value
+  
+  source(file.path("server/3module", "analysis_2.R"),  local = TRUE)$value
+  
   source(file.path("server/4module", "documentation.R"),  local = TRUE)$value
   
   

@@ -1,49 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: article_4.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: sample.bib
 Warning--empty publisher in malthus1817essay
 Warning--empty journal in verhulst1838notice
-You've used 36 entries,
+You've used 37 entries,
             1791 wiz_defined-function locations,
-            624 strings with 9243 characters,
-and the built_in function-call counts, 6839 in all, are:
-= -- 571
-> -- 296
+            629 strings with 9355 characters,
+and the built_in function-call counts, 6975 in all, are:
+= -- 580
+> -- 304
 < -- 3
-+ -- 118
-- -- 82
-* -- 416
-:= -- 1009
-add.period$ -- 86
-call.type$ -- 36
-change.case$ -- 21
++ -- 121
+- -- 84
+* -- 419
+:= -- 1029
+add.period$ -- 88
+call.type$ -- 37
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 310
-empty$ -- 761
-format.name$ -- 82
-if$ -- 1558
+cite$ -- 39
+duplicate$ -- 315
+empty$ -- 779
+format.name$ -- 84
+if$ -- 1590
 int.to.chr$ -- 0
-int.to.str$ -- 36
+int.to.str$ -- 37
 missing$ -- 28
-newline$ -- 159
-num.names$ -- 26
-pop$ -- 139
+newline$ -- 163
+num.names$ -- 27
+pop$ -- 146
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 198
+skip$ -- 203
 stack$ -- 0
 substring$ -- 383
-swap$ -- 60
+swap$ -- 61
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 58
-width$ -- 38
-write$ -- 321
+while$ -- 59
+width$ -- 39
+write$ -- 329
 (There were 2 warnings)

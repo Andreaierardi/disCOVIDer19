@@ -22,19 +22,22 @@
 #' @export
 exe_fit <- function(sample_cases, sample_date, days) {
   # Curve fitting
-  out_fit <- growthcurver::SummarizeGrowth(sample_date, sample_cases)
+  pop0 <- sample_cases[1]
+  dat0 <- sample_date[1]
+  daysShifted <- days - dat0
+  out_fit <- growthcurver::SummarizeGrowth(sample_date - dat0, sample_cases - pop0)
   k=out_fit[["vals"]][["k"]]
   n0=out_fit[["vals"]][["n0"]]
   r=out_fit[["vals"]][["r"]]
 
   # Creation of fitted points
-  yFitted <- (n0*k)/(n0 + (k-n0) * exp(-r*days))
-  yFitted_der <- (k*n0*r*(k - n0)*exp(-r*days))/((k - n0)*exp(-r*days) + n0)^2
+  yFitted <- (n0*k)/(n0 + (k-n0) * exp(-r*daysShifted)) + pop0
+  yFitted_der <- (k*n0*r*(k - n0)*exp(-r*daysShifted))/((k - n0)*exp(-r*daysShifted) + n0)^2
   fittedPoints <- data.frame(days,yFitted)
   fittedPoints_der <- data.frame(days,yFitted_der)
 
   # Chi-squared test
-  yFitted_chi <- (n0*k)/(n0 + (k-n0) * exp(-r*sample_date))
+  # yFitted_chi <- (n0*k)/(n0 + (k-n0) * exp(-r*sample_date))
   if(is.null(out_fit$model))
     output_resid <- NULL
   else

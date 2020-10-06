@@ -59,7 +59,7 @@ colnames(newdf) = c("data","occupancy","capacity","perc","region")
 intensivecare_capacity = newdf
 
 
-N <- nrow(countryTS)
+N <- nrow(countryTS$Italy)
 
 
 #===  Global function to check error 
@@ -92,6 +92,21 @@ toLog10<- function(num)
 UTSdate <- function(date) {
   return(as.integer(date) * 86400000)
 }
+
+
+# Aggregates a time series weekly
+aggr_wly <- function(v,avg=F) {
+  if(avg) {
+    out <- unlist( lapply( split(v,ceiling(seq_along(v)/7)) ,mean, na.rm=TRUE) )
+  } else {
+    out <- unlist( lapply( split(v,ceiling(seq_along(v)/7)) ,sum) )
+  }
+  return(unname(out))
+}
+
+init_date <- min(countryTS$Italy$data)
+
+fin_date <- max(countryTS$Italy$data)
 
 #================================
 
@@ -144,15 +159,15 @@ pc_df <- pc_df %>%
   dplyr::left_join(territory_region) %>%
   dplyr::ungroup() %>% 
   dplyr::filter(!name%in%c("friuli v. g. ")) %>%
-  dplyr::mutate(name=ifelse(name%in%c("trento","bolzano","p.a. trento","p.a. bolzano"),
-                            "trentino-alto adige/sudtirol",name)) %>%
+ dplyr::mutate(name=ifelse(name%in%c("trento","bolzano","p.a. trento","p.a. bolzano"),
+                     "trentino-alto adige/sudtirol",name)) %>%
   dplyr::group_by(name, date) %>%
   dplyr::summarise(cases=sum(cases),
-                   growth=mean(growth,na.rm=T),
-                   pop=sum(pop),
-                   ext=sum(ext)) %>%
+            growth=mean(growth,na.rm=T),
+            pop=sum(pop),
+            ext=sum(ext)) %>%
   dplyr::ungroup() %>% 
-  dplyr::mutate(name=ifelse(name=="emilia romagna","emilia-romagna",name))
+ dplyr::mutate(name=ifelse(name=="emilia romagna","emilia-romagna",name))
 
 
 
@@ -165,11 +180,11 @@ setdiff(b,a)
 dfita1 <- dfita1 %>%
   dplyr::left_join(pc_df) %>%
   dplyr::ungroup() %>% 
-  dplyr::mutate(proportion=(cases/pop)*100) %>%
-  dplyr::mutate(density=(cases/ext)) %>%
+ dplyr::mutate(proportion=(cases/pop)*100) %>%
+ dplyr::mutate(density=(cases/ext)) %>%
   dplyr::rename(absolute=cases) %>%
-  dplyr::mutate(proportion = round(proportion,2)) %>%
-  dplyr::mutate(density = round(density, 2)) %>%
+ dplyr::mutate(proportion = round(proportion,2)) %>%
+ dplyr::mutate(density = round(density, 2)) %>%
   dplyr::select(id, date, absolute, proportion, density, growth) %>%
   dplyr::ungroup() %>%
   tidyr::gather(key="type",value="value",-id,-date)
@@ -216,7 +231,7 @@ dfita2 <-  ita$features %>%
 # spreading delay
 
 clean_prov_delay <- purrr::map_df(names(provTS), function(x) {
-  st_en <- detect_start_end(provTS[[x]]$totale_casi)
+  st_en <- covid19:::detect_start_end(provTS[[x]]$totale_casi)
   dplyr::data_frame(
     name=x,
     start=provTS[[x]][st_en[[1]], "data"],
@@ -322,10 +337,38 @@ tamp_country <- tibble::tibble(
   region = "--- ALL ---"
 )
 
+tamp_country_wly <- tibble::tibble(
+  data=countryTS$Italy$data[seq(1,N,7)],
+  tamponi_settimanali=aggr_wly(diff(c(0,countryTS$Italy$tamponi))),
+  casi_settimanali=aggr_wly(diff(c(0,countryTS$Italy$totale_casi))),
+  region = "--- ALL ---"
+)
+
+tamp_country_avg_wly <- tibble::tibble(
+  data=countryTS$Italy$data[seq(1,N,7)],
+  tamponi_medi_settimanali=aggr_wly(diff(c(0,countryTS$Italy$tamponi)), avg=T),
+  casi_medi_settimanali=aggr_wly(diff(c(0,countryTS$Italy$totale_casi)), avg=T),
+  region = "--- ALL ---"
+)
+
 tamp_region <- purrr::map_df(names(regionTS), function(x){
   regionTS[[x]] %>%
     dplyr::select(data,tamponi,totale_casi) %>%
     dplyr::mutate(region=x)
+})
+
+tamp_region_wly <- purrr::map_df(names(regionTS), function(x){
+  data.frame("data"=regionTS[[x]]$data[seq(1,N,7)],
+             "tamponi_settimanali"=aggr_wly(diff(c(0,regionTS[[x]]$tamponi))),
+             "casi_settimanali"=aggr_wly(diff(c(0,regionTS[[x]]$totale_casi))),
+             "region"=x)
+})
+
+tamp_region_avg_wly <- purrr::map_df(names(regionTS), function(x){
+  data.frame("data"=regionTS[[x]]$data[seq(1,N,7)],
+             "tamponi_medi_settimanali"=aggr_wly(diff(c(0,regionTS[[x]]$tamponi)), avg=T),
+             "casi_medi_settimanali"=aggr_wly(diff(c(0,regionTS[[x]]$totale_casi)), avg=T),
+             "region"=x)
 })
 
 tamp_creg <- tamp_country %>% 
@@ -333,16 +376,45 @@ tamp_creg <- tamp_country %>%
   dplyr::ungroup() %>%
   dplyr::group_by(region) %>%
   dplyr::mutate(casi_giornalieri=totale_casi-dplyr::lag(totale_casi)) %>% 
-  dplyr::mutate(casi_giornalieri=ifelse(data==as.Date("2020-02-24"),totale_casi,casi_giornalieri)) %>%
+  dplyr::mutate(casi_giornalieri=ifelse(data==init_date,totale_casi,casi_giornalieri)) %>%
   dplyr::mutate(tamponi_giornalieri=tamponi-dplyr::lag(tamponi)) %>%
-  dplyr::mutate(tamponi_giornalieri=ifelse(data==as.Date("2020-02-24"),tamponi,tamponi_giornalieri)) %>%
+  dplyr::mutate(tamponi_giornalieri=ifelse(data==init_date,tamponi,tamponi_giornalieri)) %>%
   dplyr::mutate(share_infected_discovered = casi_giornalieri/tamponi_giornalieri) %>%
   dplyr::select(data,casi_giornalieri,tamponi_giornalieri,share_infected_discovered) %>%
-  dplyr::rename(daily_cases=casi_giornalieri,daily_tests=tamponi_giornalieri,date=data) %>%
-  dplyr::mutate(share_infected_discovered=round(share_infected_discovered,2))
+  dplyr::mutate(share_infected_discovered=round(share_infected_discovered,3)) %>%
+  dplyr::rename("Daily cases"=casi_giornalieri,"Daily tests"=tamponi_giornalieri,
+                "Date"=data)
 
 tamp_creg_1 <- tamp_creg %>% dplyr::select(1:4) %>%
-  tidyr::gather(key="key",value="value",-date, -region)
+  tidyr::gather(key="key",value="value",-Date, -region)
+
+tamp_creg_wly <- tamp_country_wly %>% 
+  dplyr::bind_rows(tamp_region_wly) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(region) %>%
+  dplyr::mutate(share_infected_discovered = casi_settimanali/tamponi_settimanali) %>%
+  dplyr::select(data,casi_settimanali,tamponi_settimanali,share_infected_discovered) %>%
+  dplyr::mutate(share_infected_discovered=round(share_infected_discovered,3)) %>%
+  dplyr::rename("Weekly cases"=casi_settimanali,"Weekly tests"=tamponi_settimanali,
+                "Date"=data)
+
+tamp_creg_1_wly <- tamp_creg_wly %>% dplyr::select(1:4) %>%
+  tidyr::gather(key="key",value="value",-Date, -region)
+
+tamp_creg_avg_wly <- tamp_country_avg_wly %>% 
+  dplyr::bind_rows(tamp_region_avg_wly) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(region) %>%
+  dplyr::mutate(share_infected_discovered = casi_medi_settimanali/tamponi_medi_settimanali) %>%
+  dplyr::select(data,casi_medi_settimanali,tamponi_medi_settimanali,share_infected_discovered) %>%
+  dplyr::mutate(share_infected_discovered=round(share_infected_discovered,3),
+                casi_medi_settimanali=round(casi_medi_settimanali,3),
+                tamponi_medi_settimanali=round(tamponi_medi_settimanali,3)) %>%
+  dplyr::rename("Average weekly cases"=casi_medi_settimanali,"Average weekly tests"=tamponi_medi_settimanali,
+                "Date"=data)
+
+tamp_creg_1_avg_wly <- tamp_creg_avg_wly %>% dplyr::select(1:4) %>%
+  tidyr::gather(key="key",value="value",-Date, -region)
 
 # age_cases ---------------------------------------------------------------
 
@@ -383,11 +455,7 @@ age_df_final <- age_df %>%
 # Inital and final dates of samples
 '%then%' <- shiny:::'%OR%'
 
-init_date <- min(countryTS$Italy$data)
-
 init_date_arima = init_date
-
-fin_date <- max(countryTS$Italy$data)
 
 # Total population sizes in 2020 winter
 country_tot_pop <- 6.048e+07

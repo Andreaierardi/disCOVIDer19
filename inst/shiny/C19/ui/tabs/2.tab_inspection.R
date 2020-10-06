@@ -261,6 +261,11 @@ shinydashboard::tabItem(tabName = "tab_2",
                                                                 inputId = "test_region", label = "Region",
                                                                 choices = c(names(regionTS), "--- ALL ---"), selected = "--- ALL ---"),
                                                               
+                                                              shiny::checkboxInput(
+                                                                inputId = "test_aggr", label = "Aggregate by week",
+                                                                value = FALSE
+                                                              ),
+                                                              shiny::uiOutput("test_avg"),
                                                               shiny::uiOutput("test_NAlog")
                                                               ),
                                                        column(10,

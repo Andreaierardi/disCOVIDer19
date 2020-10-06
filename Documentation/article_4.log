@@ -1,36 +1,33 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.28)  2 APR 2020 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.27)  17 SEP 2020 21:44
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**article_4.tex
-(./article_4.tex
+**./article_4.tex
+(article_4.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-02-25>
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2020/01/24 v3.29 KOMA-Script document class (article)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2020/01/24 v3.29 KOMA-Script package (KOMA-Script-dependent b
+L3 programming layer <2020-08-07>
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrartcl.cls"
+Document Class: scrartcl 2020/07/22 v3.31 KOMA-Script document class (article)
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrkbase.sty"
+Package: scrkbase 2020/07/22 v3.31 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2020/01/24 v3.29 KOMA-Script package (KOMA-Script-independent 
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrbase.sty"
+Package: scrbase 2020/07/22 v3.31 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2020/01/24 v3.29 KOMA-Script package (loading files)
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrlfile.sty"
+Package: scrlfile 2020/07/22 v3.31 KOMA-Script package (loading files)
 )))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/tocbasic.sty
-Package: tocbasic 2020/01/24 v3.29 KOMA-Script package (handling toc-files)
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\tocbasic.sty"
+Package: tocbasic 2020/07/22 v3.31 KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip47
 \scr@dte@tocline@numbox=\box45
 )
-Package tocbasic Info: omitting babel extension for `toc'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 137.
+Package tocbasic Info: babel extension for `toc' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 135.
 Package scrartcl Info: You've used standard option `12pt'.
 (scrartcl)             This is correct!
 (scrartcl)             Internally I'm using `fontsize=12pt'.
@@ -44,16 +41,16 @@ Class scrartcl Info: You've used standard option `oneside'.
 (scrartcl)           you'd have to use `twoside=false' there
 (scrartcl)           instead of `oneside', too.
 Class scrartcl Info: File `scrsize12pt.clo' used to setup font sizes on input l
-ine 2212.
+ine 2221.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
-File: scrsize12pt.clo 2020/01/24 v3.29 KOMA-Script font size class option (12pt
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrsize12pt.clo"
+File: scrsize12pt.clo 2020/07/22 v3.31 KOMA-Script font size class option (12pt
 )
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/typearea.sty
-Package: typearea 2020/01/24 v3.29 KOMA-Script package (type area)
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\typearea.sty"
+Package: typearea 2020/07/22 v3.31 KOMA-Script package (type area)
 \ta@bcor=\skip48
-\ta@div=\count167
+\ta@div=\count168
 Package typearea Info: You've used standard option `a4paper'.
 (typearea)             This is correct!
 (typearea)             Internally I'm using `paper=a4'.
@@ -98,114 +95,119 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 50.75pt
 (typearea)              \baselineskip   = 14.5pt
-(typearea)              on input line 1719.
+(typearea)              on input line 1739.
 )
-\c@part=\count168
-\c@section=\count169
-\c@subsection=\count170
-\c@subsubsection=\count171
-\c@paragraph=\count172
-\c@subparagraph=\count173
+\c@part=\count169
+\c@section=\count170
+\c@subsection=\count171
+\c@subsubsection=\count172
+\c@paragraph=\count173
+\c@subparagraph=\count174
 \scr@dte@section@maxnumwidth=\skip53
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\section on input line 4723.
+(scrartcl)           for `\section on input line 4794.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\section on input line 4723.
+(scrartcl)           for `\section on input line 4794.
 \scr@dte@part@maxnumwidth=\skip54
 Class scrartcl Info: using compatibility default `afterindent=false'
-(scrartcl)           for `\part on input line 4731.
+(scrartcl)           for `\part on input line 4802.
 \scr@dte@subsection@maxnumwidth=\skip55
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsection on input line 4741.
+(scrartcl)           for `\subsection on input line 4812.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsection on input line 4741.
+(scrartcl)           for `\subsection on input line 4812.
 \scr@dte@subsubsection@maxnumwidth=\skip56
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsubsection on input line 4751.
+(scrartcl)           for `\subsubsection on input line 4822.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsubsection on input line 4751.
+(scrartcl)           for `\subsubsection on input line 4822.
 \scr@dte@paragraph@maxnumwidth=\skip57
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\paragraph on input line 4761.
+(scrartcl)           for `\paragraph on input line 4833.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\paragraph on input line 4761.
+(scrartcl)           for `\paragraph on input line 4833.
 \scr@dte@subparagraph@maxnumwidth=\skip58
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subparagraph on input line 4771.
+(scrartcl)           for `\subparagraph on input line 4843.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subparagraph on input line 4771.
+(scrartcl)           for `\subparagraph on input line 4843.
 \abovecaptionskip=\skip59
 \belowcaptionskip=\skip60
 \c@pti@nb@sid@b@x=\box46
-Package tocbasic Info: omitting babel extension for `lof'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 6002.
+Package tocbasic Info: babel extension for `lof' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6075.
+
 \scr@dte@figure@maxnumwidth=\skip61
-\c@figure=\count174
-Package tocbasic Info: omitting babel extension for `lot'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 6014.
+\c@figure=\count175
+Package tocbasic Info: babel extension for `lot' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6087.
+
 \scr@dte@table@maxnumwidth=\skip62
-\c@table=\count175
-Class scrartcl Info: Redefining `\numberline' on input line 6178.
+\c@table=\count176
+Class scrartcl Info: Redefining `\numberline' on input line 6251.
 \bibindent=\dimen134
-) (/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2020/02/28 3.41 The Babel package
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.sty"
+Package: babel 2020/07/13 3.47 The Babel package
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2020/02/28 3.41 Babel switching mechanism
-)
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
-
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2020/02/28 3.41 Babel common definitions
-\babel@savecnt=\count176
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/07/13 3.47 Babel common definitions
+\babel@savecnt=\count177
 \U@D=\dimen135
+\l@babelnohyphens=\language79
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/babel/txtbabel.def)
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
 \bbl@readstream=\read2
-\bbl@dirlevel=\count177
 )
+\bbl@dirlevel=\count178
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-english\english.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 105.
+(babel)             (\language73) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 108.
+(babel)             (\language73) on input line 108.
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/url/url.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen136
 \Gin@req@width=\dimen137
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\subcaption.sty"
 Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
+Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
+Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen138
 \captionmargin@=\dimen139
@@ -217,24 +219,24 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 Package caption Info: KOMA-Script document class detected.
 )
 Package caption Info: KOMA-Script document class.
-\c@caption@flags=\count178
-\c@continuedfloat=\count179
+\c@caption@flags=\count179
+\c@continuedfloat=\count180
 )
-\c@subfigure=\count180
-\c@subtable=\count181
+\c@subfigure=\count181
+\c@subtable=\count182
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count182
+\c@float@type=\count183
 \float@exts=\toks16
 \float@box=\box47
 \@float@everytoks=\toks17
 \@floatcapt=\box48
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/epigraph/epigraph.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/epigraph\epigraph.sty"
 Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/nextpage/nextpage.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/nextpage\nextpage.sty"
 Package: nextpage 2009/09/03 v1.1a additional page commands
 )
 \beforeepigraphskip=\skip63
@@ -242,10 +244,10 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphwidth=\skip65
 \epigraphrule=\skip66
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/mathcomp/mathcomp.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/mathcomp\mathcomp.sty"
 Package: mathcomp 2001/01/07 v0.1f (TBo)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 \symTC=\mathgroup4
@@ -253,22 +255,21 @@ LaTeX Font Info:    Overwriting symbol font `TC' in version `bold'
 (Font)                  TS1/cmr/m/n --> TS1/cmr/bx/n on input line 25.
 LaTeX Font Info:    Redeclaring math symbol \dagger on input line 47.
 LaTeX Font Info:    Redeclaring math symbol \ddagger on input line 48.
-)
-(./structure.tex
-(/usr/local/texlive/2019/texmf-dist/tex/latex/classicthesis/classicthesis.sty
+) (structure.tex
+("C:\Program Files\MiKTeX 2.9\tex/latex/classicthesis\classicthesis.sty"
 Package: classicthesis 2018/06/03 v4.6 Typographic style for a classic-looking 
 thesis
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/kvoptions\kvoptions.sty"
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetkeys.sty"
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 
@@ -276,22 +277,22 @@ Package classicthesis Warning: Chapter sectioning command not present in this d
 ocument class. Deactivating options floatperchapter, linedheaders, manychapters
 , listsseparated, eulerchapternumbers.
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/iftex/ifpdf.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifpdf.sty"
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2019/11/07 v1.0c TeX engine tests
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/generic/iftex/ifxetex.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifxetex.sty"
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/iftex/ifluatex.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifluatex.sty"
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/xcolor/xcolor.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/xcolor\xcolor.sty"
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -305,35 +306,35 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/dvipsnam.def
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\dvipsnam.def"
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/mathpazo.sty
-Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\mathpazo.sty"
+Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup5
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/bera/beramono.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/bera\beramono.sty"
 Package: beramono 2004/01/31 (WaS)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/eulervm.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/eulervm\eulervm.sty"
 Package: eulervm 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for T1+pplj on input line 2
 02.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/t1pplj.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\t1pplj.fd"
 File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.sty"
 Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
 \MT@toks=\toks18
-\MT@count=\count183
+\MT@count=\count184
 LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen145
 LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
-\MT@listname@count=\count184
+\MT@listname@count=\count185
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype-pdftex.def"
 File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 914.
@@ -342,7 +343,7 @@ LaTeX Info: Redefining \lslig on input line 914.
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/microtype.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.cfg"
 File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
 ))
 Package classicthesis Info: A4 paper, Palatino or other on input line 251.
@@ -363,10 +364,10 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \baselineskip   = 14.5pt
 (typearea)              on input line 251.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/mparhack/mparhack.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/mparhack\mparhack.sty"
 Package: mparhack 2005/04/17 v1.4 (T. Sgouros and S. Ulrich)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty"
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen146
 \lightrulewidth=\dimen147
@@ -378,26 +379,26 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen153
 \cmidrulekern=\dimen154
 \defaultaddspace=\dimen155
-\@cmidla=\count185
-\@cmidlb=\count186
+\@cmidla=\count186
+\@cmidlb=\count187
 \@aboverulesep=\dimen156
 \@belowrulesep=\dimen157
-\@thisruleclass=\count187
-\@lastruleclass=\count188
+\@thisruleclass=\count188
+\@lastruleclass=\count189
 \@thisrulewidth=\dimen158
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/textcase/textcase.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/textcase\textcase.sty"
 Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
 )
 Package classicthesis Info: Using microtype for character spacing.Make sure you
 r pdflatex is version 1.40 or higher. on input line 321.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlayer-scrpage.sty
-Package: scrlayer-scrpage 2020/01/24 v3.29 KOMA-Script package (end user interf
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrlayer-scrpage.sty"
+Package: scrlayer-scrpage 2020/07/22 v3.31 KOMA-Script package (end user interf
 ace for scrlayer)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlayer.sty
-Package: scrlayer 2020/01/24 v3.29 KOMA-Script package (defining layers and pag
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrlayer.sty"
+Package: scrlayer 2020/07/22 v3.31 KOMA-Script package (defining layers and pag
 e styles)
 Package scrlayer Info: Using already defined \footheight
 (scrlayer)             hoping, that this is a length and
@@ -416,7 +417,7 @@ Package scrlayer-scrpage Info: auto-selection of `pagestyleset=KOMA-Script'.
 1: section
 1: section
 1: subsection
-(/usr/local/texlive/2019/texmf-dist/tex/latex/titlesec/titlesec.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/titlesec\titlesec.sty"
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box49
 \beforetitleunit=\skip68
@@ -473,7 +474,7 @@ Class scrartcl Warning: Usage of package `tocloft' together
 (scrartcl)              Nevertheless, using requested
 (scrartcl)              package `tocloft' on input line 416.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/tocloft/tocloft.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/tocloft\tocloft.sty"
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 51.
 \cftparskip=\skip70
@@ -502,8 +503,8 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforefigskip=\skip93
 \cftfigindent=\skip94
 \cftfignumwidth=\skip95
-\c@lofdepth=\count189
-\c@lotdepth=\count190
+\c@lofdepth=\count190
+\c@lotdepth=\count191
 \cftbeforelottitleskip=\skip96
 \cftafterlottitleskip=\skip97
 \cftbeforetabskip=\skip98
@@ -517,93 +518,92 @@ Package tocloft Info: The document has section divisions on input line 51.
 \tablelabelwidth=\skip105
 
 Using KOMA-command "deffootnote" for footnote setup
-(/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrtime.sty
-Package: scrtime 2020/01/24 v3.29 KOMA-Script package (time of LaTeX run)
+("C:\Program Files\MiKTeX 2.9\tex/latex/koma-script\scrtime.sty"
+Package: scrtime 2020/07/22 v3.31 KOMA-Script package (time of LaTeX run)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/carlisle/remreset.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/carlisle\remreset.sty"
 
 Package remreset Warning: The remreset package is obsolete:
 (remreset)                \@removefomresset is defined.
 
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+("C:\Program Files\MiKTeX 2.9\tex/generic/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/kvdefinekeys\kvdefinekeys.sty"
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/pdfescape\pdfescape.sty"
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hycolor/hycolor.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/hycolor\hycolor.sty"
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/letltxmacro\letltxmacro.sty"
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/auxhook/auxhook.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/auxhook\auxhook.sty"
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen164
-\Hy@linkcounter=\count191
-\Hy@pagecounter=\count192
+\Hy@linkcounter=\count192
+\Hy@pagecounter=\count193
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/intcalc/intcalc.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count193
-\pdfmajorversion=\count194
-Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4421.
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+\Hy@SavedSpaceFactor=\count194
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4338.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count195
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen165
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/bitset/bitset.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/bigintcalc\bigintcalc.sty"
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count196
 \Field@Width=\dimen166
 \Fld@charsize=\dimen167
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 \Hy@abspage=\count197
@@ -611,20 +611,20 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
+File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/atveryend/atveryend.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/atveryend\atveryend.sty"
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
 \Fld@listcount=\count199
 \c@bookmark@seq@number=\count266
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-(/usr/local/texlive/2019/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+("C:\Program Files\MiKTeX 2.9\tex/generic/uniquecounter\uniquecounter.sty"
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -635,7 +635,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Info: Option `colorlinks' set `true' on input line 679.
 Package hyperref Info: Option `linktocpage' set `true' on input line 679.
 Package hyperref Info: Option `breaklinks' set `true' on input line 679.
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/arsclassica/arsclassica.sty
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/arsclassica\arsclassica.sty"
 Package: arsclassica 2017/10/31
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = areaset
@@ -673,15 +674,15 @@ Package hyperref Warning: Option `hyperfootnotes' has already been used,
 Package hyperref Warning: Option `pdfpagelabels' has already been used,
 (hyperref)                setting the option has no effect on input line 184.
 
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/fontenc.sty
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\fontenc.sty"
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\inputenc.sty"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks20
 \inpenc@posthook=\toks21
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/enumitem/enumitem.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/enumitem\enumitem.sty"
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip107
 \enit@outerparindent=\dimen168
@@ -690,44 +691,46 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count267
 \enitdp@description=\count268
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.sty
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2020-02-25 L3 programming layer (loader) 
+("C:\Program Files\MiKTeX 2.9\tex/latex/lipsum\lipsum.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
+Package: expl3 2020-08-07 L3 programming layer (loader) 
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-08-07 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count269
 \l__pdf_internal_box=\box51
-)) (/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2020-02-25 L3 Experimental document command parser
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty"
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse-generic.tex"
 \l__xparse_current_arg_int=\count270
 \g__xparse_grabber_int=\count271
 \l__xparse_m_args_int=\count272
 \l__xparse_v_nesting_int=\count273
-)
+))
 Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+("C:\Program Files\MiKTeX 2.9\tex/latex/lipsum\lipsum.ltd.tex"
 File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip108
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks23
 \ex@=\dimen169
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen170
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count274
@@ -768,10 +771,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup6
 \symAMSb=\mathgroup7
@@ -779,8 +782,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2017/10/31 v2.20.4
+("C:\Program Files\MiKTeX 2.9\tex/latex/amscls\amsthm.sty"
+Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks28
 \thm@bodyfont=\toks29
 \thm@headfont=\toks30
@@ -791,16 +794,16 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip113
 \dth@everypar=\toks33
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/xpatch/xpatch.sty
-Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
+("C:\Program Files\MiKTeX 2.9\tex/latex/xpatch\xpatch.sty"
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
+Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count286
 ))
 Class scrartcl Info: amsthm's \deferred@thm@head patched.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/varioref.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\varioref.sty"
 Package: varioref 2020/01/23 v1.6c package for extended references (FMi)
 \c@vrcnt=\count287
 )
@@ -814,7 +817,7 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 (hyperref)                setting the option has no effect on input line 74.
 
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 74.
-) (./article_4.aux
+) (article_4.aux
 
 LaTeX Warning: Label `fig:sub-second' multiply defined.
 
@@ -849,7 +852,7 @@ LaTeX Font Info:    ... okay on input line 59.
 Package scrbase Info: activating english \contentsname on input line 59.
 Package scrbase Info: activating english \listfigurename on input line 59.
 Package scrbase Info: activating english \listtablename on input line 59.
- (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count290
 \scratchdimen=\dimen178
@@ -862,15 +865,11 @@ Package scrbase Info: activating english \listtablename on input line 59.
 \MPnumerator=\count294
 \makeMPintoPDFobject=\count295
 \everyMPtoPDFconversion=\toks35
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
+)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -884,20 +883,19 @@ Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-ppl.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-ppl.cfg"
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 \AtBeginShipoutBox=\box55
 Package hyperref Info: Link coloring ON on input line 59.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/refcount/refcount.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/refcount\refcount.sty"
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count296
@@ -906,7 +904,8 @@ LaTeX Info: Redefining \Ref on input line 520.
 LaTeX Info: Redefining \ref on input line 59.
 LaTeX Info: Redefining \pageref on input line 59.
 LaTeX Info: Redefining \nameref on input line 59.
- (./article_4.out) (./article_4.out)
+
+(article_4.out) (article_4.out)
 \@outlinefile=\write3
 \openout3 = `article_4.out'.
 
@@ -920,10 +919,10 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)             \usepackage{bookmark}
 (scrartcl)           before \begin{document} on input line 59.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/bookmark/bookmark.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/bookmark\bookmark.sty"
 Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex/latex/bookmark\bkm-pdftex.def"
 File: bkm-pdftex.def 2019/12/03 v1.28 bookmark driver for pdfTeX (HO)
 Package auxhook Info: \AddLineBeginMainAux comes a little late,
 (auxhook)             because the main .aux file is already opened on input lin
@@ -933,7 +932,7 @@ e 168.
 LaTeX Font Info:    Trying to load font information for T1+iwona on input line 
 78.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/iwona/t1iwona.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/iwona\t1iwona.fd"
 File: t1iwona.fd 2008/07/22 v0.995 font definition file for T1/iwona (MW)
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -943,41 +942,41 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Font Info:    Trying to load font information for OT1+pplj on input line 
 78.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1pplj.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1pplj.fd"
 File: ot1pplj.fd 2004/09/06 font definitions for OT1/pplj.
 )
 LaTeX Font Info:    Trying to load font information for U+zeur on input line 78
 .
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeur.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/eulervm\uzeur.fd"
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-eur.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-eur.cfg"
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+zeus on input line 78
 .
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeus.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/eulervm\uzeus.fd"
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-eus.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-eus.cfg"
 File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+zeuex on input line 7
 8.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/eulervm/uzeuex.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/eulervm\uzeuex.fd"
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-cmr.cfg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
 78.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1zplm.fd"
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -985,19 +984,18 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-(/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{C:/Users/Marzio/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 Package tocbasic Info: character protrusion at toc deactivated on input line 88
 .
-
-(./article_4.toc
+ (article_4.toc
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplj/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1007,7 +1005,8 @@ Package microtype Info: Character `029' is missing
 
 Package tocbasic Info: character protrusion at lof deactivated on input line 90
 .
- (./article_4.lof
+
+(article_4.lof
 Underfull \hbox (badness 1168) in paragraph at lines 3--3
  [][] []\T1/pplj/m/n/12 Different pic-tures of the virus as re-ported 
  []
@@ -1015,7 +1014,7 @@ Underfull \hbox (badness 1168) in paragraph at lines 3--3
 [3]
 LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 
 11.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ts1pplj.fd"
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 ))
 \tf@lof=\write5
@@ -1023,8 +1022,7 @@ File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 
 Package tocbasic Info: character protrusion at lot deactivated on input line 92
 .
-
-(./article_4.lot)
+ (article_4.lot)
 \tf@lot=\write6
 \openout6 = `article_4.lot'.
 
@@ -1035,7 +1033,7 @@ Package microtype Info: Character `029' is missing
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/b/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-<Figures/Coronavirus1.jpg, id=98, 3071.475pt x 2398.9625pt>
+<Figures/Coronavirus1.jpg, id=101, 3071.475pt x 2398.9625pt>
 File: Figures/Coronavirus1.jpg Graphic file (type jpg)
 <use Figures/Coronavirus1.jpg>
 Package pdftex.def Info: Figures/Coronavirus1.jpg  used on input line 129.
@@ -1047,20 +1045,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--130
 
 
 Underfull \hbox (badness 2020) in paragraph at lines 130--130
-\T1/pplj/m/n/10 (TEM) im-age of SARS-CoV-2^^Valso
+\T1/pplj/m/n/10 (TEM) im-age of SARS-CoV-2also
  []
 
-<Figures/Coronavirus2.jpg, id=99, 298.67836pt x 242.21742pt>
+<Figures/Coronavirus2.jpg, id=102, 298.67836pt x 242.21742pt>
 File: Figures/Coronavirus2.jpg Graphic file (type jpg)
 <use Figures/Coronavirus2.jpg>
 Package pdftex.def Info: Figures/Coronavirus2.jpg  used on input line 136.
 (pdftex.def)             Requested size: 129.49944pt x 105.01999pt.
-<Figures/Coronavirus3.jpg, id=100, 3071.475pt x 2398.9625pt>
+<Figures/Coronavirus3.jpg, id=103, 3071.475pt x 2398.9625pt>
 File: Figures/Coronavirus3.jpg Graphic file (type jpg)
 <use Figures/Coronavirus3.jpg>
 Package pdftex.def Info: Figures/Coronavirus3.jpg  used on input line 143.
 (pdftex.def)             Requested size: 129.49944pt x 101.14009pt.
-<Figures/Coronavirus4.jpg, id=101, 247.86351pt x 305.45367pt>
+<Figures/Coronavirus4.jpg, id=104, 247.86351pt x 305.45367pt>
 File: Figures/Coronavirus4.jpg Graphic file (type jpg)
 <use Figures/Coronavirus4.jpg>
 Package pdftex.def Info: Figures/Coronavirus4.jpg  used on input line 150.
@@ -1077,12 +1075,12 @@ Overfull \hbox (2.65201pt too wide) in paragraph at lines 126--154
 
 [5 <./Figures/Coronavirus1.jpg> <./Figures/Coronavirus2.jpg> <./Figures/Coronav
 irus3.jpg> <./Figures/Coronavirus4.jpg>] [6]
-<Figures/SpanishFLU.png, id=149, 1144.275pt x 687.56876pt>
+<Figures/SpanishFLU.png, id=152, 1144.275pt x 687.56876pt>
 File: Figures/SpanishFLU.png Graphic file (type png)
 <use Figures/SpanishFLU.png>
 Package pdftex.def Info: Figures/SpanishFLU.png  used on input line 175.
 (pdftex.def)             Requested size: 370.0pt x 222.32411pt.
-<Figures/Mortality_spanish_flu.png, id=153, 752.8125pt x 533.995pt>
+<Figures/Mortality_spanish_flu.png, id=156, 752.8125pt x 533.995pt>
 File: Figures/Mortality_spanish_flu.png Graphic file (type png)
 <use Figures/Mortality_spanish_flu.png>
 Package pdftex.def Info: Figures/Mortality_spanish_flu.png  used on input line 
@@ -1093,7 +1091,7 @@ Package pdftex.def Info: Figures/Mortality_spanish_flu.png  used on input line
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7 <./Figures/SpanishFLU.png>] [8 <./Figures/Mortality_spanish_flu.png>]
-<Figures/Mixing_Flu.jpg, id=173, 1104.125pt x 735.74875pt>
+<Figures/Mixing_Flu.jpg, id=176, 1104.125pt x 735.74875pt>
 File: Figures/Mixing_Flu.jpg Graphic file (type jpg)
 <use Figures/Mixing_Flu.jpg>
 Package pdftex.def Info: Figures/Mixing_Flu.jpg  used on input line 195.
@@ -1102,7 +1100,7 @@ Package pdftex.def Info: Figures/Mixing_Flu.jpg  used on input line 195.
 [9
 
  <./Figures/Mixing_Flu.jpg>] [10]
-<Figures/Malthusian_growth_vs_logistic_growth-2.jpg, id=208, 1507.6325pt x 1059
+<Figures/Malthusian_growth_vs_logistic_growth-2.jpg, id=210, 1507.6325pt x 1059
 .96pt>
 File: Figures/Malthusian_growth_vs_logistic_growth-2.jpg Graphic file (type jpg
 )
@@ -1110,130 +1108,130 @@ File: Figures/Malthusian_growth_vs_logistic_growth-2.jpg Graphic file (type jpg
 Package pdftex.def Info: Figures/Malthusian_growth_vs_logistic_growth-2.jpg  us
 ed on input line 255.
 (pdftex.def)             Requested size: 296.00113pt x 208.10657pt.
- [11 <./Figures/Malthusian_growth_vs_logistic_growth-2.jpg>] [12]
-<Figures/Home_figure_1.png, id=225, 437.00766pt x 497.98547pt>
+ [11 <./Figures/Malthusian_growth_vs_logistic_growth-2.jpg>] [12] [13]
+<Figures/Home_figure_1.png, id=239, 437.00766pt x 497.98547pt>
 File: Figures/Home_figure_1.png Graphic file (type png)
 <use Figures/Home_figure_1.png>
-Package pdftex.def Info: Figures/Home_figure_1.png  used on input line 288.
+Package pdftex.def Info: Figures/Home_figure_1.png  used on input line 311.
 (pdftex.def)             Requested size: 185.0pt x 210.81657pt.
-<Figures/Home_figure_2.png, id=227, 140.39954pt x 105.01735pt>
+<Figures/Home_figure_2.png, id=241, 140.39954pt x 105.01735pt>
 File: Figures/Home_figure_2.png Graphic file (type png)
 <use Figures/Home_figure_2.png>
-Package pdftex.def Info: Figures/Home_figure_2.png  used on input line 297.
+Package pdftex.def Info: Figures/Home_figure_2.png  used on input line 320.
 (pdftex.def)             Requested size: 185.0pt x 138.38614pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13
+[14
 
  <./Figures/Home_figure_1.png>]
-<Figures/Home_figure_3.png, id=241, 442.27734pt x 181.80421pt>
+<Figures/Home_figure_3.png, id=254, 442.27734pt x 181.80421pt>
 File: Figures/Home_figure_3.png Graphic file (type png)
 <use Figures/Home_figure_3.png>
-Package pdftex.def Info: Figures/Home_figure_3.png  used on input line 314.
+Package pdftex.def Info: Figures/Home_figure_3.png  used on input line 337.
 (pdftex.def)             Requested size: 185.0pt x 76.04654pt.
- [14 <./Figures/Home_figure_2.png> <./Figures/Home_figure_3.png>]
-<Figures/Inspection_perc_occupancy.png, id=256, 881.2925pt x 302.12875pt>
+ [15 <./Figures/Home_figure_2.png> <./Figures/Home_figure_3.png>]
+<Figures/Inspection_perc_occupancy.png, id=269, 881.2925pt x 302.12875pt>
 File: Figures/Inspection_perc_occupancy.png Graphic file (type png)
 <use Figures/Inspection_perc_occupancy.png>
 Package pdftex.def Info: Figures/Inspection_perc_occupancy.png  used on input l
-ine 332.
+ine 355.
 (pdftex.def)             Requested size: 185.0pt x 63.42123pt.
-<Figures/Inspection_rawdata.png, id=257, 825.0825pt x 469.755pt>
+<Figures/Inspection_rawdata.png, id=270, 825.0825pt x 469.755pt>
 File: Figures/Inspection_rawdata.png Graphic file (type png)
 <use Figures/Inspection_rawdata.png>
-Package pdftex.def Info: Figures/Inspection_rawdata.png  used on input line 339
+Package pdftex.def Info: Figures/Inspection_rawdata.png  used on input line 362
 .
 (pdftex.def)             Requested size: 185.0pt x 105.32475pt.
-<Figures/Inspection_test_tracking.png, id=258, 413.04312pt x 240.39813pt>
+<Figures/Inspection_test_tracking.png, id=271, 413.04312pt x 240.39813pt>
 File: Figures/Inspection_test_tracking.png Graphic file (type png)
 <use Figures/Inspection_test_tracking.png>
 Package pdftex.def Info: Figures/Inspection_test_tracking.png  used on input li
-ne 346.
+ne 369.
 (pdftex.def)             Requested size: 185.0pt x 107.67561pt.
-<Figures/Inspection_Cattura.png, id=259, 671.50874pt x 251.94125pt>
+<Figures/Inspection_Cattura.png, id=272, 671.50874pt x 251.94125pt>
 File: Figures/Inspection_Cattura.png Graphic file (type png)
 <use Figures/Inspection_Cattura.png>
-Package pdftex.def Info: Figures/Inspection_Cattura.png  used on input line 353
+Package pdftex.def Info: Figures/Inspection_Cattura.png  used on input line 376
 .
 (pdftex.def)             Requested size: 185.0pt x 69.409pt.
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 329--357
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 352--380
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 329--357
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 352--380
 []$ $[]$ 
  []
 
-<Figures/Inspection_general_info.png, id=260, 855.69687pt x 309.65688pt>
+<Figures/Inspection_general_info.png, id=273, 855.69687pt x 309.65688pt>
 File: Figures/Inspection_general_info.png Graphic file (type png)
 <use Figures/Inspection_general_info.png>
 Package pdftex.def Info: Figures/Inspection_general_info.png  used on input lin
-e 364.
+e 387.
 (pdftex.def)             Requested size: 185.0pt x 66.94347pt.
-<Figures/Inspection_growth_monitoring.png, id=261, 434.12187pt x 300.62312pt>
+<Figures/Inspection_growth_monitoring.png, id=274, 434.12187pt x 300.62312pt>
 File: Figures/Inspection_growth_monitoring.png Graphic file (type png)
 <use Figures/Inspection_growth_monitoring.png>
 Package pdftex.def Info: Figures/Inspection_growth_monitoring.png  used on inpu
-t line 371.
+t line 394.
 (pdftex.def)             Requested size: 185.0pt x 128.10945pt.
-<Figures/Inspection_occupancy2.png, id=262, 878.78313pt x 301.62688pt>
+<Figures/Inspection_occupancy2.png, id=275, 878.78313pt x 301.62688pt>
 File: Figures/Inspection_occupancy2.png Graphic file (type png)
 <use Figures/Inspection_occupancy2.png>
 Package pdftex.def Info: Figures/Inspection_occupancy2.png  used on input line 
-378.
+401.
 (pdftex.def)             Requested size: 185.0pt x 63.49539pt.
 
-Overfull \hbox (2.65201pt too wide) in paragraph at lines 361--382
+Overfull \hbox (2.65201pt too wide) in paragraph at lines 384--405
 []$[]$ $[]$
  []
 
-[15 <./Figures/Inspection_perc_occupancy.png> <./Figures/Inspection_rawdata.png
+[16 <./Figures/Inspection_perc_occupancy.png> <./Figures/Inspection_rawdata.png
 > <./Figures/Inspection_test_tracking.png> <./Figures/Inspection_Cattura.png>]
-[16 <./Figures/Inspection_general_info.png> <./Figures/Inspection_growth_monito
-ring.png> <./Figures/Inspection_occupancy2.png>] [17]
-<Figures/logistic_input.png, id=305, 257.46187pt x 320.69812pt>
+[17 <./Figures/Inspection_general_info.png> <./Figures/Inspection_growth_monito
+ring.png> <./Figures/Inspection_occupancy2.png>] [18]
+<Figures/logistic_input.png, id=318, 257.46187pt x 320.69812pt>
 File: Figures/logistic_input.png Graphic file (type png)
 <use Figures/logistic_input.png>
-Package pdftex.def Info: Figures/logistic_input.png  used on input line 426.
+Package pdftex.def Info: Figures/logistic_input.png  used on input line 449.
 (pdftex.def)             Requested size: 222.00226pt x 276.5339pt.
-<Figures/logistic_plot1.png, id=306, 557.08125pt x 350.81062pt>
+<Figures/logistic_plot1.png, id=319, 557.08125pt x 350.81062pt>
 File: Figures/logistic_plot1.png Graphic file (type png)
 <use Figures/logistic_plot1.png>
-Package pdftex.def Info: Figures/logistic_plot1.png  used on input line 433.
+Package pdftex.def Info: Figures/logistic_plot1.png  used on input line 456.
 (pdftex.def)             Requested size: 222.00226pt x 139.79716pt.
-<Figures/logistic_plot2.png, id=307, 560.8453pt x 352.31625pt>
+<Figures/logistic_plot2.png, id=320, 560.8453pt x 352.31625pt>
 File: Figures/logistic_plot2.png Graphic file (type png)
 <use Figures/logistic_plot2.png>
-Package pdftex.def Info: Figures/logistic_plot2.png  used on input line 440.
+Package pdftex.def Info: Figures/logistic_plot2.png  used on input line 463.
 (pdftex.def)             Requested size: 222.00226pt x 139.45638pt.
- [18]
-<Figures/logistic_plot3.png, id=314, 293.59688pt x 53.44969pt>
+ [19]
+<Figures/logistic_plot3.png, id=328, 293.59688pt x 53.44969pt>
 File: Figures/logistic_plot3.png Graphic file (type png)
 <use Figures/logistic_plot3.png>
-Package pdftex.def Info: Figures/logistic_plot3.png  used on input line 453.
+Package pdftex.def Info: Figures/logistic_plot3.png  used on input line 476.
 (pdftex.def)             Requested size: 222.00226pt x 40.41582pt.
-<Figures/logistic_res1.png, id=315, 483.30562pt x 350.05782pt>
+<Figures/logistic_res1.png, id=329, 483.30562pt x 350.05782pt>
 File: Figures/logistic_res1.png Graphic file (type png)
 <use Figures/logistic_res1.png>
-Package pdftex.def Info: Figures/logistic_res1.png  used on input line 460.
+Package pdftex.def Info: Figures/logistic_res1.png  used on input line 483.
 (pdftex.def)             Requested size: 222.00226pt x 160.79352pt.
-<Figures/logistic_smry1.png, id=316, 334.24875pt x 303.38344pt>
+<Figures/logistic_smry1.png, id=330, 334.24875pt x 303.38344pt>
 File: Figures/logistic_smry1.png Graphic file (type png)
 <use Figures/logistic_smry1.png>
-Package pdftex.def Info: Figures/logistic_smry1.png  used on input line 467.
+Package pdftex.def Info: Figures/logistic_smry1.png  used on input line 490.
 (pdftex.def)             Requested size: 222.00226pt x 201.50673pt.
- [19 <./Figures/logistic_input.png> <./Figures/logistic_plot1.png> <./Figures/l
+ [20 <./Figures/logistic_input.png> <./Figures/logistic_plot1.png> <./Figures/l
 ogistic_plot2.png>]
-[20 <./Figures/logistic_plot3.png> <./Figures/logistic_res1.png> <./Figures/log
-istic_smry1.png>] (./article_4.bbl
+[21 <./Figures/logistic_plot3.png> <./Figures/logistic_res1.png> <./Figures/log
+istic_smry1.png>] (article_4.bbl
 LaTeX Font Info:    Trying to load font information for T1+fvm on input line 4.
 
 
-(/usr/local/texlive/2019/texmf-dist/tex/latex/bera/t1fvm.fd
+("C:\Program Files\MiKTeX 2.9\tex/latex/bera\t1fvm.fd"
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
@@ -1253,107 +1251,106 @@ Underfull \hbox (badness 1127) in paragraph at lines 7--11
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
 [][][]$\T1/fvm/m/n/12 https : / / commons . wikimedia . org / wiki / File : Mal
 thusian _
  []
 
-[21
+[22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 [][][]$\T1/fvm/m/n/12 https : / / www . repubblica . it / politica / 2020 / 03 
 / 01 / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 [][][]$\T1/fvm/m/n/12 https : / / www . repubblica . it / politica / 2020 / 03 
 / 04 / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 \T1/fvm/m/n/12 coronavirus _ governo _ chiuse _ le _ scuole _ in _ tutta _ ital
 ia _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 [][][]$\T1/fvm/m/n/12 http : / / www . salute . gov . it / portale / news / p3 
 _ 2 _ 1 _ 1 _ 1 . jsp ?
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 [][][]$\T1/fvm/m/n/12 https : / / www . istat . it / it / files / /2015 / 04 /
  []
 
 
-Overfull \hbox (84.90364pt too wide) in paragraph at lines 165--166
+Overfull \hbox (84.90364pt too wide) in paragraph at lines 169--170
 \T1/fvm/m/n/12 Superfici-[]delle-[]unit % C3 % A0-[]amministrative-[]Dati-[]com
 unali-[]e-[]provinciali .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 [][][]$\T1/fvm/m/n/12 http : / / dati . istat . it / Index . aspx ? DataSetCode
  = DCIS _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 [][][]$\T1/fvm/m/n/12 https : / / cran . r-[]project . org / web / packages / g
 rowthcurver /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 [][][]$\T1/fvm/m/n/12 https : / / www . rdocumentation . org / packages / minpa
 ck . lm /
  []
 
-) [23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
- (./article_4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 498.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 498.
+) [24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 527.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 527.
+ (article_4.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 527.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 527.
 Package rerunfilecheck Info: File `article_4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 498.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 527.
  ) 
 Here is how much of TeX's memory you used:
- 18518 strings out of 480994
- 346954 string characters out of 5912142
- 908181 words of memory out of 5000000
- 33431 multiletter control sequences out of 15000+600000
- 656734 words of font info for 203 fonts, out of 8000000 for 9000
+ 18801 strings out of 481212
+ 352138 string characters out of 2913848
+ 922230 words of memory out of 3000000
+ 33777 multiletter control sequences out of 15000+200000
+ 669978 words of font info for 219 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 75i,23n,101p,10131b,859s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
-exlive/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/local/texliv
-e/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/tex
-mf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2019/texmf-
-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2019/texmf-dist/fo
-nts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
-1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/nowa
-cki/iwona/iwonar.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/palati
-no/uplr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/palatino/uplr
-i8a.pfb>
-Output written on article_4.pdf (23 pages, 10540817 bytes).
+ 75i,23n,102p,10633b,870s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{C:/Program Files/MiKTeX 2.9/fon
+ts/enc/dvips/iwona/ec-iwona.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/
+euex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eurm10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/fpl/fplrc8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/fpl/fplrij8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/bera/fvmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/i
+wonab.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/iwonar.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/palatino/uplri8a.pfb>
+Output written on article_4.pdf (24 pages, 10609209 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 395 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
- 47345 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 506 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 50433 words of extra memory for PDF output out of 51595 (max. 10000000)
 

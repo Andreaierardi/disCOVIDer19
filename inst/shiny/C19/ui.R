@@ -85,6 +85,9 @@ ui <-
                                              # tab 3 -------------------------------------------------------------------
                                              source(file.path("ui/tabs", "3.tab_analysis.R"),  local = TRUE)$value,
                                              
+                                             # tab 3 section 2 ---------------------------------------------------------
+                                             source(file.path("ui/tabs", "3.tab_analysis_2.R"),  local = TRUE)$value,
+                                             
                                              # tab 4 -------------------------------------------------------------------
                                              source(file.path("ui/tabs", "4.tab_conclusion.R"),  local = TRUE)$value
                                              

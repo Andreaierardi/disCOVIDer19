@@ -81,7 +81,7 @@ shinydashboard::tabItem(tabName = "tab_4",
                                                             
                                                             shinydashboardPlus::userList(
                                                               shinydashboardPlus::userListItem(
-                                                                src="https://media-exp1.licdn.com/dms/image/C4D03AQFNxDX9vdxEmQ/profile-displayphoto-shrink_800_800/0?e=1590019200&v=beta&t=ftXpX3Wg-dB2t8sBoSYspTKC3z5cK2ehYhWk5obIBh4",
+                                                                src="https://avatars2.githubusercontent.com/u/60004596?s=460&u=aa1d8abbfca8d2fcf57bc9ff4688f817ebd3e5ad&v=4",
                                                                 user_name = "Fabio Caironi",
                                                                 description = HTML('<br>
                                                                 BC. in Mathematics. <br>

@@ -626,55 +626,55 @@ output$FFT_day_cases_diff<- shiny::renderPlot({
 
 #DEFAULT 1.4, 0.8
 #
-
-shiny::observe({
-  
-  if(is_ready(reac_general$sample_cases) && is_ready(input$"Gamma_1")) {
-    
-    GT.chld.hsld2<-R0::generation.time("gamma", c(input$"Gamma_1", input$"Gamma_2"))
-    time_R <- as.numeric(length(reac_general$sample_cases))-2
-    
-    tryCatch(
-      {
-        reac_R$R0_data <- R0::est.R0.TD(diff(reac_general$sample_cases),GT.chld.hsld2, begin=1, end=time_R)
-      },
-      error = function(e)
-      {
-        reac_R$R0_data <- FALSE
-      }
-    )
-  }
-})
-
-R0_data <- shiny::reactive({
-
-  shiny::validate(
-    shiny::need(is_ready(reac_R$R0_data), "Wait...") %then%
-    shiny::need(!isFALSE(reac_R$R0_data), "The estimates cannot be calculated")
-  )
-  return(reac_R$R0_data)
-})
-
-
-
-output$R_t_evaluation<- shiny::renderPlot({
-
-    plot( R0_data())
-  
-})
-
-output$R_t_goodness_of_fit<- shiny::renderPlot({
-
-    R0::plotfit(R0_data())
- 
-})
-
-output$R_t_evaluation_FFT<- shiny::renderPlot({
-
-    R0_data_raw_FFT <- spectral::spec.fft(R0_data()[["R"]])
-    plot(R0_data_raw_FFT,type = "l",ylab = "Amplitude",xlab = "Frequency",lwd = 2)
-
-})
+#
+#shiny::observe({
+#  
+#  if(is_ready(reac_general$sample_cases) && is_ready(input$"Gamma_1")) {
+#    
+#    GT.chld.hsld2<-R0::generation.time("gamma", c(input$"Gamma_1", input$"Gamma_2"))
+#    time_R <- as.numeric(length(reac_general$sample_cases))-2
+#    
+#    tryCatch(
+#      {
+#        reac_R$R0_data <- R0::est.R0.TD(diff(reac_general$sample_cases),GT.chld.hsld2, begin=1, end=time_R)
+#      },
+#      error = function(e)
+#      {
+#        reac_R$R0_data <- FALSE
+#      }
+#    )
+#  }
+#})
+#
+#R0_data <- shiny::reactive({
+#
+#  shiny::validate(
+#    shiny::need(is_ready(reac_R$R0_data), "Wait...") %then%
+#    shiny::need(!isFALSE(reac_R$R0_data), "The estimates cannot be calculated")
+#  )
+#  return(reac_R$R0_data)
+#})
+#
+#
+#
+#output$R_t_evaluation<- shiny::renderPlot({
+#
+#    plot( R0_data())
+#  
+#})
+#
+#output$R_t_goodness_of_fit<- shiny::renderPlot({
+#
+#    R0::plotfit(R0_data())
+# 
+#})
+#
+#output$R_t_evaluation_FFT<- shiny::renderPlot({
+#
+#    R0_data_raw_FFT <- spectral::spec.fft(R0_data()[["R"]])
+#    plot(R0_data_raw_FFT,type = "l",ylab = "Amplitude",xlab = "Frequency",lwd = 2)
+#
+#})
 
 
 

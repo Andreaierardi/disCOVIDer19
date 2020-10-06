@@ -438,23 +438,35 @@ shinydashboard::tabItem(
     color = "navy",
     width = NULL
   ),
+
+##------------
+## DA ELIINARE !!!!  
+fluidRow(
+  column(12,
+ shinydashboard::box(
+    background = "black",
+    "Working in progress..."
+  )
+  )
+)
+##------------
+
+
   
-  
-  shinydashboard::box(
-    width = 12,
-    status = "danger",
-    solidHeader = TRUE,
-    shiny::htmlOutput("Working in progress...")
-   # shiny::htmlOutput("selected_info5")
-  ),
+  #shinydashboard::box(
+  #  width = 12,
+  #  status = "danger",
+  #  solidHeader = TRUE,
+  # shiny::htmlOutput("selected_info5")
+  #),
   
   
   # fluidRow(
   #   
-  #   column(
+  #  column(
   #     4,
   #     shinydashboard::box(
-  #       width = 12,
+  #      width = 12,
   #       status = "danger",
   #       solidHeader = TRUE,
   #       title = "Input",
@@ -477,7 +489,7 @@ shinydashboard::tabItem(
   #       solidHeader = TRUE,
   #       title = "R0",
   #       shiny::verbatimTextOutput("SEIR_R0")
-  #     )
+  #    )
   #     
   #   ),
   #   

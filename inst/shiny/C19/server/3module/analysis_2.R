@@ -52,7 +52,7 @@ colnames(H_C)<-c("Week","C.Entropy")
 
 output$c_entropy_plot <- highcharter::renderHighchart(
   highcharter::hchart(H_C, "line",
-    highcharter::hcaes(x = countryTS$Italy$data[seq(1,N,7)], y = C.Entropy)) %>% 
+    highcharter::hcaes(x = Week, y = C.Entropy)) %>% 
     highcharter::hc_title(
       text = "Calculation of the <i>entropy index</i> since <b>Feb 2020</b> by week"
     ) %>% 
@@ -61,7 +61,7 @@ output$c_entropy_plot <- highcharter::renderHighchart(
 
 output$entropy_plot <- highcharter::renderHighchart(
   highcharter::hchart(H, "line", color = 'red',
-                      highcharter::hcaes(x = countryTS$Italy$data[seq(1,N,7)], y = Entropy)) %>% 
+                      highcharter::hcaes(x = Week, y = Entropy)) %>% 
     highcharter::hc_title(
       text = "Calculation of the <i>entropy index</i> since <b>Feb 2020</b> by week"
     ) %>%

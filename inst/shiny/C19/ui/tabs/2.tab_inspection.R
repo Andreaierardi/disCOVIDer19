@@ -50,24 +50,19 @@ shinydashboard::tabItem(tabName = "tab_2",
                                             ),
                                             
                                             fluidRow(
-                                              column(5),
-                                              column(4,
-                                                     shiny::radioButtons(
+                                              column(12,
+                                               shiny::radioButtons(
                                                        inputId = "geninfo_type", 
                                                        label = "Data type:",
-                                                       choiceNames = list(HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)</p>"),
-                                                                          HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily)</p>"),
-                                                                          HTML("<p><span style='background-color: rgb(255, 204, 0); color: rgb(255, 255, 255);'><strong>Current</strong></span></p>")
+                                                       choiceNames = list(shiny::HTML("<p><strong><span style='background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);'>Total</span></strong> (cumulative)<span style='color: rgb(40, 50, 78);'></span> <em><span style='color: rgb(166, 166, 166);'>- Total cases, Total deaths, Total recoveries.</span></em></p>"),
+                                                                          shiny::HTML("<p><span style='background-color: rgb(184, 49, 47); color: rgb(255, 255, 255);'><strong>New</strong></span> (daily) <em><span style='color: rgb(166, 166, 166);'>- New cases, New deaths, New recoveries</span></em></p>"),
+                                                                          shiny::HTML("<p><span style='background-color: rgb(255, 204, 0); color: rgb(255, 255, 255);'><strong>Current</strong></span> <span style='color: rgb(166, 166, 166);'><em>- Current home isolation, Current hospitalized, Current intensive care, Current positive cases.</em></span></p>")
                                                        ),
                                                        choiceValues = list("tot", "new", "cur"),
                                                        selected = "tot",
                                                        inline = FALSE)
-                                                     ),
-                                              column(3)
+                                                )
                                             ),
-                                            
-                                            helpText("Total cases is the only available data for provinces"),
-                                            
                                             hr(),
                                             
                                             shinydashboard::tabBox(width = 12,

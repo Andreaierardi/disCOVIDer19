@@ -5,8 +5,8 @@ account: andreaierardi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2009403
-bundleId: 3710222
+bundleId: 3735091
 url: https://andreaierardi.shinyapps.io/disCOVIDer19/
-when: 1602019362.06952
+when: 1602601179.56285
 asMultiple: FALSE
 asStatic: FALSE

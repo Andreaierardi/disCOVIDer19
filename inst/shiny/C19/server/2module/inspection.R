@@ -184,8 +184,7 @@ shiny::observe({
              backgroundColor = 'rgba(63, 63, 191, 0.4)')
       )
     }
-
-        
+    
     
   } else if(input$geninfo_prov == "default" && input$geninfo_type == "cur") {
     reac_dataset$plot_type = "spline"
@@ -215,19 +214,10 @@ shiny::observe({
            backgroundColor = 'rgba(0, 191, 255, 0.4)')
     )
   }
+    
   
-  #Substituing negative values with 0
-  # reac_dataset$table_plot = tidyr::gather((reac_dataset$table_plot), key="key", value="value", -Date)
-  #reac_dataset$table_plot[["value"]] = ifelse(!is.na(reac_dataset$table_plot[["value"]]) & reac_dataset$table_plot[["value"]] <0, 0, reac_dataset$table_plot[["value"]])
-  #reac_dataset$before_plot = tidyr::gather((reac_dataset$table_plot), key="key", value="value", -Date)
- # print(  reac_dataset$before_plot)
-  # reac_dataset$table_plot$value = ifelse(!is.na(reac_dataset$table_plot$value) & reac_dataset$table_plot$value <0, 0, reac_dataset$table_plot$value)
   
-  newdata = tidyr::gather((reac_dataset$table_plot), key="key", value="value", -Date)
-  
-  newdata$value = ifelse(!is.na(newdata$value) & newdata$value <0, 0, newdata$value)
-  
-  reac_dataset$plot = highcharter::hchart(newdata,
+  reac_dataset$plot = highcharter::hchart(tidyr::gather((reac_dataset$table_plot), key="key", value="value", -Date),
                                           type = reac_dataset$plot_type, title= "General info",
                                           highcharter::hcaes(x = Date, y = value, group = key),
                                           color=reac_dataset$colors,
@@ -239,15 +229,19 @@ shiny::observe({
                             label = list(text = "First stage", style = list(color = "#cc0000"))),
                        list(color = "#ffebcc", from = UTSdate(as.Date("2020-05-04")), to = UTSdate(as.Date("2020-06-11")),
                             label = list(text = "Second stage", style = list(color = "#cc7a00"))),
-                       list(color = "#ccffcc", from = UTSdate(as.Date("2020-06-11")), to = UTSdate(fin_date),
-                            label = list(text = "Third stage", style = list(color = "#009900")))
+                       list(color = "#ccffcc", from = UTSdate(as.Date("2020-06-11")), to = UTSdate(as.Date("2020-10-26")),
+                            label = list(text = "Third stage", style = list(color = "#009900"))),
+                       list(color = "#e6ccff", from = UTSdate(as.Date("2020-10-26")), to = UTSdate(fin_date),
+                            label = list(text = "Curfew", style = list(color = "#420080")))
       ),
       plotLines = list(list(color = "#e60000", value = UTSdate(as.Date("2020-03-09")), width = 4,
                             label = list(text = "Decree of March 9th")),
                        list(color = "#e67300", value = UTSdate(as.Date("2020-05-04")), width = 4,
                             label = list(text = "Decree of April 26th")),
                        list(color = "#00e600", value = UTSdate(as.Date("2020-06-11")), width = 4,
-                            label = list(text = "Decree of June 11th"))
+                            label = list(text = "Decree of June 11th")),
+                       list(color = "#5c00b3", value = UTSdate(as.Date("2020-10-26")), width = 4,
+                            label = list(text = "Decree of October 24th"))
       )
     ) %>%
     highcharter::hc_rangeSelector(buttons = list(list(type="week", count=1, text="1wk"), list(type="week", count=2, text="2wk"),

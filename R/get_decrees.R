@@ -240,6 +240,96 @@ get_decrees <- function() {
       link = "https://www.gazzettaufficiale.it/eli/id/2020/08/08/20A04399/sg",
       status = "active",
       flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-08-14")) * 86400000),
+      name = "Decreto Legge 14 Agosto 2020",
+      label = "Decreto Legge",
+      description = "Misure urgenti per il sostegno e il rilancio dell'economia.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/08/14/20G00122/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-09-07")) * 86400000),
+      name = "DPCM 7 Settembre 2020",
+      label = "Decreto Ministeriale",
+      description = "Ulteriori disposizioni attuative del decreto-legge 25 marzo 2020, n. 19, recante misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19, e del decreto-legge 16 maggio 2020, n. 33, recante ulteriori misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/09/07/20A04814/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-09-08")) * 86400000),
+      name = "Decreto Legge 8 Settembre 2020",
+      label = "Decreto Legge",
+      description = "Disposizioni urgenti per far fronte a indifferibili esigenze finanziarie e di sostegno per l'avvio dell'anno scolastico, connesse all'emergenza epidemiologica da COVID-19.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/09/08/20G00134/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-09-11")) * 86400000),
+      name = "Decreto Legge 11 Settembre 2020",
+      label = "Decreto Legge",
+      description = "Disposizioni urgenti per la pulizia e la disinfezione dei locali adibiti a seggio elettorale e per il regolare svolgimento dei servizi educativi e scolastici gestiti dai comuni.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/09/12/20G00140/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-07")) * 86400000),
+      name = "Decreto Legge 7 Ottobre 2020",
+      label = "Decreto Legge",
+      description = "Misure urgenti connesse con la proroga della dichiarazione dello stato di emergenza epidemiologica da COVID-19 e per la continuità operativa del sistema di allerta COVID, nonché attuazione della direttiva (UE) 2020/739 del 3 giugno 2020.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/07/20G00144/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-13")) * 86400000),
+      name = "DPCM 13 Ottobre 2020",
+      label = "Decreto Ministeriale",
+      description = "Ulteriori disposizioni attuative del decreto-legge 25 marzo 2020, n. 19, convertito, con modificazioni, dalla legge 25 maggio 2020, n. 35, recante «Misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19», e del decreto-legge 16 maggio 2020, n. 33, convertito, con modificazioni, dalla legge 14 luglio 2020, n. 74, recante 'Ulteriori misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19'.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/13/20A05563/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-18")) * 86400000),
+      name = "DPCM 18 Ottobre 2020",
+      label = "Decreto Ministeriale",
+      description = "Ulteriori disposizioni attuative del decreto-legge 25 marzo 2020, n. 19, convertito, con modificazioni, dalla legge 25 maggio 2020, n. 35, recante «Misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19», e del decreto-legge 16 maggio 2020, n. 33, convertito, con modificazioni, dalla legge 14 luglio 2020, n. 74, recante 'Ulteriori misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19'.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/18/20A05727/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-20")) * 86400000),
+      name = "Decreto Legge 20 Ottobre 2020",
+      label = "Decreto Legge",
+      description = "Disposizioni urgenti in materia di riscossione esattoriale.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/20/20G00149/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-24")) * 86400000),
+      name = "DPCM 24 Ottobre 2020",
+      label = "Decreto Ministeriale",
+      description = "Ulteriori disposizioni attuative del decreto-legge 25 marzo 2020, n. 19, convertito, con modificazioni, dalla legge 25 maggio 2020, n. 35, recante «Misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19», e del decreto-legge 16 maggio 2020, n. 33, convertito, con modificazioni, dalla legge 14 luglio 2020, n. 74, recante 'Ulteriori misure urgenti per fronteggiare l'emergenza epidemiologica da COVID-19'.",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/25/20A05861/sg",
+      status = "active",
+      flag = TRUE
+    ),
+    list(
+      x = (as.integer(as.Date("2020-10-28")) * 86400000),
+      name = "Decreto Legge 28 Ottobre 2020",
+      label = "Decreto Legge",
+      description = "Ulteriori misure urgenti in materia di tutela della salute, sostegno ai lavoratori e alle imprese, giustizia e sicurezza, connesse all'emergenza epidemiologica da Covid-19. ",
+      link = "https://www.gazzettaufficiale.it/eli/id/2020/10/28/20G00166/sg",
+      status = "active",
+      flag = TRUE
     )
   )
   return(decrees)
